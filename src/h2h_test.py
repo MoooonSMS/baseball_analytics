@@ -155,4 +155,4 @@ def main(year: int, my_team: str):
 
 
 if __name__ == "__main__":
-    main(year=2026, my_team="KIA")
+    main(year=2024, my_team="KIA")
