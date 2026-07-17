@@ -21,7 +21,7 @@ BASE = "https://api-gw.sports.naver.com/schedule"
 HEADERS = {
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
 }
-DATA_DIR = Path(__file__).resolve().parent.parent / "data" / "raw"
+DATA_DIR = Path(__file__).resolve().parent.parent.parent / "data" / "raw"
 
 # 시즌별 정규시즌 대략 범위 (여유 있게 잡아도 statusCode=RESULT 만 수집하므로 무해)
 SEASON_RANGE = {

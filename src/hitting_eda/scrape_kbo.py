@@ -26,7 +26,7 @@ PITCHER_URL = f"{BASE_URL}/Record/Player/PitcherBasic/Basic1.aspx"
 SEASON_CTRL = "ctl00$ctl00$ctl00$cphContents$cphContents$cphContents$ddlSeason$ddlSeason"
 PAGE_BTN_PREFIX = "ctl00$ctl00$ctl00$cphContents$cphContents$cphContents$ucPager$btnNo"
 
-DATA_DIR = Path(__file__).resolve().parent.parent / "data" / "raw"
+DATA_DIR = Path(__file__).resolve().parent.parent.parent / "data" / "raw"
 
 HEADERS = {
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",

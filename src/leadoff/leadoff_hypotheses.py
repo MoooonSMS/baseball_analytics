@@ -25,7 +25,7 @@ from statsmodels.stats.proportion import proportions_ztest
 
 import leadoff_analysis as la
 
-ROOT = Path(__file__).resolve().parent.parent
+ROOT = Path(__file__).resolve().parent.parent.parent
 RAW = ROOT / "data" / "raw"
 PROC = ROOT / "data" / "processed"
 OUT = ROOT / "outputs" / "leadoff_analysis"

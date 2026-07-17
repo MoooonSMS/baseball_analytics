@@ -13,7 +13,7 @@ from sklearn.metrics import classification_report, roc_auc_score, confusion_matr
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 
-ROOT = Path(__file__).resolve().parent.parent
+ROOT = Path(__file__).resolve().parent.parent.parent
 PROCESSED_DIR = ROOT / "data" / "processed"
 
 FEATURES = ["avg", "obp", "slg", "ops", "hr", "rbi", "so", "bb", "pa"]

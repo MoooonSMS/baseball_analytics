@@ -5,10 +5,10 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import seaborn as sns
 
-ROOT = Path(__file__).resolve().parent.parent
+ROOT = Path(__file__).resolve().parent.parent.parent
 RAW_DIR = ROOT / "data" / "raw"
 PROCESSED_DIR = ROOT / "data" / "processed"
-OUTPUT_DIR = ROOT / "outputs"
+OUTPUT_DIR = ROOT / "outputs" / "hitting_eda"
 
 # KBO 공식기록실 표기 -> 다루기 쉬운 영문 컬럼명
 HITTER_COLS = {

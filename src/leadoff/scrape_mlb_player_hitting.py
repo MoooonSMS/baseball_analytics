@@ -16,7 +16,7 @@ from pathlib import Path
 import pandas as pd
 import requests
 
-DATA_DIR = Path(__file__).resolve().parent.parent / "data" / "raw"
+DATA_DIR = Path(__file__).resolve().parent.parent.parent / "data" / "raw"
 HEADERS = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"}
 YEARS = [2021, 2022, 2023, 2024, 2025]
 

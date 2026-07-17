@@ -23,9 +23,9 @@ from rich.console import Console
 from rich.table import Table
 from scipy.stats import binomtest
 
-ROOT = Path(__file__).resolve().parent.parent
+ROOT = Path(__file__).resolve().parent.parent.parent
 RAW_DIR = ROOT / "data" / "raw"
-OUTPUT_DIR = ROOT / "outputs"
+OUTPUT_DIR = ROOT / "outputs" / "h2h"
 
 
 def load_h2h(year: int) -> pd.DataFrame:

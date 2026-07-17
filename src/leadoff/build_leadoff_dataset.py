@@ -20,7 +20,7 @@ import pandas as pd
 
 import metrics
 
-ROOT = Path(__file__).resolve().parent.parent
+ROOT = Path(__file__).resolve().parent.parent.parent
 RAW = ROOT / "data" / "raw"
 OUT = ROOT / "data" / "processed"
 YEARS = [2021, 2022, 2023, 2024, 2025]

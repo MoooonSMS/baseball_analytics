@@ -20,7 +20,7 @@ import seaborn as sns
 
 import lineup_sim as ls
 
-ROOT = Path(__file__).resolve().parent.parent
+ROOT = Path(__file__).resolve().parent.parent.parent
 RAW = ROOT / "data" / "raw"
 PROC = ROOT / "data" / "processed"
 OUT = ROOT / "outputs" / "leadoff_analysis"
