@@ -124,6 +124,22 @@ def team_leadoff(games: pd.DataFrame, b: pd.DataFrame, p: pd.DataFrame) -> pd.Da
     return pd.DataFrame(rows)
 
 
+def kbo_team_slot(b: pd.DataFrame, p: pd.DataFrame) -> pd.DataFrame:
+    """팀-시즌-타순(1~9): 해당 슬롯 선발들의 시즌 wOBA 평균과 선발 경기수.
+
+    mlb_team_slot.csv와 같은 그레인(year/team/slot)으로 맞춰 슬롯1-슬롯4
+    트레이드오프, 라인업 평탄도(뎁스) 분석에 쓴다."""
+    starters = b[b["batOrder"].between(1, 9)].groupby(
+        ["gameId", "team", "batOrder"], as_index=False).first()
+    merged = starters.merge(
+        p[["year", "name", "team", "woba"]], on=["name", "team"], how="left",
+        suffixes=("", "_p"))
+    merged = merged[merged["year_p"] == merged["year"]]
+    out = merged.groupby(["year", "team", "batOrder"], as_index=False).agg(
+        games=("gameId", "nunique"), woba=("woba", "mean"))
+    return out.rename(columns={"batOrder": "slot"})
+
+
 def kbo_slot_profile() -> pd.DataFrame:
     dfs = [pd.read_csv(RAW / f"statiz_slot_agg_{y}.csv") for y in YEARS]
     a = pd.concat(dfs, ignore_index=True)
@@ -194,6 +210,8 @@ def main():
     games.to_csv(OUT / "kbo_leadoff_games.csv", index=False, encoding="utf-8-sig")
     tl = team_leadoff(games, b, p)
     tl.to_csv(OUT / "kbo_team_leadoff.csv", index=False, encoding="utf-8-sig")
+    tslot = kbo_team_slot(b, p)
+    tslot.to_csv(OUT / "kbo_team_slot.csv", index=False, encoding="utf-8-sig")
     ks = kbo_slot_profile()
     ks.to_csv(OUT / "kbo_slot_profile.csv", index=False, encoding="utf-8-sig")
     ms = mlb_slot_profile()
@@ -201,6 +219,7 @@ def main():
     print("players:", len(p), "| leadoff games:", len(games),
           "| join miss:", games["season_woba"].isna().mean().round(3))
     print("team-seasons:", len(tl))
+    print("team-season-slots:", len(tslot))
     print(ks[ks["year"] == 2024][["bo", "woba", "ops", "rel_ops"]].round(3).to_string(index=False))
 
 
