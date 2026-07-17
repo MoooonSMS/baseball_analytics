@@ -1,6 +1,6 @@
 """네이버 스포츠 API에서 KBO 정규시즌 경기별 타자 박스스코어를 수집한다.
 
-타순(batOrder)이 게임 단위로 기록되어 있어 '강한 1번' 분석의 원천 데이터가 된다.
+타순(batOrder)이 게임 단위로 기록되어 있어 '강한 2번' 분석의 원천 데이터가 된다.
 
   1) schedule API로 시즌 전체 gameId 열거
      https://api-gw.sports.naver.com/schedule/games?...&fromDate=...&toDate=...

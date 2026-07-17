@@ -1,4 +1,8 @@
-"""'강한 1번' 분석용 데이터셋 구축.
+"""'강한 2번' 분석용 데이터셋 구축.
+
+세이버매트릭스 통찰(2번 타자가 1번보다 PA를 거의 그대로 가져가면서 주자 있는
+상황에 더 자주 타석에 들어선다는 점에서, 팀 최고 타자를 1번이 아니라 2번에
+둬야 한다는 논리)에 맞춰 분석 대상을 2번 타순으로 둔다.
 
 입력
   data/raw/hitters_{y}.csv              KBO 공식 시즌 선수 기록 (2021-2025)
@@ -8,8 +12,8 @@
 
 출력 (data/processed/)
   kbo_players_woba.csv     선수-시즌 wOBA/wRC+
-  kbo_leadoff_games.csv    게임 단위: 팀, 그날 1번 선발, 그 선수의 시즌 wRC+, 팀 득점
-  kbo_team_leadoff.csv     팀-시즌: 리드오프 질 지수, 팀 R/G, 나머지 라인업 wOBA
+  kbo_no2_games.csv        게임 단위: 팀, 그날 2번 선발, 그 선수의 시즌 wRC+, 팀 득점
+  kbo_team_no2.csv         팀-시즌: 2번타자 질 지수, 팀 R/G, 나머지 라인업 wOBA
   kbo_slot_profile.csv     KBO 리그 시즌×타순 프로필 (wOBA, ISO, BB%, K%)
   mlb_slot_profile.csv     MLB 리그 시즌×타순 프로필 (+ 팀 단위 상대 생산성)
 """
@@ -65,11 +69,11 @@ def load_boxscores() -> pd.DataFrame:
     return b
 
 
-def leadoff_games(b: pd.DataFrame, p: pd.DataFrame) -> pd.DataFrame:
-    """게임×팀: 그날 슬롯1 '선발'(같은 batOrder 중 첫 번째 행)과 팀 득점."""
-    slot1 = b[b["batOrder"] == 1].copy()
+def no2_games(b: pd.DataFrame, p: pd.DataFrame) -> pd.DataFrame:
+    """게임×팀: 그날 슬롯2 '선발'(같은 batOrder 중 첫 번째 행)과 팀 득점."""
+    slot2 = b[b["batOrder"] == 2].copy()
     # CSV는 API 순서 유지: 같은 게임·팀·타순에서 첫 행이 선발
-    starters = slot1.groupby(["gameId", "team"], as_index=False).first()
+    starters = slot2.groupby(["gameId", "team"], as_index=False).first()
     q = p[["year", "name", "team", "pa", "woba", "wrc_plus", "iso", "bb_pct"]].rename(
         columns={"pa": "season_pa", "woba": "season_woba", "wrc_plus": "season_wrc"})
     g = starters.merge(q, on=["year", "name", "team"], how="left")
@@ -87,9 +91,10 @@ def leadoff_games(b: pd.DataFrame, p: pd.DataFrame) -> pd.DataFrame:
         fb = g.loc[miss, ["gameId", "team", "year", "name"]].merge(
             q_long[["year", "team", "name4"] + fill_cols],
             left_on=["year", "team", "name"], right_on=["year", "team", "name4"],
-            how="left").set_index("gameId")
+            how="left").set_index(["gameId", "team"])
+        idx = pd.MultiIndex.from_arrays([g.loc[miss, "gameId"], g.loc[miss, "team"]])
         for col in fill_cols:
-            g.loc[miss, col] = g.loc[miss, "gameId"].map(fb[col])
+            g.loc[miss, col] = idx.map(fb[col])
 
     g["home"] = (g["homeAway"] == "home").astype(int)
     return g[["gameId", "gameDate", "year", "team", "opponent", "home", "teamScore",
@@ -97,21 +102,20 @@ def leadoff_games(b: pd.DataFrame, p: pd.DataFrame) -> pd.DataFrame:
               "season_wrc", "iso", "bb_pct"]]
 
 
-def team_leadoff(games: pd.DataFrame, b: pd.DataFrame, p: pd.DataFrame) -> pd.DataFrame:
-    """팀-시즌: 리드오프 질 지수(선발 경기수 가중 시즌 wOBA/wRC+), 팀 R/G,
-    나머지 라인업(2~9번 선발들)의 가중 wOBA."""
+def team_no2(games: pd.DataFrame, b: pd.DataFrame, p: pd.DataFrame) -> pd.DataFrame:
+    """팀-시즌: 2번타자 질 지수(선발 경기수 가중 시즌 wOBA/wRC+), 팀 R/G,
+    나머지 라인업(1, 3~9번 선발들)의 가중 wOBA."""
     rows = []
     q = p.set_index(["year", "name", "team"])
     for (y, team), g in games.groupby(["year", "team"]):
         n_games = g["gameId"].nunique()
         rg = g["teamScore"].sum() / n_games
-        lead_woba = np.average(g["season_woba"].dropna(),
-                               weights=None) if g["season_woba"].notna().any() else np.nan
-        # 가중 평균: 각 경기 선발 리드오프의 시즌 wOBA 평균(=경기수 가중)
-        lead_woba = g["season_woba"].mean()
-        lead_wrc = g["season_wrc"].mean()
-        # 나머지 라인업: 슬롯 2~9 선발들의 시즌 wOBA 경기 가중 평균
-        sub = b[(b["year"] == y) & (b["team"] == team) & (b["batOrder"].between(2, 9))]
+        # 가중 평균: 각 경기 선발 2번타자의 시즌 wOBA 평균(=경기수 가중)
+        no2_woba = g["season_woba"].mean()
+        no2_wrc = g["season_wrc"].mean()
+        # 나머지 라인업: 2번을 제외한 슬롯 선발들의 시즌 wOBA 경기 가중 평균
+        sub = b[(b["year"] == y) & (b["team"] == team) & (b["batOrder"].between(1, 9))
+                & (b["batOrder"] != 2)]
         starters = sub.groupby(["gameId", "batOrder"], as_index=False).first()
         merged = starters.merge(
             p[["year", "name", "team", "woba"]], on=["name", "team"], how="left",
@@ -119,7 +123,7 @@ def team_leadoff(games: pd.DataFrame, b: pd.DataFrame, p: pd.DataFrame) -> pd.Da
         merged = merged[merged["year_p"] == y] if "year_p" in merged else merged
         rest_woba = merged["woba"].mean()
         rows.append({"year": y, "team": team, "games": n_games, "runs_pg": rg,
-                     "leadoff_woba": lead_woba, "leadoff_wrc": lead_wrc,
+                     "no2_woba": no2_woba, "no2_wrc": no2_wrc,
                      "rest_woba": rest_woba})
     return pd.DataFrame(rows)
 
@@ -127,7 +131,7 @@ def team_leadoff(games: pd.DataFrame, b: pd.DataFrame, p: pd.DataFrame) -> pd.Da
 def kbo_team_slot(b: pd.DataFrame, p: pd.DataFrame) -> pd.DataFrame:
     """팀-시즌-타순(1~9): 해당 슬롯 선발들의 시즌 wOBA 평균과 선발 경기수.
 
-    mlb_team_slot.csv와 같은 그레인(year/team/slot)으로 맞춰 슬롯1-슬롯4
+    mlb_team_slot.csv와 같은 그레인(year/team/slot)으로 맞춰 슬롯2-슬롯4
     트레이드오프, 라인업 평탄도(뎁스) 분석에 쓴다."""
     starters = b[b["batOrder"].between(1, 9)].groupby(
         ["gameId", "team", "batOrder"], as_index=False).first()
@@ -206,17 +210,17 @@ def main():
     p = load_players()
     p.to_csv(OUT / "kbo_players_woba.csv", index=False, encoding="utf-8-sig")
     b = load_boxscores()
-    games = leadoff_games(b, p)
-    games.to_csv(OUT / "kbo_leadoff_games.csv", index=False, encoding="utf-8-sig")
-    tl = team_leadoff(games, b, p)
-    tl.to_csv(OUT / "kbo_team_leadoff.csv", index=False, encoding="utf-8-sig")
+    games = no2_games(b, p)
+    games.to_csv(OUT / "kbo_no2_games.csv", index=False, encoding="utf-8-sig")
+    tl = team_no2(games, b, p)
+    tl.to_csv(OUT / "kbo_team_no2.csv", index=False, encoding="utf-8-sig")
     tslot = kbo_team_slot(b, p)
     tslot.to_csv(OUT / "kbo_team_slot.csv", index=False, encoding="utf-8-sig")
     ks = kbo_slot_profile()
     ks.to_csv(OUT / "kbo_slot_profile.csv", index=False, encoding="utf-8-sig")
     ms = mlb_slot_profile()
     ms.to_csv(OUT / "mlb_slot_profile.csv", index=False, encoding="utf-8-sig")
-    print("players:", len(p), "| leadoff games:", len(games),
+    print("players:", len(p), "| no2 games:", len(games),
           "| join miss:", games["season_woba"].isna().mean().round(3))
     print("team-seasons:", len(tl))
     print("team-season-slots:", len(tslot))

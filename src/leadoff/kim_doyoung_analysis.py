@@ -1,4 +1,8 @@
-"""'기아는 왜 1도영(리드오프 김도영)을 안 하는가' — 라인업 최적화 사례 분석.
+"""'기아는 왜 2도영(2번 김도영)을 안 하는가' — 라인업 최적화 사례 분석.
+
+세이버매트릭스 통찰('강한 2번')에 따르면 팀 최고타자는 1번이 아니라 2번에
+둬야 한다. 이 스크립트의 시뮬레이션은 실제로 9개 슬롯을 모두 탐색해 김도영의
+최적 타순을 찾는데, 그 결과가 바로 2번이었다.
 
 두 축:
   (B) '관행' 증거: KBO는 팀 최고타자를 3~4번에 두는 경향이 MLB보다 강한가
@@ -290,7 +294,7 @@ def main():
     slot_ctx = empirical_slot_context()
 
     # 캘리브레이션: 실제 순서 팀 R/G vs 실제 KIA 2024 R/G
-    kia_actual_rpg_real = pd.read_csv(PROC / "kbo_team_leadoff.csv", encoding="utf-8-sig")
+    kia_actual_rpg_real = pd.read_csv(PROC / "kbo_team_no2.csv", encoding="utf-8-sig")
     kia_real = kia_actual_rpg_real[(kia_actual_rpg_real["team"] == "KIA") &
                                    (kia_actual_rpg_real["year"] == 2024)]["runs_pg"].iloc[0]
 

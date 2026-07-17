@@ -1,10 +1,10 @@
-"""'강한 1번'이 KBO에서 안 통하는 이유에 대한 세 가지 가설을 검증한다.
+"""'강한 2번'이 KBO에서 안 통하는 이유에 대한 세 가지 가설을 검증한다.
 
-H1  파워+출루 겸비 희소성: MLB 리드오프가 통하는 건 OBP와 파워(ISO)를 동시에
+H1  파워+출루 겸비 희소성: MLB 2번타자가 통하는 건 OBP와 파워(ISO)를 동시에
     갖춘 선수가 있어서다. KBO는 그런 선수(상대적으로도)가 희소하다.
-H2  라인업 뎁스: 1번에 최고 타자를 배치해도 4번(클린업)에 쓸 선수가 남아있어야
-    하는데, KBO는 뎁스가 얕아 1번-4번 사이에 트레이드오프가 있다.
-H3  득점 환경(타고투저/투고투저)이 리드오프 효과를 조절한다.
+H2  라인업 뎁스: 2번에 최고 타자를 배치해도 4번(클린업)에 쓸 선수가 남아있어야
+    하는데, KBO는 뎁스가 얕아 2번-4번 사이에 트레이드오프가 있다.
+H3  득점 환경(타고투저/투고투저)이 2번타자 효과를 조절한다.
 
 사전에 방법론(임계값, 검정 방식)을 확정한 뒤 결과를 본다 — 데이터가 가설을
 지지하지 않아도 그대로 보고한다.
@@ -76,8 +76,8 @@ def load_mlb_players() -> pd.DataFrame:
 def load_all():
     kbo_p = load_kbo_players()
     mlb_p = load_mlb_players()
-    kbo_team = pd.read_csv(PROC / "kbo_team_leadoff.csv", encoding="utf-8-sig")
-    kbo_games = pd.read_csv(PROC / "kbo_leadoff_games.csv", encoding="utf-8-sig")
+    kbo_team = pd.read_csv(PROC / "kbo_team_no2.csv", encoding="utf-8-sig")
+    kbo_games = pd.read_csv(PROC / "kbo_no2_games.csv", encoding="utf-8-sig")
     kbo_slot = pd.read_csv(PROC / "kbo_team_slot.csv", encoding="utf-8-sig")
     mlb_slot = pd.read_csv(PROC / "mlb_team_slot.csv", encoding="utf-8-sig")
     mlb_split = pd.read_csv(RAW / "mlb_slot_splits.csv", encoding="utf-8-sig")
@@ -123,8 +123,8 @@ def h1_proportions(allp: pd.DataFrame) -> pd.DataFrame:
     return pd.DataFrame(rows)
 
 
-def h1_actual_leadoff_check(allp: pd.DataFrame, kbo_games: pd.DataFrame, kbo_team: pd.DataFrame) -> dict:
-    """KBO: 실제 선발 리드오프가 콤보-엘리트였는지가 팀 득점 초과분과 관련 있는가."""
+def h1_actual_no2_check(allp: pd.DataFrame, kbo_games: pd.DataFrame, kbo_team: pd.DataFrame) -> dict:
+    """KBO: 실제 선발 2번타자가 콤보-엘리트였는지가 팀 득점 초과분과 관련 있는가."""
     primary = (kbo_games.groupby(["year", "team", "name"]).size()
                .reset_index(name="starts")
                .sort_values("starts", ascending=False)
@@ -143,7 +143,7 @@ def h1_actual_leadoff_check(allp: pd.DataFrame, kbo_games: pd.DataFrame, kbo_tea
     no = merged.loc[~merged["combo_p33"], "rpg_vs_lg"].dropna()
     t, p = stats.ttest_ind(yes, no, equal_var=False) if len(yes) >= 2 and len(no) >= 2 else (np.nan, np.nan)
     return {
-        "n_combo_leadoff": int(len(yes)), "n_noncombo_leadoff": int(len(no)),
+        "n_combo_no2": int(len(yes)), "n_noncombo_no2": int(len(no)),
         "mean_rpg_vs_lg_combo": float(yes.mean()) if len(yes) else None,
         "mean_rpg_vs_lg_noncombo": float(no.mean()) if len(no) else None,
         "t": float(t) if pd.notna(t) else None, "p": float(p) if pd.notna(p) else None,
@@ -151,16 +151,16 @@ def h1_actual_leadoff_check(allp: pd.DataFrame, kbo_games: pd.DataFrame, kbo_tea
 
 
 def h1_roster_depth_vs_realized(allp: pd.DataFrame, kbo_team: pd.DataFrame, mlb_slot: pd.DataFrame) -> dict:
-    """팀에 콤보-엘리트 선수가 많을수록 실제 리드오프 생산력도 높아지는가 (양 리그 비교)."""
+    """팀에 콤보-엘리트 선수가 많을수록 실제 2번타자 생산력도 높아지는가 (양 리그 비교)."""
     kbo_cnt = (allp[allp["league"] == "KBO"].groupby(["year", "team"])["combo_p33"]
                .sum().reset_index(name="n_combo"))
-    kk = kbo_cnt.merge(kbo_team[["year", "team", "leadoff_woba"]], on=["year", "team"], how="inner").dropna()
-    r_kbo, p_kbo = stats.pearsonr(kk["n_combo"], kk["leadoff_woba"]) if len(kk) >= 3 else (np.nan, np.nan)
+    kk = kbo_cnt.merge(kbo_team[["year", "team", "no2_woba"]], on=["year", "team"], how="inner").dropna()
+    r_kbo, p_kbo = stats.pearsonr(kk["n_combo"], kk["no2_woba"]) if len(kk) >= 3 else (np.nan, np.nan)
 
     mlb_cnt = (allp[allp["league"] == "MLB"].groupby(["year", "team"])["combo_p33"]
                .sum().reset_index(name="n_combo"))
-    m1 = mlb_slot[mlb_slot["slot"] == 1][["season", "team", "ops"]].rename(columns={"season": "year"})
-    mm = mlb_cnt.merge(m1, on=["year", "team"], how="inner").dropna()
+    m2 = mlb_slot[mlb_slot["slot"] == 2][["season", "team", "ops"]].rename(columns={"season": "year"})
+    mm = mlb_cnt.merge(m2, on=["year", "team"], how="inner").dropna()
     r_mlb, p_mlb = stats.pearsonr(mm["n_combo"], mm["ops"]) if len(mm) >= 3 else (np.nan, np.nan)
 
     return {"kbo_r": r_kbo, "kbo_p": p_kbo, "kbo_n": len(kk),
@@ -305,18 +305,18 @@ def chart_h1_absolute(allp: pd.DataFrame, absres: dict, pitch: dict):
 
 
 # ======================================================================
-# H2. 라인업 뎁스 (1번-4번 트레이드오프)
+# H2. 라인업 뎁스 (2번-4번 트레이드오프)
 # ======================================================================
-def h2_slot1_vs_slot4(kbo_slot: pd.DataFrame, mlb_slot: pd.DataFrame) -> dict:
-    k1 = kbo_slot[kbo_slot["slot"] == 1][["year", "team", "woba"]].rename(columns={"woba": "slot1"})
+def h2_slot2_vs_slot4(kbo_slot: pd.DataFrame, mlb_slot: pd.DataFrame) -> dict:
+    k2 = kbo_slot[kbo_slot["slot"] == 2][["year", "team", "woba"]].rename(columns={"woba": "slot2"})
     k4 = kbo_slot[kbo_slot["slot"] == 4][["year", "team", "woba"]].rename(columns={"woba": "slot4"})
-    kk = k1.merge(k4, on=["year", "team"]).dropna()
-    r_kbo, p_kbo = stats.pearsonr(kk["slot1"], kk["slot4"])
+    kk = k2.merge(k4, on=["year", "team"]).dropna()
+    r_kbo, p_kbo = stats.pearsonr(kk["slot2"], kk["slot4"])
 
-    m1 = mlb_slot[mlb_slot["slot"] == 1][["season", "team", "ops"]].rename(columns={"ops": "slot1"})
+    m2 = mlb_slot[mlb_slot["slot"] == 2][["season", "team", "ops"]].rename(columns={"ops": "slot2"})
     m4 = mlb_slot[mlb_slot["slot"] == 4][["season", "team", "ops"]].rename(columns={"ops": "slot4"})
-    mm = m1.merge(m4, on=["season", "team"]).dropna()
-    r_mlb, p_mlb = stats.pearsonr(mm["slot1"], mm["slot4"])
+    mm = m2.merge(m4, on=["season", "team"]).dropna()
+    r_mlb, p_mlb = stats.pearsonr(mm["slot2"], mm["slot4"])
 
     z_diff, p_diff = fisher_r_to_z_diff(r_kbo, len(kk), r_mlb, len(mm))
     return {"kbo": kk, "mlb": mm,
@@ -346,17 +346,17 @@ def chart_h2(tradeoff: dict, flatness: dict):
     fig, axes = plt.subplots(1, 2, figsize=(12, 5))
 
     kk, mm = tradeoff["kbo"], tradeoff["mlb"]
-    axes[0].scatter(kk["slot1"], kk["slot4"], color=BLUE, alpha=0.6, s=35, label="KBO (wOBA)")
-    sns.regplot(x=kk["slot1"], y=kk["slot4"], ax=axes[0], scatter=False, color=BLUE, ci=None)
+    axes[0].scatter(kk["slot2"], kk["slot4"], color=BLUE, alpha=0.6, s=35, label="KBO (wOBA)")
+    sns.regplot(x=kk["slot2"], y=kk["slot4"], ax=axes[0], scatter=False, color=BLUE, ci=None)
     ax2 = axes[0].twiny().twinx()
-    ax2.scatter(mm["slot1"], mm["slot4"], color=ORANGE, alpha=0.5, s=35, marker="^", label="MLB (OPS)")
-    sns.regplot(x=mm["slot1"], y=mm["slot4"], ax=ax2, scatter=False, color=ORANGE, ci=None)
-    axes[0].set_xlabel("1번타순 생산력 (KBO: wOBA)")
+    ax2.scatter(mm["slot2"], mm["slot4"], color=ORANGE, alpha=0.5, s=35, marker="^", label="MLB (OPS)")
+    sns.regplot(x=mm["slot2"], y=mm["slot4"], ax=ax2, scatter=False, color=ORANGE, ci=None)
+    axes[0].set_xlabel("2번타순 생산력 (KBO: wOBA)")
     axes[0].set_ylabel("4번타순 생산력 (KBO: wOBA)", color=BLUE)
-    ax2.set_xlabel("1번타순 생산력 (MLB: OPS)")
+    ax2.set_xlabel("2번타순 생산력 (MLB: OPS)")
     ax2.set_ylabel("4번타순 생산력 (MLB: OPS)", color=ORANGE)
     r = tradeoff["result"]
-    axes[0].set_title(f"1번 vs 4번 타순 생산력\nKBO r={r['r_kbo']:.3f}(p={r['p_kbo']:.3f}) | "
+    axes[0].set_title(f"2번 vs 4번 타순 생산력\nKBO r={r['r_kbo']:.3f}(p={r['p_kbo']:.3f}) | "
                        f"MLB r={r['r_mlb']:.3f}(p={r['p_mlb']:.3f})", fontsize=10)
 
     kf, mf = flatness["kbo_flat"], flatness["mlb_flat"]
@@ -368,9 +368,9 @@ def chart_h2(tradeoff: dict, flatness: dict):
     axes[1].set_ylabel("팀 내 9개 타순 생산력의 표준편차 (연도 내 표준화)")
     axes[1].set_title(f"라인업 '평탄도'(뎁스 proxy)\nWelch t-test p={fr['p']:.4f}", fontsize=10)
 
-    fig.suptitle("H2. 라인업 뎁스: 1번-4번 트레이드오프 & 평탄도", y=1.03, fontsize=13)
+    fig.suptitle("H2. 라인업 뎁스: 2번-4번 트레이드오프 & 평탄도", y=1.03, fontsize=13)
     fig.tight_layout()
-    fig.savefig(OUT / "07_slot1_vs_slot4_tradeoff.png", dpi=150, bbox_inches="tight")
+    fig.savefig(OUT / "07_slot2_vs_slot4_tradeoff.png", dpi=150, bbox_inches="tight")
     plt.close(fig)
 
 
@@ -379,7 +379,7 @@ def chart_h2(tradeoff: dict, flatness: dict):
 # ======================================================================
 def kbo_league_era() -> pd.DataFrame:
     rows = []
-    kbo_team = pd.read_csv(PROC / "kbo_team_leadoff.csv", encoding="utf-8-sig")
+    kbo_team = pd.read_csv(PROC / "kbo_team_no2.csv", encoding="utf-8-sig")
     for y in YEARS:
         b = pd.read_csv(RAW / f"kbo_boxscore_batters_{y}.csv", encoding="utf-8-sig")
         hr_rate = b["hr"].sum() / (b["ab"].sum() + b["bb"].sum())  # PA 근사(HBP/SF 미포함)
@@ -400,17 +400,17 @@ def mlb_league_era(mlb_split: pd.DataFrame, mlb_runs: pd.DataFrame) -> pd.DataFr
 
 def h3_interaction(kbo_team: pd.DataFrame, kbo_era: pd.DataFrame,
                     mlb_team: pd.DataFrame, mlb_era: pd.DataFrame) -> dict:
-    kd = kbo_team.dropna(subset=["leadoff_woba", "rest_woba", "runs_pg"]).merge(
+    kd = kbo_team.dropna(subset=["no2_woba", "rest_woba", "runs_pg"]).merge(
         kbo_era[["year", "hr_rate"]], on="year")
-    kd["leadoff_c"] = kd["leadoff_woba"] - kd["leadoff_woba"].mean()
+    kd["no2_c"] = kd["no2_woba"] - kd["no2_woba"].mean()
     kd["hr_c"] = kd["hr_rate"] - kd["hr_rate"].mean()
-    kbo_model = smf.ols("runs_pg ~ leadoff_c * hr_c + rest_woba", data=kd).fit()
+    kbo_model = smf.ols("runs_pg ~ no2_c * hr_c + rest_woba", data=kd).fit()
 
-    md = mlb_team.dropna(subset=["leadoff_ops", "rest_ops", "r_per_pa"]).merge(
+    md = mlb_team.dropna(subset=["no2_ops", "rest_ops", "r_per_pa"]).merge(
         mlb_era[["season", "hr_rate"]], on="season")
-    md["leadoff_c"] = md["leadoff_ops"] - md["leadoff_ops"].mean()
+    md["no2_c"] = md["no2_ops"] - md["no2_ops"].mean()
     md["hr_c"] = md["hr_rate"] - md["hr_rate"].mean()
-    mlb_model = smf.ols("r_per_pa ~ leadoff_c * hr_c + rest_ops", data=md).fit()
+    mlb_model = smf.ols("r_per_pa ~ no2_c * hr_c + rest_ops", data=md).fit()
 
     return {
         "kbo_n": len(kd), "kbo_params": kbo_model.params.to_dict(), "kbo_pvalues": kbo_model.pvalues.to_dict(),
@@ -419,17 +419,17 @@ def h3_interaction(kbo_team: pd.DataFrame, kbo_era: pd.DataFrame,
 
 
 def h3_era_split(mlb_team: pd.DataFrame, split_year: int = 2015) -> dict:
-    """참고용: MLB를 2015년 기준 전/후로 나눠 리드오프 계수 크기 비교(단일 컷포인트라 보조 지표)."""
+    """참고용: MLB를 2015년 기준 전/후로 나눠 2번타자 계수 크기 비교(단일 컷포인트라 보조 지표)."""
     out = {}
     for label, sub in [("pre", mlb_team[mlb_team["season"] < split_year]),
                         ("post", mlb_team[mlb_team["season"] >= split_year])]:
-        d = sub.dropna(subset=["leadoff_ops", "rest_ops", "r_per_pa"]).copy()
-        for c in ["leadoff_ops", "rest_ops", "r_per_pa"]:
+        d = sub.dropna(subset=["no2_ops", "rest_ops", "r_per_pa"]).copy()
+        for c in ["no2_ops", "rest_ops", "r_per_pa"]:
             d[c] = (d[c] - d[c].mean()) / d[c].std()
-        X = sm.add_constant(d[["leadoff_ops", "rest_ops"]])
+        X = sm.add_constant(d[["no2_ops", "rest_ops"]])
         model = sm.OLS(d["r_per_pa"], X).fit()
-        out[label] = {"n": len(d), "beta_leadoff": model.params["leadoff_ops"],
-                       "p_leadoff": model.pvalues["leadoff_ops"]}
+        out[label] = {"n": len(d), "beta_no2": model.params["no2_ops"],
+                       "p_no2": model.pvalues["no2_ops"]}
     return out
 
 
@@ -447,18 +447,18 @@ def chart_h3(kbo_era: pd.DataFrame, mlb_era: pd.DataFrame, interaction: dict, er
     axes[0].legend()
 
     labels = ["MLB\n(2010-2014)", "MLB\n(2015-2025)"]
-    betas = [era_split["pre"]["beta_leadoff"], era_split["post"]["beta_leadoff"]]
-    pvals = [era_split["pre"]["p_leadoff"], era_split["post"]["p_leadoff"]]
+    betas = [era_split["pre"]["beta_no2"], era_split["post"]["beta_no2"]]
+    pvals = [era_split["pre"]["p_no2"], era_split["post"]["p_no2"]]
     colors = [ORANGE if p < 0.05 else GRAY for p in pvals]
     axes[1].bar(labels, betas, color=colors)
     for i, (b, p) in enumerate(zip(betas, pvals)):
         axes[1].text(i, b, f"p={p:.3f}", ha="center", va="bottom" if b >= 0 else "top", fontsize=9)
     axes[1].axhline(0, color="black", linewidth=0.8)
-    axes[1].set_ylabel("표준화 리드오프 계수 (β)")
-    mi = interaction["mlb_pvalues"].get("leadoff_c:hr_c", float("nan"))
-    axes[1].set_title(f"시대 구분별 MLB 리드오프 효과\n(상호작용항 p={mi:.4f})", fontsize=10)
+    axes[1].set_ylabel("표준화 2번타자 계수 (β)")
+    mi = interaction["mlb_pvalues"].get("no2_c:hr_c", float("nan"))
+    axes[1].set_title(f"시대 구분별 MLB 2번타자 효과\n(상호작용항 p={mi:.4f})", fontsize=10)
 
-    fig.suptitle("H3. 득점 환경(타고투저) 추이와 리드오프 효과 조절", y=1.03, fontsize=13)
+    fig.suptitle("H3. 득점 환경(타고투저) 추이와 2번타자 효과 조절", y=1.03, fontsize=13)
     fig.tight_layout()
     fig.savefig(OUT / "08_era_hr_trend.png", dpi=150, bbox_inches="tight")
     plt.close(fig)
@@ -470,7 +470,7 @@ def main():
     setup_style()
 
     kbo_p, mlb_p, kbo_team, kbo_games, kbo_slot, mlb_slot, mlb_split, mlb_runs = load_all()
-    mlb_team = la.build_mlb_team_leadoff(mlb_split, mlb_runs)
+    mlb_team = la.build_mlb_team_no2(mlb_split, mlb_runs)
 
     # ---------- H1 ----------
     allp = pd.concat([kbo_p, mlb_p], ignore_index=True)
@@ -479,7 +479,7 @@ def main():
     allp.to_csv(PROC / "combo_elite_players.csv", index=False, encoding="utf-8-sig")
 
     h1_prop = h1_proportions(allp)
-    h1_actual = h1_actual_leadoff_check(allp, kbo_games, kbo_team)
+    h1_actual = h1_actual_no2_check(allp, kbo_games, kbo_team)
     h1_depth = h1_roster_depth_vs_realized(allp, kbo_team, mlb_slot)
     chart_h1(h1_prop)
 
@@ -489,7 +489,7 @@ def main():
     chart_h1_absolute(allp, h1_abs, h1_pitch)
 
     # ---------- H2 ----------
-    h2_tradeoff = h2_slot1_vs_slot4(kbo_slot, mlb_slot)
+    h2_tradeoff = h2_slot2_vs_slot4(kbo_slot, mlb_slot)
     h2_flat = h2_flatness(kbo_slot, mlb_slot)
     chart_h2(h2_tradeoff, h2_flat)
 
@@ -503,8 +503,8 @@ def main():
     print("=" * 70)
     print("[H1] 콤보-엘리트(OBP·ISO 동시 상위) 비율, KBO vs MLB")
     print(h1_prop.round(4).to_string(index=False))
-    print("\n[H1 보조] KBO 실제 리드오프가 콤보-엘리트였는지 vs 득점 초과분:", h1_actual)
-    print("[H1 보조] 팀 내 콤보-엘리트 수 vs 실제 리드오프 생산력 상관:", h1_depth)
+    print("\n[H1 보조] KBO 실제 2번타자가 콤보-엘리트였는지 vs 득점 초과분:", h1_actual)
+    print("[H1 보조] 팀 내 콤보-엘리트 수 vs 실제 2번타자 생산력 상관:", h1_depth)
 
     print("\n[H1 심화] 절대 수준 격차 (OBP/ISO 원자료):")
     for col, v in h1_abs["means"].items():
@@ -517,17 +517,17 @@ def main():
     print("[H1 심화] 투수 정황(K%/BB%):",
           f"K% KBO {h1_pitch['k_pct']['kbo_mean']*100:.1f} vs MLB {h1_pitch['k_pct']['mlb_mean']*100:.1f} (p={h1_pitch['k_pct']['p']:.2e})")
 
-    print("\n[H2] 1번-4번 트레이드오프:", h2_tradeoff["result"])
+    print("\n[H2] 2번-4번 트레이드오프:", h2_tradeoff["result"])
     print("[H2] 라인업 평탄도(뎁스):", h2_flat["result"])
 
-    print("\n[H3] 리드오프×HR비율 상호작용 회귀:")
+    print("\n[H3] 2번타자×HR비율 상호작용 회귀:")
     print(" KBO:", {k: round(v, 4) for k, v in h3_inter["kbo_pvalues"].items()})
     print(" MLB:", {k: round(v, 4) for k, v in h3_inter["mlb_pvalues"].items()})
-    print("[H3 참고] MLB 시대 구분 리드오프 베타:", h3_split)
+    print("[H3 참고] MLB 시대 구분 2번타자 베타:", h3_split)
 
     summary = {
         "h1_proportions": h1_prop.to_dict("records"),
-        "h1_actual_leadoff_check": h1_actual,
+        "h1_actual_no2_check": h1_actual,
         "h1_roster_depth_vs_realized": h1_depth,
         "h1_absolute_level": h1_abs,
         "h1_pitching_proxy": h1_pitch,

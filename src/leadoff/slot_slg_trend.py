@@ -1,4 +1,4 @@
-"""'강한 1번' 보조자료: 타순별(1~9번) 장타율(SLG) 연도 추이.
+"""'강한 2번' 보조자료: 타순별(1~9번) 장타율(SLG) 연도 추이.
 
 입력: data/raw/mlb_slot_splits.csv (MLB, 2015-2025)
       data/raw/statiz_slot_agg_{y}.csv (KBO, 2021-2025 — Statiz 크롤링 금지 공지로 그 이전 연도는 미포함)

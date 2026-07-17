@@ -3,7 +3,7 @@
   https://statsapi.mlb.com/api/v1/stats?stats=season&group=hitting&season={y}
     &sportId=1&gameType=R&playerPool=Qualified&limit=300
 
-KBO 리드오프 분석용 hitters_{y}.csv(3.1*경기수 규정타석 기준)와 표본 정의를
+KBO 2번타자 분석용 hitters_{y}.csv(3.1*경기수 규정타석 기준)와 표본 정의를
 맞추기 위해 KBO 데이터가 있는 2021-2025년만 수집한다(연도 확장은 다른 목적).
 
 출력: data/raw/mlb_player_hitting_{year}.csv
