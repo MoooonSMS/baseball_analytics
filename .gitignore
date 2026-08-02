@@ -2,3 +2,6 @@ __pycache__/
 *.pyc
 .venv/
 venv/
+
+# 재실행 가능한 대용량 원본(scrape_kbo_relay.py로 재생성, 총 118MB)
+data/raw/kbo_relay_events_*.csv
