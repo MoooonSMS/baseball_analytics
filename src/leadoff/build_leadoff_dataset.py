@@ -13,7 +13,7 @@
 출력 (data/processed/)
   kbo_players_woba.csv     선수-시즌 wOBA/wRC+
   kbo_no2_games.csv        게임 단위: 팀, 그날 2번 선발, 그 선수의 시즌 wRC+, 팀 득점
-  kbo_team_no2.csv         팀-시즌: 2번타자 질 지수, 팀 R/G, 나머지 라인업 wOBA
+  kbo_team_no2.csv         팀-시즌: 2번타자 질 지수(wOBA·OPS), 팀 R/G, 나머지 라인업 wOBA·OPS
   kbo_slot_profile.csv     KBO 리그 시즌×타순 프로필 (wOBA, ISO, BB%, K%)
   mlb_slot_profile.csv     MLB 리그 시즌×타순 프로필 (+ 팀 단위 상대 생산성)
 """
@@ -41,7 +41,7 @@ def load_players() -> pd.DataFrame:
         df = df.rename(columns={
             "선수명": "name", "팀명": "team", "PA": "pa", "AB": "ab", "R": "runs",
             "H": "hits", "2B": "doubles", "3B": "triples", "HR": "hr", "BB": "bb",
-            "IBB": "ibb", "HBP": "hbp", "SF": "sf", "SO": "so", "TB": "tb",
+            "IBB": "ibb", "HBP": "hbp", "SF": "sf", "SO": "so", "TB": "tb", "OPS": "ops",
         })
         dfs.append(df)
     p = pd.concat(dfs, ignore_index=True)
@@ -74,15 +74,16 @@ def no2_games(b: pd.DataFrame, p: pd.DataFrame) -> pd.DataFrame:
     slot2 = b[b["batOrder"] == 2].copy()
     # CSV는 API 순서 유지: 같은 게임·팀·타순에서 첫 행이 선발
     starters = slot2.groupby(["gameId", "team"], as_index=False).first()
-    q = p[["year", "name", "team", "pa", "woba", "wrc_plus", "iso", "bb_pct"]].rename(
-        columns={"pa": "season_pa", "woba": "season_woba", "wrc_plus": "season_wrc"})
+    q = p[["year", "name", "team", "pa", "woba", "ops", "wrc_plus", "iso", "bb_pct"]].rename(
+        columns={"pa": "season_pa", "woba": "season_woba", "ops": "season_ops",
+                 "wrc_plus": "season_wrc"})
     g = starters.merge(q, on=["year", "name", "team"], how="left")
 
     # 폴백: 네이버 박스스코어는 외국인 선수명을 4자로 잘라 표기하는 경우가 있어
     # (예: hitters.csv의 "소크라테스" -> boxscore "소크라테") 정확매칭이 실패한다.
     # 박스 이름이 정확히 4자이고 미매칭인 경우, (연도,팀)에서 그 이름을 접두어로
     # 갖는 5자 이상 선수명으로 보정 매칭한다.
-    fill_cols = ["season_pa", "season_woba", "season_wrc", "iso", "bb_pct"]
+    fill_cols = ["season_pa", "season_woba", "season_ops", "season_wrc", "iso", "bb_pct"]
     miss = g["season_woba"].isna() & (g["name"].str.len() == 4)
     if miss.any():
         q_long = q[q["name"].str.len() > 4].copy()
@@ -98,7 +99,7 @@ def no2_games(b: pd.DataFrame, p: pd.DataFrame) -> pd.DataFrame:
 
     g["home"] = (g["homeAway"] == "home").astype(int)
     return g[["gameId", "gameDate", "year", "team", "opponent", "home", "teamScore",
-              "oppScore", "name", "playerCode", "season_pa", "season_woba",
+              "oppScore", "name", "playerCode", "season_pa", "season_woba", "season_ops",
               "season_wrc", "iso", "bb_pct"]]
 
 
@@ -110,21 +111,23 @@ def team_no2(games: pd.DataFrame, b: pd.DataFrame, p: pd.DataFrame) -> pd.DataFr
     for (y, team), g in games.groupby(["year", "team"]):
         n_games = g["gameId"].nunique()
         rg = g["teamScore"].sum() / n_games
-        # 가중 평균: 각 경기 선발 2번타자의 시즌 wOBA 평균(=경기수 가중)
+        # 가중 평균: 각 경기 선발 2번타자의 시즌 wOBA/OPS 평균(=경기수 가중)
         no2_woba = g["season_woba"].mean()
+        no2_ops = g["season_ops"].mean()
         no2_wrc = g["season_wrc"].mean()
-        # 나머지 라인업: 2번을 제외한 슬롯 선발들의 시즌 wOBA 경기 가중 평균
+        # 나머지 라인업: 2번을 제외한 슬롯 선발들의 시즌 wOBA/OPS 경기 가중 평균
         sub = b[(b["year"] == y) & (b["team"] == team) & (b["batOrder"].between(1, 9))
                 & (b["batOrder"] != 2)]
         starters = sub.groupby(["gameId", "batOrder"], as_index=False).first()
         merged = starters.merge(
-            p[["year", "name", "team", "woba"]], on=["name", "team"], how="left",
+            p[["year", "name", "team", "woba", "ops"]], on=["name", "team"], how="left",
             suffixes=("", "_p"))
         merged = merged[merged["year_p"] == y] if "year_p" in merged else merged
         rest_woba = merged["woba"].mean()
+        rest_ops = merged["ops"].mean()
         rows.append({"year": y, "team": team, "games": n_games, "runs_pg": rg,
-                     "no2_woba": no2_woba, "no2_wrc": no2_wrc,
-                     "rest_woba": rest_woba})
+                     "no2_woba": no2_woba, "no2_ops": no2_ops, "no2_wrc": no2_wrc,
+                     "rest_woba": rest_woba, "rest_ops": rest_ops})
     return pd.DataFrame(rows)
 
 
@@ -136,11 +139,11 @@ def kbo_team_slot(b: pd.DataFrame, p: pd.DataFrame) -> pd.DataFrame:
     starters = b[b["batOrder"].between(1, 9)].groupby(
         ["gameId", "team", "batOrder"], as_index=False).first()
     merged = starters.merge(
-        p[["year", "name", "team", "woba"]], on=["name", "team"], how="left",
+        p[["year", "name", "team", "woba", "ops"]], on=["name", "team"], how="left",
         suffixes=("", "_p"))
     merged = merged[merged["year_p"] == merged["year"]]
     out = merged.groupby(["year", "team", "batOrder"], as_index=False).agg(
-        games=("gameId", "nunique"), woba=("woba", "mean"))
+        games=("gameId", "nunique"), woba=("woba", "mean"), ops=("ops", "mean"))
     return out.rename(columns={"batOrder": "slot"})
 
 
@@ -185,21 +188,24 @@ def mlb_slot_profile() -> pd.DataFrame:
     lg["obp"] = (lg["h"] + lg["bb"] + lg["hbp"]) / (lg["ab"] + lg["bb"] + lg["hbp"] + lg["sf"])
     lg["slg"] = lg["tb"] / lg["ab"]
     lg["ops"] = lg["obp"] + lg["slg"]
+    lg["woba"] = metrics.add_mlb_woba(lg, year_col="season", bb="bb", ibb="ibb", hbp="hbp",
+                                      h="h", d2="d2", d3="d3", hr="hr", ab="ab", sf="sf")
     lg["iso"] = (lg["tb"] - lg["h"]) / lg["ab"]
     lg["bb_pct"] = lg["bb"] / lg["pa"]
     lg["k_pct"] = lg["so"] / lg["pa"]
-    for col in ["ops"]:
+    for col in ["ops", "woba"]:
         season_avg = lg.groupby("season").apply(
             lambda g: (g[col] * g["pa"]).sum() / g["pa"].sum(), include_groups=False)
         lg[f"rel_{col}"] = lg[col] / lg["season"].map(season_avg)
-    # 팀 단위 상대 OPS (검정용 분포)
+    # 팀 단위 상대 OPS/wOBA (검정용 분포)
     team = m.copy()
+    team["woba"] = metrics.add_mlb_woba(team, year_col="season")
     team_avg = team.groupby(["season", "teamId"]).apply(
         lambda g: (g["ops"] * g["plateAppearances"]).sum() / g["plateAppearances"].sum(),
         include_groups=False).rename("team_ops")
     team = team.merge(team_avg, on=["season", "teamId"])
     team["rel_ops_team"] = team["ops"] / team["team_ops"]
-    team_out = team[["season", "slot", "team", "teamId", "plateAppearances", "ops",
+    team_out = team[["season", "slot", "team", "teamId", "plateAppearances", "ops", "woba",
                      "rel_ops_team"]]
     team_out.to_csv(OUT / "mlb_team_slot.csv", index=False, encoding="utf-8-sig")
     return lg

@@ -25,6 +25,8 @@ import seaborn as sns
 import statsmodels.api as sm
 from scipy import stats
 
+import metrics
+
 ROOT = Path(__file__).resolve().parent.parent.parent
 RAW = ROOT / "data" / "raw"
 PROC = ROOT / "data" / "processed"
@@ -51,19 +53,24 @@ def load_all():
 
 
 def build_mlb_team_no2(mlb_split: pd.DataFrame, mlb_runs: pd.DataFrame) -> pd.DataFrame:
-    """MLB 팀-시즌: 2번 슬롯 OPS, 나머지(1, 3~9번) PA가중 OPS, 팀 R/PA."""
+    """MLB 팀-시즌: 2번 슬롯 OPS/wOBA, 나머지(1, 3~9번) PA가중 OPS/wOBA, 팀 R/PA."""
     s = mlb_split.copy()
     for c in ["ops", "plateAppearances"]:
         s[c] = pd.to_numeric(s[c], errors="coerce")
-    slot2 = s[s["slot"] == 2][["season", "teamId", "team", "ops"]].rename(
-        columns={"ops": "no2_ops"})
+    s["woba"] = metrics.add_mlb_woba(s, year_col="season")
+    slot2 = s[s["slot"] == 2][["season", "teamId", "team", "ops", "woba"]].rename(
+        columns={"ops": "no2_ops", "woba": "no2_woba"})
     rest = s[s["slot"] != 2]
     rest_ops = rest.groupby(["season", "teamId"]).apply(
         lambda g: np.average(g["ops"], weights=g["plateAppearances"]),
         include_groups=False).rename("rest_ops").reset_index()
+    rest_woba = rest.groupby(["season", "teamId"]).apply(
+        lambda g: np.average(g["woba"], weights=g["plateAppearances"]),
+        include_groups=False).rename("rest_woba").reset_index()
     r = mlb_runs.copy()
     r["r_per_pa"] = r["runs"] / r["plateAppearances"]
     m = slot2.merge(rest_ops, on=["season", "teamId"]).merge(
+        rest_woba, on=["season", "teamId"]).merge(
         r[["season", "teamId", "r_per_pa", "gamesPlayed", "runs"]], on=["season", "teamId"])
     m["runs_pg"] = m["runs"] / m["gamesPlayed"]
     return m

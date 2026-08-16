@@ -159,9 +159,9 @@ def h1_roster_depth_vs_realized(allp: pd.DataFrame, kbo_team: pd.DataFrame, mlb_
 
     mlb_cnt = (allp[allp["league"] == "MLB"].groupby(["year", "team"])["combo_p33"]
                .sum().reset_index(name="n_combo"))
-    m2 = mlb_slot[mlb_slot["slot"] == 2][["season", "team", "ops"]].rename(columns={"season": "year"})
+    m2 = mlb_slot[mlb_slot["slot"] == 2][["season", "team", "woba"]].rename(columns={"season": "year"})
     mm = mlb_cnt.merge(m2, on=["year", "team"], how="inner").dropna()
-    r_mlb, p_mlb = stats.pearsonr(mm["n_combo"], mm["ops"]) if len(mm) >= 3 else (np.nan, np.nan)
+    r_mlb, p_mlb = stats.pearsonr(mm["n_combo"], mm["woba"]) if len(mm) >= 3 else (np.nan, np.nan)
 
     return {"kbo_r": r_kbo, "kbo_p": p_kbo, "kbo_n": len(kk),
             "mlb_r": r_mlb, "mlb_p": p_mlb, "mlb_n": len(mm)}
@@ -313,8 +313,8 @@ def h2_slot2_vs_slot4(kbo_slot: pd.DataFrame, mlb_slot: pd.DataFrame) -> dict:
     kk = k2.merge(k4, on=["year", "team"]).dropna()
     r_kbo, p_kbo = stats.pearsonr(kk["slot2"], kk["slot4"])
 
-    m2 = mlb_slot[mlb_slot["slot"] == 2][["season", "team", "ops"]].rename(columns={"ops": "slot2"})
-    m4 = mlb_slot[mlb_slot["slot"] == 4][["season", "team", "ops"]].rename(columns={"ops": "slot4"})
+    m2 = mlb_slot[mlb_slot["slot"] == 2][["season", "team", "woba"]].rename(columns={"woba": "slot2"})
+    m4 = mlb_slot[mlb_slot["slot"] == 4][["season", "team", "woba"]].rename(columns={"woba": "slot4"})
     mm = m2.merge(m4, on=["season", "team"]).dropna()
     r_mlb, p_mlb = stats.pearsonr(mm["slot2"], mm["slot4"])
 
@@ -334,7 +334,7 @@ def team_flatness(slot_df: pd.DataFrame, val_col: str, year_col: str, team_col: 
 
 def h2_flatness(kbo_slot: pd.DataFrame, mlb_slot: pd.DataFrame) -> dict:
     kbo_flat = team_flatness(kbo_slot, "woba", "year", "team")
-    mlb_flat = team_flatness(mlb_slot.rename(columns={"season": "year"}), "ops", "year", "team")
+    mlb_flat = team_flatness(mlb_slot.rename(columns={"season": "year"}), "woba", "year", "team")
     t, p = stats.ttest_ind(kbo_flat["flatness_std"], mlb_flat["flatness_std"], equal_var=False)
     return {"kbo_flat": kbo_flat, "mlb_flat": mlb_flat,
             "result": {"kbo_mean": kbo_flat["flatness_std"].mean(), "kbo_n": len(kbo_flat),
@@ -346,15 +346,13 @@ def chart_h2(tradeoff: dict, flatness: dict):
     fig, axes = plt.subplots(1, 2, figsize=(12, 5))
 
     kk, mm = tradeoff["kbo"], tradeoff["mlb"]
-    axes[0].scatter(kk["slot2"], kk["slot4"], color=BLUE, alpha=0.6, s=35, label="KBO (wOBA)")
+    axes[0].scatter(kk["slot2"], kk["slot4"], color=BLUE, alpha=0.6, s=35, label="KBO")
     sns.regplot(x=kk["slot2"], y=kk["slot4"], ax=axes[0], scatter=False, color=BLUE, ci=None)
-    ax2 = axes[0].twiny().twinx()
-    ax2.scatter(mm["slot2"], mm["slot4"], color=ORANGE, alpha=0.5, s=35, marker="^", label="MLB (OPS)")
-    sns.regplot(x=mm["slot2"], y=mm["slot4"], ax=ax2, scatter=False, color=ORANGE, ci=None)
-    axes[0].set_xlabel("2번타순 생산력 (KBO: wOBA)")
-    axes[0].set_ylabel("4번타순 생산력 (KBO: wOBA)", color=BLUE)
-    ax2.set_xlabel("2번타순 생산력 (MLB: OPS)")
-    ax2.set_ylabel("4번타순 생산력 (MLB: OPS)", color=ORANGE)
+    axes[0].scatter(mm["slot2"], mm["slot4"], color=ORANGE, alpha=0.5, s=35, marker="^", label="MLB")
+    sns.regplot(x=mm["slot2"], y=mm["slot4"], ax=axes[0], scatter=False, color=ORANGE, ci=None)
+    axes[0].set_xlabel("2번타순 생산력 (wOBA)")
+    axes[0].set_ylabel("4번타순 생산력 (wOBA)")
+    axes[0].legend()
     r = tradeoff["result"]
     axes[0].set_title(f"2번 vs 4번 타순 생산력\nKBO r={r['r_kbo']:.3f}(p={r['p_kbo']:.3f}) | "
                        f"MLB r={r['r_mlb']:.3f}(p={r['p_mlb']:.3f})", fontsize=10)
@@ -406,11 +404,11 @@ def h3_interaction(kbo_team: pd.DataFrame, kbo_era: pd.DataFrame,
     kd["hr_c"] = kd["hr_rate"] - kd["hr_rate"].mean()
     kbo_model = smf.ols("runs_pg ~ no2_c * hr_c + rest_woba", data=kd).fit()
 
-    md = mlb_team.dropna(subset=["no2_ops", "rest_ops", "r_per_pa"]).merge(
+    md = mlb_team.dropna(subset=["no2_woba", "rest_woba", "r_per_pa"]).merge(
         mlb_era[["season", "hr_rate"]], on="season")
-    md["no2_c"] = md["no2_ops"] - md["no2_ops"].mean()
+    md["no2_c"] = md["no2_woba"] - md["no2_woba"].mean()
     md["hr_c"] = md["hr_rate"] - md["hr_rate"].mean()
-    mlb_model = smf.ols("r_per_pa ~ no2_c * hr_c + rest_ops", data=md).fit()
+    mlb_model = smf.ols("r_per_pa ~ no2_c * hr_c + rest_woba", data=md).fit()
 
     return {
         "kbo_n": len(kd), "kbo_params": kbo_model.params.to_dict(), "kbo_pvalues": kbo_model.pvalues.to_dict(),
@@ -423,13 +421,13 @@ def h3_era_split(mlb_team: pd.DataFrame, split_year: int = 2015) -> dict:
     out = {}
     for label, sub in [("pre", mlb_team[mlb_team["season"] < split_year]),
                         ("post", mlb_team[mlb_team["season"] >= split_year])]:
-        d = sub.dropna(subset=["no2_ops", "rest_ops", "r_per_pa"]).copy()
-        for c in ["no2_ops", "rest_ops", "r_per_pa"]:
+        d = sub.dropna(subset=["no2_woba", "rest_woba", "r_per_pa"]).copy()
+        for c in ["no2_woba", "rest_woba", "r_per_pa"]:
             d[c] = (d[c] - d[c].mean()) / d[c].std()
-        X = sm.add_constant(d[["no2_ops", "rest_ops"]])
+        X = sm.add_constant(d[["no2_woba", "rest_woba"]])
         model = sm.OLS(d["r_per_pa"], X).fit()
-        out[label] = {"n": len(d), "beta_no2": model.params["no2_ops"],
-                       "p_no2": model.pvalues["no2_ops"]}
+        out[label] = {"n": len(d), "beta_no2": model.params["no2_woba"],
+                       "p_no2": model.pvalues["no2_woba"]}
     return out
 
 
