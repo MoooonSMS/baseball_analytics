@@ -1,0 +1,998 @@
+{
+  "old_metrics": {
+    "stars": [
+      {
+        "name": "이정후",
+        "year": 2021,
+        "in_file": true,
+        "obp": 0.438,
+        "slg": 0.522,
+        "woba_old": 0.247219152854512,
+        "wrc_old": 35.1607294138607
+      },
+      {
+        "name": "김도영",
+        "year": 2024,
+        "in_file": true,
+        "obp": 0.42,
+        "slg": 0.647,
+        "woba_old": 0.2801523500810372,
+        "wrc_old": 53.10918423063845
+      },
+      {
+        "name": "안현민",
+        "year": 2025,
+        "in_file": true,
+        "obp": 0.448,
+        "slg": 0.57,
+        "woba_old": 0.2592410901467505,
+        "wrc_old": 48.11624872157382
+      }
+    ],
+    "pa_weighted_wrc_by_year": {
+      "2021": 9.234828231263442,
+      "2022": 8.476196017552406,
+      "2023": 9.78619654747642,
+      "2024": 15.444907302447616,
+      "2025": 14.160717964977902
+    },
+    "rank_corr": {
+      "woba~wrc_plus": 0.9654969672693978,
+      "woba~SLG": 0.9335080321738727,
+      "woba~OPS": 0.9812718801998793
+    },
+    "no2_games_neg_wrc_share": 0.1592356687898089
+  },
+  "kbo_hitters_coverage": [
+    {
+      "year": 2021,
+      "n": 54,
+      "min_pa": 446,
+      "teams": 10
+    },
+    {
+      "year": 2022,
+      "n": 53,
+      "min_pa": 446,
+      "teams": 10
+    },
+    {
+      "year": 2023,
+      "n": 50,
+      "min_pa": 448,
+      "teams": 10
+    },
+    {
+      "year": 2024,
+      "n": 56,
+      "min_pa": 449,
+      "teams": 10
+    },
+    {
+      "year": 2025,
+      "n": 43,
+      "min_pa": 449,
+      "teams": 10
+    }
+  ],
+  "mlb_coverage": [
+    {
+      "year": 2021,
+      "box_teams": 10,
+      "box_games": 1379,
+      "all_teams": 10,
+      "all_players": 479,
+      "qual_teams": 30,
+      "qual_players": 132,
+      "qual_min_pa": 505
+    },
+    {
+      "year": 2022,
+      "box_teams": 10,
+      "box_games": 1380,
+      "all_teams": 10,
+      "all_players": 276,
+      "qual_teams": 30,
+      "qual_players": 130,
+      "qual_min_pa": 505
+    },
+    {
+      "year": 2023,
+      "box_teams": 10,
+      "box_games": 1373,
+      "all_teams": 10,
+      "all_players": 286,
+      "qual_teams": 30,
+      "qual_players": 134,
+      "qual_min_pa": 502
+    },
+    {
+      "year": 2024,
+      "box_teams": 10,
+      "box_games": 1370,
+      "all_teams": 10,
+      "all_players": 267,
+      "qual_teams": 30,
+      "qual_players": 129,
+      "qual_min_pa": 507
+    },
+    {
+      "year": 2025,
+      "box_teams": 10,
+      "box_games": 1376,
+      "all_teams": 10,
+      "all_players": 260,
+      "qual_teams": 30,
+      "qual_players": 145,
+      "qual_min_pa": 502
+    }
+  ],
+  "kbo_box_composition": [
+    {
+      "year": 2020,
+      "games": 763,
+      "allstar_games": 0,
+      "post_games": 43,
+      "regular_games": 720,
+      "team_games_min": 144,
+      "team_games_max": 144
+    },
+    {
+      "year": 2021,
+      "games": 725,
+      "allstar_games": 0,
+      "post_games": 5,
+      "regular_games": 720,
+      "team_games_min": 144,
+      "team_games_max": 144
+    },
+    {
+      "year": 2022,
+      "games": 722,
+      "allstar_games": 1,
+      "post_games": 2,
+      "regular_games": 720,
+      "team_games_min": 144,
+      "team_games_max": 144
+    },
+    {
+      "year": 2023,
+      "games": 722,
+      "allstar_games": 1,
+      "post_games": 2,
+      "regular_games": 720,
+      "team_games_min": 144,
+      "team_games_max": 144
+    },
+    {
+      "year": 2024,
+      "games": 725,
+      "allstar_games": 1,
+      "post_games": 5,
+      "regular_games": 720,
+      "team_games_min": 144,
+      "team_games_max": 144
+    },
+    {
+      "year": 2025,
+      "games": 721,
+      "allstar_games": 1,
+      "post_games": 1,
+      "regular_games": 720,
+      "team_games_min": 144,
+      "team_games_max": 144
+    }
+  ],
+  "box_schema": [
+    "gameId",
+    "gameDate",
+    "team",
+    "opponent",
+    "homeAway",
+    "teamScore",
+    "oppScore",
+    "batOrder",
+    "playerCode",
+    "name",
+    "pos",
+    "ab",
+    "hit",
+    "hr",
+    "bb",
+    "kk",
+    "run",
+    "rbi"
+  ],
+  "old_pipeline_postseason_games_included": {
+    "2021": 5,
+    "2022": 2,
+    "2023": 2,
+    "2024": 5,
+    "2025": 1
+  },
+  "kbo_pf_pooled": {
+    "KIA": 0.981,
+    "KT": 1.035,
+    "LG": 0.956,
+    "NC": 1.007,
+    "SSG": 1.032,
+    "두산": 0.949,
+    "롯데": 1.058,
+    "삼성": 1.054,
+    "키움": 0.945,
+    "한화": 0.997
+  },
+  "mlb_pf_pooled_10teams": {
+    "ATL": 1.001,
+    "BOS": 1.051,
+    "CHC": 0.974,
+    "HOU": 0.994,
+    "LAD": 0.99,
+    "NYY": 0.99,
+    "SEA": 0.924,
+    "SF": 0.968,
+    "STL": 0.971,
+    "TOR": 1.007
+  },
+  "exante": {
+    "kbo_box_2020": true,
+    "kbo_hitters_2020": false,
+    "kbo_relay_2020": false,
+    "statiz_constants_2020": false
+  },
+  "relay_runs_check": {
+    "2021": {
+      "relay": 6893,
+      "box": 6896
+    },
+    "2022": {
+      "relay": 6522,
+      "box": 6523
+    },
+    "2023": {
+      "relay": 6617,
+      "box": 6622
+    },
+    "2024": {
+      "relay": 7734,
+      "box": 7740
+    },
+    "2025": {
+      "relay": 6810,
+      "box": 6813
+    }
+  },
+  "kbo_league_constants": {
+    "2021": {
+      "statiz_lgwOBA": 0.346,
+      "statiz_Scale": 1.169,
+      "a_lg_woba": 0.3464,
+      "a_scale": 1.1833,
+      "b_scale": 1.1795,
+      "lw_out_a": -0.2928,
+      "lw_out_b": -0.2918,
+      "rppa": 0.123,
+      "statiz_wOBA_reconstructed": 0.3423,
+      "old_method_lg_woba": 0.192
+    },
+    "2022": {
+      "statiz_lgwOBA": 0.333,
+      "statiz_Scale": 1.211,
+      "a_lg_woba": 0.3334,
+      "a_scale": 1.223,
+      "b_scale": 1.2037,
+      "lw_out_a": -0.2726,
+      "lw_out_b": -0.2749,
+      "rppa": 0.1166,
+      "statiz_wOBA_reconstructed": 0.3302,
+      "old_method_lg_woba": 0.1824
+    },
+    "2023": {
+      "statiz_lgwOBA": 0.338,
+      "statiz_Scale": 1.198,
+      "a_lg_woba": 0.3385,
+      "a_scale": 1.2137,
+      "b_scale": 1.2094,
+      "lw_out_a": -0.2789,
+      "lw_out_b": -0.2764,
+      "rppa": 0.1178,
+      "statiz_wOBA_reconstructed": 0.3341,
+      "old_method_lg_woba": 0.1851
+    },
+    "2024": {
+      "statiz_lgwOBA": 0.352,
+      "statiz_Scale": 1.093,
+      "a_lg_woba": 0.3518,
+      "a_scale": 1.1039,
+      "b_scale": 1.1032,
+      "lw_out_a": -0.3187,
+      "lw_out_b": -0.3162,
+      "rppa": 0.1352,
+      "statiz_wOBA_reconstructed": 0.3483,
+      "old_method_lg_woba": 0.2071
+    },
+    "2025": {
+      "statiz_lgwOBA": 0.338,
+      "statiz_Scale": 1.173,
+      "a_lg_woba": 0.3385,
+      "a_scale": 1.1875,
+      "b_scale": 1.1934,
+      "lw_out_a": -0.2851,
+      "lw_out_b": -0.2812,
+      "rppa": 0.1217,
+      "statiz_wOBA_reconstructed": 0.3344,
+      "old_method_lg_woba": 0.1892
+    }
+  },
+  "scale_by_team_regression": {
+    "MLB_2010_2025_ex2020": {
+      "scale": 1.416332053286918,
+      "scale_lo": 1.3675464935436363,
+      "scale_hi": 1.46872710854749,
+      "n": 450
+    },
+    "KBO_2021_2025": {
+      "scale": 1.4513754672739894,
+      "scale_lo": 1.3014354124110117,
+      "scale_hi": 1.6403639123974112,
+      "n": 50
+    }
+  },
+  "validation": {
+    "pa_weighted_wrc": [
+      {
+        "league": "KBO",
+        "year": 2021,
+        "full_league_wrc_a": 100.01,
+        "full_league_wrc_b": 100.01,
+        "qualified_wrc_a": 118.12,
+        "qualified_wrc_old": 9.23,
+        "qualified_n": 54,
+        "all10_wrc": NaN
+      },
+      {
+        "league": "KBO",
+        "year": 2022,
+        "full_league_wrc_a": 100.01,
+        "full_league_wrc_b": 100.01,
+        "qualified_wrc_a": 119.29,
+        "qualified_wrc_old": 8.48,
+        "qualified_n": 53,
+        "all10_wrc": NaN
+      },
+      {
+        "league": "KBO",
+        "year": 2023,
+        "full_league_wrc_a": 100.01,
+        "full_league_wrc_b": 100.01,
+        "qualified_wrc_a": 118.92,
+        "qualified_wrc_old": 9.79,
+        "qualified_n": 50,
+        "all10_wrc": NaN
+      },
+      {
+        "league": "KBO",
+        "year": 2024,
+        "full_league_wrc_a": 100.0,
+        "full_league_wrc_b": 100.0,
+        "qualified_wrc_a": 115.43,
+        "qualified_wrc_old": 15.44,
+        "qualified_n": 56,
+        "all10_wrc": NaN
+      },
+      {
+        "league": "KBO",
+        "year": 2025,
+        "full_league_wrc_a": 100.01,
+        "full_league_wrc_b": 100.01,
+        "qualified_wrc_a": 120.77,
+        "qualified_wrc_old": 14.16,
+        "qualified_n": 43,
+        "all10_wrc": NaN
+      },
+      {
+        "league": "MLB",
+        "year": 2021,
+        "full_league_wrc_a": 100.0,
+        "full_league_wrc_b": NaN,
+        "qualified_wrc_a": 115.79,
+        "qualified_wrc_old": NaN,
+        "qualified_n": 132,
+        "all10_wrc": 105.2
+      },
+      {
+        "league": "MLB",
+        "year": 2022,
+        "full_league_wrc_a": 100.0,
+        "full_league_wrc_b": NaN,
+        "qualified_wrc_a": 114.07,
+        "qualified_wrc_old": NaN,
+        "qualified_n": 130,
+        "all10_wrc": 107.73
+      },
+      {
+        "league": "MLB",
+        "year": 2023,
+        "full_league_wrc_a": 100.0,
+        "full_league_wrc_b": NaN,
+        "qualified_wrc_a": 110.61,
+        "qualified_wrc_old": NaN,
+        "qualified_n": 134,
+        "all10_wrc": 104.29
+      },
+      {
+        "league": "MLB",
+        "year": 2024,
+        "full_league_wrc_a": 100.01,
+        "full_league_wrc_b": NaN,
+        "qualified_wrc_a": 113.17,
+        "qualified_wrc_old": NaN,
+        "qualified_n": 129,
+        "all10_wrc": 103.6
+      },
+      {
+        "league": "MLB",
+        "year": 2025,
+        "full_league_wrc_a": 100.01,
+        "full_league_wrc_b": NaN,
+        "qualified_wrc_a": 111.71,
+        "qualified_wrc_old": NaN,
+        "qualified_n": 145,
+        "all10_wrc": 104.38
+      }
+    ],
+    "pass_league_100pm3": true,
+    "stars": [
+      {
+        "name": "이정후",
+        "year": 2021,
+        "in_qualified_file": true,
+        "pa": 544.0,
+        "obp": 0.4375,
+        "slg": 0.521551724137931,
+        "woba_old": 0.247219152854512,
+        "wrc_old": 35.1607294138607,
+        "woba_a": 0.44373063157452675,
+        "wrc_a": 166.83881808286185,
+        "woba_b": 0.44302864477629966,
+        "wrc_b": 166.570114428723
+      },
+      {
+        "name": "김도영",
+        "year": 2024,
+        "in_qualified_file": true,
+        "pa": 625.0,
+        "obp": 0.4198717948717949,
+        "slg": 0.6470588235294118,
+        "woba_old": 0.2801523500810372,
+        "wrc_old": 53.10918423063845,
+        "woba_a": 0.4546677534479899,
+        "wrc_a": 168.926810745601,
+        "woba_b": 0.45510298261383797,
+        "wrc_b": 169.26358890566055
+      },
+      {
+        "name": "안현민",
+        "year": 2025,
+        "in_qualified_file": true,
+        "pa": 482.0,
+        "obp": 0.44813278008298757,
+        "slg": 0.569620253164557,
+        "woba_old": 0.2592410901467505,
+        "wrc_old": 48.11624872157382,
+        "woba_a": 0.4575929908037828,
+        "wrc_a": 182.4114359913953,
+        "woba_b": 0.4581989689772859,
+        "wrc_b": 182.42001120757678
+      }
+    ],
+    "top3_by_year": [
+      {
+        "year": 2025,
+        "name": "안현민",
+        "team": "KT",
+        "pa": 482,
+        "obp": 0.448,
+        "slg": 0.57,
+        "woba_a": 0.458,
+        "wrc_a": 182.411
+      },
+      {
+        "year": 2022,
+        "name": "이정후",
+        "team": "키움",
+        "pa": 627,
+        "obp": 0.421,
+        "slg": 0.575,
+        "woba_a": 0.446,
+        "wrc_a": 178.846
+      },
+      {
+        "year": 2022,
+        "name": "피렐라",
+        "team": "삼성",
+        "pa": 630,
+        "obp": 0.411,
+        "slg": 0.565,
+        "woba_a": 0.436,
+        "wrc_a": 172.024
+      },
+      {
+        "year": 2021,
+        "name": "강백호",
+        "team": "KT",
+        "pa": 627,
+        "obp": 0.45,
+        "slg": 0.521,
+        "woba_a": 0.447,
+        "wrc_a": 169.347
+      },
+      {
+        "year": 2024,
+        "name": "김도영",
+        "team": "KIA",
+        "pa": 625,
+        "obp": 0.42,
+        "slg": 0.647,
+        "woba_a": 0.455,
+        "wrc_a": 168.927
+      },
+      {
+        "year": 2021,
+        "name": "양의지",
+        "team": "NC",
+        "pa": 570,
+        "obp": 0.414,
+        "slg": 0.581,
+        "woba_a": 0.447,
+        "wrc_a": 168.82
+      },
+      {
+        "year": 2025,
+        "name": "디아즈",
+        "team": "삼성",
+        "pa": 628,
+        "obp": 0.381,
+        "slg": 0.644,
+        "woba_a": 0.437,
+        "wrc_a": 168.49
+      },
+      {
+        "year": 2021,
+        "name": "이정후",
+        "team": "키움",
+        "pa": 544,
+        "obp": 0.438,
+        "slg": 0.522,
+        "woba_a": 0.444,
+        "wrc_a": 166.839
+      },
+      {
+        "year": 2024,
+        "name": "구자욱",
+        "team": "삼성",
+        "pa": 568,
+        "obp": 0.417,
+        "slg": 0.627,
+        "woba_a": 0.45,
+        "wrc_a": 166.12
+      },
+      {
+        "year": 2025,
+        "name": "오스틴",
+        "team": "LG",
+        "pa": 499,
+        "obp": 0.393,
+        "slg": 0.595,
+        "woba_a": 0.429,
+        "wrc_a": 162.302
+      },
+      {
+        "year": 2023,
+        "name": "최정",
+        "team": "SSG",
+        "pa": 552,
+        "obp": 0.388,
+        "slg": 0.548,
+        "woba_a": 0.422,
+        "wrc_a": 158.282
+      },
+      {
+        "year": 2023,
+        "name": "노시환",
+        "team": "한화",
+        "pa": 595,
+        "obp": 0.388,
+        "slg": 0.541,
+        "woba_a": 0.421,
+        "wrc_a": 157.913
+      },
+      {
+        "year": 2023,
+        "name": "구자욱",
+        "team": "삼성",
+        "pa": 515,
+        "obp": 0.407,
+        "slg": 0.494,
+        "woba_a": 0.42,
+        "wrc_a": 157.191
+      },
+      {
+        "year": 2022,
+        "name": "나성범",
+        "team": "KIA",
+        "pa": 649,
+        "obp": 0.402,
+        "slg": 0.508,
+        "woba_a": 0.414,
+        "wrc_a": 156.614
+      },
+      {
+        "year": 2024,
+        "name": "로하스",
+        "team": "KT",
+        "pa": 670,
+        "obp": 0.421,
+        "slg": 0.568,
+        "woba_a": 0.434,
+        "wrc_a": 155.136
+      }
+    ],
+    "rank_corr": {
+      "a~b (woba)": 0.9998619535362783,
+      "a~old (woba)": 0.9315310997940031,
+      "a~OPS": 0.9636158159761958,
+      "a~b (wrc, 연도 내)": 0.9994094118907786,
+      "official~statiz_counts 2021 (a)": 0.997709194051088,
+      "n_matched_statiz_2021": 55,
+      "pa_exact_match_share": 0.9818181818181818
+    },
+    "scale_check": {
+      "2021": {
+        "KBO_lg_woba": 0.3464,
+        "KBO_lg_obp": 0.3464,
+        "MLB_lg_woba": 0.3145,
+        "MLB_lg_obp": 0.3171,
+        "KBO_scale": 1.1833,
+        "MLB_scale": 1.4163,
+        "KBO_rppa": 0.123,
+        "MLB_rppa": 0.1211
+      },
+      "2022": {
+        "KBO_lg_woba": 0.3334,
+        "KBO_lg_obp": 0.3334,
+        "MLB_lg_woba": 0.3098,
+        "MLB_lg_obp": 0.3115,
+        "KBO_scale": 1.223,
+        "MLB_scale": 1.4163,
+        "KBO_rppa": 0.1166,
+        "MLB_rppa": 0.1143
+      },
+      "2023": {
+        "KBO_lg_woba": 0.3385,
+        "KBO_lg_obp": 0.3385,
+        "MLB_lg_woba": 0.3185,
+        "MLB_lg_obp": 0.3201,
+        "KBO_scale": 1.2137,
+        "MLB_scale": 1.4163,
+        "KBO_rppa": 0.1178,
+        "MLB_rppa": 0.1218
+      },
+      "2024": {
+        "KBO_lg_woba": 0.3518,
+        "KBO_lg_obp": 0.3518,
+        "MLB_lg_woba": 0.3102,
+        "MLB_lg_obp": 0.3121,
+        "KBO_scale": 1.1039,
+        "MLB_scale": 1.4163,
+        "KBO_rppa": 0.1352,
+        "MLB_rppa": 0.117
+      },
+      "2025": {
+        "KBO_lg_woba": 0.3385,
+        "KBO_lg_obp": 0.3385,
+        "MLB_lg_woba": 0.3129,
+        "MLB_lg_obp": 0.3152,
+        "KBO_scale": 1.1875,
+        "MLB_scale": 1.4163,
+        "KBO_rppa": 0.1217,
+        "MLB_rppa": 0.1182
+      }
+    },
+    "qualified_distribution": [
+      {
+        "league": "KBO",
+        "n": 256,
+        "woba_minus_lg_q10": -0.0138,
+        "woba_minus_lg_q50": 0.0255,
+        "woba_minus_lg_q90": 0.0706,
+        "wrc_q10": 90.4829,
+        "wrc_q50": 117.2268,
+        "wrc_q90": 148.7469,
+        "wrc_max": 182.4114
+      },
+      {
+        "league": "MLB",
+        "n": 670,
+        "woba_minus_lg_q10": -0.0154,
+        "woba_minus_lg_q50": 0.019,
+        "woba_minus_lg_q90": 0.0564,
+        "wrc_q10": 90.6122,
+        "wrc_q50": 111.2744,
+        "wrc_q90": 133.9678,
+        "wrc_max": 199.9211
+      }
+    ]
+  },
+  "old_results_impact": [
+    {
+      "item": "H1 비율(p33)",
+      "stat": "kbo_prop",
+      "old": 0.13672,
+      "new": 0.13672
+    },
+    {
+      "item": "H1 비율(p33)",
+      "stat": "mlb_prop",
+      "old": 0.16119,
+      "new": 0.16119
+    },
+    {
+      "item": "H1 비율(p33)",
+      "stat": "p",
+      "old": 0.35663,
+      "new": 0.35663
+    },
+    {
+      "item": "H1 비율(p25)",
+      "stat": "kbo_prop",
+      "old": 0.09375,
+      "new": 0.09375
+    },
+    {
+      "item": "H1 비율(p25)",
+      "stat": "mlb_prop",
+      "old": 0.09552,
+      "new": 0.09552
+    },
+    {
+      "item": "H1 비율(p25)",
+      "stat": "p",
+      "old": 0.93444,
+      "new": 0.93444
+    },
+    {
+      "item": "H1 비율(p40)",
+      "stat": "kbo_prop",
+      "old": 0.17188,
+      "new": 0.17188
+    },
+    {
+      "item": "H1 비율(p40)",
+      "stat": "mlb_prop",
+      "old": 0.21194,
+      "new": 0.21194
+    },
+    {
+      "item": "H1 비율(p40)",
+      "stat": "p",
+      "old": 0.17351,
+      "new": 0.17351
+    },
+    {
+      "item": "H1 보조: 팀 내 콤보 수 ~ 2번 wOBA",
+      "stat": "kbo_r",
+      "old": 0.06669,
+      "new": 0.1551
+    },
+    {
+      "item": "H1 보조: 팀 내 콤보 수 ~ 2번 wOBA",
+      "stat": "kbo_p",
+      "old": 0.64541,
+      "new": 0.28214
+    },
+    {
+      "item": "H1 보조: 팀 내 콤보 수 ~ 2번 wOBA",
+      "stat": "mlb_r",
+      "old": 0.44108,
+      "new": 0.44108
+    },
+    {
+      "item": "H1 보조: 팀 내 콤보 수 ~ 2번 wOBA",
+      "stat": "mlb_p",
+      "old": 0.0,
+      "new": 0.0
+    },
+    {
+      "item": "H2 2번-4번 상관",
+      "stat": "r_kbo",
+      "old": 0.46719,
+      "new": 0.28761
+    },
+    {
+      "item": "H2 2번-4번 상관",
+      "stat": "p_kbo",
+      "old": 0.00063,
+      "new": 0.04284
+    },
+    {
+      "item": "H2 2번-4번 상관",
+      "stat": "r_mlb",
+      "old": 0.10585,
+      "new": 0.10585
+    },
+    {
+      "item": "H2 2번-4번 상관",
+      "stat": "z_diff",
+      "old": 2.61785,
+      "new": 1.24088
+    },
+    {
+      "item": "H2 2번-4번 상관",
+      "stat": "p_diff",
+      "old": 0.00885,
+      "new": 0.21465
+    },
+    {
+      "item": "H2 평탄도",
+      "stat": "kbo_mean",
+      "old": 0.86048,
+      "new": 0.85207
+    },
+    {
+      "item": "H2 평탄도",
+      "stat": "mlb_mean",
+      "old": 0.9428,
+      "new": 0.9428
+    },
+    {
+      "item": "H2 평탄도",
+      "stat": "t",
+      "old": -1.55598,
+      "new": -1.66744
+    },
+    {
+      "item": "H2 평탄도",
+      "stat": "p",
+      "old": 0.12542,
+      "new": 0.10112
+    }
+  ],
+  "leadoff05_median_split_reclassified": 8,
+  "no2_wrc_rank_corr": 0.8813925570228092,
+  "coverage_summary": [
+    {
+      "league": "KBO",
+      "year": 2021,
+      "teams": 10,
+      "games_min": 144,
+      "players_per_team": 5.4,
+      "pool300_per_team": 5.4,
+      "box_pa_covered": 0.514
+    },
+    {
+      "league": "KBO",
+      "year": 2022,
+      "teams": 10,
+      "games_min": 144,
+      "players_per_team": 5.3,
+      "pool300_per_team": 5.3,
+      "box_pa_covered": 0.508
+    },
+    {
+      "league": "KBO",
+      "year": 2023,
+      "teams": 10,
+      "games_min": 144,
+      "players_per_team": 5.0,
+      "pool300_per_team": 5.0,
+      "box_pa_covered": 0.462
+    },
+    {
+      "league": "KBO",
+      "year": 2024,
+      "teams": 10,
+      "games_min": 144,
+      "players_per_team": 5.6,
+      "pool300_per_team": 5.6,
+      "box_pa_covered": 0.527
+    },
+    {
+      "league": "KBO",
+      "year": 2025,
+      "teams": 10,
+      "games_min": 144,
+      "players_per_team": 4.3,
+      "pool300_per_team": 4.3,
+      "box_pa_covered": 0.406
+    },
+    {
+      "league": "MLB",
+      "year": 2021,
+      "teams": 10,
+      "games_min": 160,
+      "players_per_team": 47.9,
+      "pool300_per_team": 8.6,
+      "box_pa_covered": 0.997
+    },
+    {
+      "league": "MLB",
+      "year": 2022,
+      "teams": 10,
+      "games_min": 160,
+      "players_per_team": 27.6,
+      "pool300_per_team": 8.7,
+      "box_pa_covered": 1.0
+    },
+    {
+      "league": "MLB",
+      "year": 2023,
+      "teams": 10,
+      "games_min": 161,
+      "players_per_team": 28.6,
+      "pool300_per_team": 9.7,
+      "box_pa_covered": 1.0
+    },
+    {
+      "league": "MLB",
+      "year": 2024,
+      "teams": 10,
+      "games_min": 161,
+      "players_per_team": 26.7,
+      "pool300_per_team": 9.0,
+      "box_pa_covered": 0.983
+    },
+    {
+      "league": "MLB",
+      "year": 2025,
+      "teams": 10,
+      "games_min": 161,
+      "players_per_team": 26.0,
+      "pool300_per_team": 8.7,
+      "box_pa_covered": 0.985
+    }
+  ],
+  "prelim_n": [
+    {
+      "set": "KBO 규정타석(50팀-시즌)",
+      "team_seasons": 50,
+      "N=0": 0,
+      "N=1": 2,
+      "N=2": 8,
+      "N=3": 40,
+      "pool_lt3": 2,
+      "mean_N": 2.76
+    },
+    {
+      "set": "MLB 규정타석(30팀, 150팀-시즌)",
+      "team_seasons": 150,
+      "N=0": 5,
+      "N=1": 21,
+      "N=2": 45,
+      "N=3": 79,
+      "pool_lt3": 18,
+      "mean_N": 2.32
+    },
+    {
+      "set": "MLB 전체타자(10팀, 50팀-시즌)",
+      "team_seasons": 50,
+      "N=0": 0,
+      "N=1": 0,
+      "N=2": 6,
+      "N=3": 44,
+      "pool_lt3": 0,
+      "mean_N": 2.88
+    },
+    {
+      "set": "MLB 10팀을 규정타석만으로 판정",
+      "team_seasons": 50,
+      "N=0": 0,
+      "N=1": 3,
+      "N=2": 14,
+      "N=3": 33,
+      "pool_lt3": 2,
+      "mean_N": 2.6
+    }
+  ],
+  "mlb10_qual_vs_all_N_agreement": 0.68
+}
