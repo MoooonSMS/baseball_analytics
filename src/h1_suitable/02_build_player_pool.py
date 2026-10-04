@@ -130,6 +130,9 @@ def league_rates(d: pd.DataFrame, totals: pd.DataFrame) -> pd.DataFrame:
 # ======================================================================
 # N 판정
 # ======================================================================
+MEMBER_COLS = ["year", "team", "pid", "name", "pa", "rank", "S"]
+
+
 def compute_n(d: pd.DataFrame, lgr: pd.DataFrame, pool_pa=C.POOL_MIN_PA, prod="wrc",
               onbase="obp", rule="league_mean", q=None) -> tuple[pd.DataFrame, pd.DataFrame]:
     """d: 선수-팀-시즌. 반환: (팀-시즌 N, 선수 S 플래그가 붙은 후보 풀)."""
@@ -146,11 +149,13 @@ def compute_n(d: pd.DataFrame, lgr: pd.DataFrame, pool_pa=C.POOL_MIN_PA, prod="w
     return t, p
 
 
-def compute_n_exante(d: pd.DataFrame, lgr: pd.DataFrame, years) -> tuple[pd.DataFrame, pd.DataFrame]:
-    """전년도 PA>=300(전 팀 합산) 선수의 전년도 wRC+/OBP로 S 판정, 해당 시즌 팀 구성원 기준."""
+def compute_n_exante(d: pd.DataFrame, lgr: pd.DataFrame, years) -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
+    """전년도 PA>=300(전 팀 합산) 선수의 전년도 wRC+/OBP로 S 판정, 해당 시즌 팀 구성원 기준.
+    반환: (팀-시즌 N, 제외 비율, 선수 S 플래그)"""
     if not years:
         return (pd.DataFrame(columns=["year", "team", "pool", "N"]),
-                pd.DataFrame(columns=["year", "pool_players", "no_prior", "no_prior_share", "no_prior_pa_share"]))
+                pd.DataFrame(columns=["year", "pool_players", "no_prior", "no_prior_share", "no_prior_pa_share"]),
+                pd.DataFrame(columns=MEMBER_COLS))
     prior = d.groupby(["year", "pid"]).apply(
         lambda g: pd.Series({"pa_prev": g["pa"].sum(),
                              "wrc_prev": np.average(g["wrc"], weights=g["pa"]) if g["pa"].sum() else np.nan,
@@ -173,23 +178,24 @@ def compute_n_exante(d: pd.DataFrame, lgr: pd.DataFrame, years) -> tuple[pd.Data
         "no_prior_share": g["wrc_prev"].isna().mean(),
         "no_prior_pa_share": g.loc[g["wrc_prev"].isna(), "pa"].sum() / g["pa"].sum()}),
         include_groups=False).reset_index()
-    return t, excl
+    return t, excl, e
 
 
 def variants(league: str, d: pd.DataFrame, lgr: pd.DataFrame, years) -> dict:
+    """{변형명: (팀-시즌 N, 선수 S 플래그)}"""
     d = d[d["year"].isin(years)]
-    v = {"primary": compute_n(d, lgr)[0]}
+    v = {"primary": compute_n(d, lgr)}
     for pa_ in C.POOL_MIN_PA_SENS:
-        v[f"pool_pa{pa_}"] = compute_n(d, lgr, pool_pa=pa_)[0]
+        v[f"pool_pa{pa_}"] = compute_n(d, lgr, pool_pa=pa_)
     for k, q in C.OBP_RULE_SENS.items():
-        v[f"obp_{k}"] = compute_n(d, lgr, rule="quantile", q=q)[0]
+        v[f"obp_{k}"] = compute_n(d, lgr, rule="quantile", q=q)
     for ob in C.ONBASE_ALT:
-        v[f"onbase_{ob}"] = compute_n(d, lgr, onbase=ob)[0]
-    v["prod_woba"] = compute_n(d, lgr, prod="woba")[0]
-    v["prod_wrc_pf"] = compute_n(d, lgr, prod="wrc_pf")[0]
+        v[f"onbase_{ob}"] = compute_n(d, lgr, onbase=ob)
+    v["prod_woba"] = compute_n(d, lgr, prod="woba")
+    v["prod_wrc_pf"] = compute_n(d, lgr, prod="wrc_pf")
     alt = "wrc_alt"
     if alt in d:
-        v["weights_alt"] = compute_n(d.assign(wrc=d[alt]), lgr)[0]
+        v["weights_alt"] = compute_n(d.assign(wrc=d[alt]), lgr)
     return v
 
 
@@ -321,9 +327,16 @@ def main():
     section("N 분포 (사후 + 민감도 + ex-ante)")
     kv = variants("KBO", k, kl, C.SEASONS)
     mv = variants("MLB", m, ml, MLB_YEARS)
-    kx, kex = compute_n_exante(k, kl, C.SEASONS)
-    mx, mex = compute_n_exante(m, ml, [y for y in MLB_YEARS if y not in C.MLB_EXANTE_SKIP])
-    kv["exante"], mv["exante"] = kx, mx
+    kx, kex, kxm = compute_n_exante(k, kl, C.SEASONS)
+    mx, mex, mxm = compute_n_exante(m, ml, [y for y in MLB_YEARS if y not in C.MLB_EXANTE_SKIP])
+    kv["exante"], mv["exante"] = (kx, kxm), (mx, mxm)
+    # 선수 단위 S 플래그(Phase 2 배치 분석용): 변형별 팀 내 순위 상위 K명
+    members = pd.concat([p.loc[p["rank"] <= C.TOP_K, MEMBER_COLS].assign(league=lgn, variant=var)
+                         for lgn, vv in [("KBO", kv), ("MLB", mv)] for var, (_, p) in vv.items()],
+                        ignore_index=True)
+    members.to_csv(C.PROC / "h1_s_members.csv", index=False, encoding="utf-8-sig")
+    kv = {var: t for var, (t, _) in kv.items()}
+    mv = {var: t for var, (t, _) in mv.items()}
     nt = pd.concat([n_table(kv, "KBO"), n_table(mv, "MLB")], ignore_index=True)
     print(nt.round(2).to_string(index=False))
     nt.to_csv(C.OUT / "phase1_n_sensitivity.csv", index=False, encoding="utf-8-sig")
