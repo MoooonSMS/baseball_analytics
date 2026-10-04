@@ -42,6 +42,24 @@ OBP_RULE_SENS = {"pool_top50": 0.50, "pool_top40": 0.60, "pool_top33": 0.67}  # 
 ONBASE_ALT = ["bb_pct", "obp_minus_avg"]
 PRODUCTION_ALT = ["woba", "wrc_plus_pf"]
 EXANTE_MIN_PA = 300
+# 보조 정의(설계 단계 조정, 2026-10-04 — 배치 결과를 보기 전): N이 primary에서 N=3에 쏠려
+# 공급 변동이 거의 없으므로, OBP >= 리그-시즌 후보풀 OBP 상위 33%(=OBP_RULE_SENS["pool_top33"])를
+# 보조 정의로 사전 등록하고 두 리그 N 분포를 함께 보고한다. 기본 정의(OBP_RULE)는 그대로 유지.
+OBP_RULE_AUX = "pool_top33"
+
+# ---------------------------------------------------------------- Phase 2 설계(2026-10-04 조정)
+# (a) 상위 3명 선수 단위 within-team 분석
+#     유형 점수 = z(OBP) - z(ISO). z는 리그-시즌 후보풀(PA >= POOL_MIN_PA) 평균·표준편차 기준(PA 비가중)
+#     종속변수 = 그 선수가 해당 팀에서 소화한 PA 중 1~2번 슬롯 비율
+#     1단계: 팀-시즌별 (유형 점수, 1~2번 비율) Spearman 상관의 리그 평균
+#     2단계: 1~2번 비율 ~ 유형 점수 x 리그 + wRC+ 순위 더미 x 리그 + 팀-시즌 고정효과, 팀 클러스터 SE
+# (b) 층화: K = 상위 3명 중 출루형(유형 점수 > TYPE_K_THRESHOLD) 수 (0~3)
+#     리그별 어떤 K 구간이 팀-시즌 MIN_BIN 미만이면 K<=1 / K>=2 로 합친다
+# 용량-반응: KBO는 primary N 변동이 없어 N 기준 검정 불가 -> K와 연속 유형 점수로 대체(KBO 검정력 낮음 명시)
+# primary N=3 팀-시즌은 Phase 3 낭비 상한 분석의 주 표본
+TYPE_SCORE = ("obp", "iso")      # z(OBP) - z(ISO)
+TYPE_K_THRESHOLD = 0.0
+MIN_BIN = 10
 
 # ---------------------------------------------------------------- §3-4 슬롯
 SLOT_GROUPS = {"top": [1, 2], "middle": [3, 4, 5], "bottom": [6, 7, 8, 9]}
@@ -66,4 +84,8 @@ CHANGELOG = [
     ("2026-10-03", "OBP 민감도 기준을 리그-시즌 후보풀 분위수로 구체화, RE24_MAX_INNING=9, EXANTE_MEMBER_MIN_PA=1 추가",
      "Phase 1 구현 전(N 결과 보기 전) 정의 구체화. KBO 공식기록실은 robots.txt/고지로 자동수집 금지라 "
      "KBO 전체 타자 기록은 relay 이벤트에서 재구성"),
+    ("2026-10-04", "OBP_RULE_AUX=pool_top33 보조 정의 등록; Phase 2를 N 구간 비교에서 상위 3명 within-team "
+     "유형 점수 분석 + K(출루형 수) 층화로 교체; 용량-반응은 K·연속 변수로 대체; N=3은 Phase 3 주 표본",
+     "N 분포가 두 리그 모두 N=3에 쏠림(KBO N<=2 6개). 배치 결과는 보기 전 설계 단계 조정. 기본 정의 유지. "
+     "H1_ANALYSIS_INSTRUCTION.md §10 변경 이력"),
 ]
