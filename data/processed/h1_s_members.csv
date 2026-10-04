@@ -2080,16 +2080,15 @@
 2024,SD,665487.0,Fernando Tatis Jr.,438,2.0,True,MLB,primary
 2024,SEA,677594.0,Julio Rodríguez,613,3.0,True,MLB,primary
 2024,SEA,670042.0,Luke Raley,455,1.0,True,MLB,primary
-2024,SEA,663728.0,Cal Raleigh,628,2.0,True,MLB,primary
+2024,SEA,663728.0,Cal Raleigh,628,2.0,False,MLB,primary
 2024,SF,666149.0,Tyler Fitzgerald,341,1.0,True,MLB,primary
 2024,SF,664774.0,LaMonte Wade Jr.,401,3.0,True,MLB,primary
 2024,SF,656305.0,Matt Chapman,647,2.0,True,MLB,primary
 2024,STL,680977.0,Brendan Donovan,652,2.0,True,MLB,primary
 2024,STL,575929.0,Willson Contreras,358,1.0,True,MLB,primary
 2024,STL,663457.0,Lars Nootbaar,405,3.0,True,MLB,primary
-2024,TB,650490.0,Yandy Díaz,621,2.0,True,MLB,primary
-2024,TB,664040.0,Brandon Lowe,425,1.0,False,MLB,primary
-2024,TB,680700.0,Richie Palacios,316,3.0,True,MLB,primary
+2024,TB,650490.0,Yandy Díaz,621,3.0,True,MLB,primary
+2024,TB,664040.0,Brandon Lowe,425,2.0,False,MLB,primary
 2024,TEX,608369.0,Corey Seager,533,1.0,True,MLB,primary
 2024,TEX,663993.0,Nathaniel Lowe,565,2.0,True,MLB,primary
 2024,TEX,669701.0,Josh Smith,592,3.0,True,MLB,primary
@@ -2105,9 +2104,8 @@
 2024,ATL,542303.0,Marcell Ozuna,688,1.0,True,MLB,primary
 2024,ATL,663586.0,Austin Riley,469,3.0,True,MLB,primary
 2024,ATL,621566.0,Matt Olson,685,2.0,True,MLB,primary
-2024,CWS,683734.0,Andrew Vaughn,619,1.0,False,MLB,primary
-2024,CWS,657757.0,Gavin Sheets,501,3.0,False,MLB,primary
-2024,CWS,643217.0,Andrew Benintendi,522,2.0,False,MLB,primary
+2024,CWS,683734.0,Andrew Vaughn,619,2.0,False,MLB,primary
+2024,CWS,643217.0,Andrew Benintendi,522,3.0,False,MLB,primary
 2024,MIA,669364.0,Xavier Edwards,303,1.0,True,MLB,primary
 2024,MIA,660821.0,Jesús Sánchez,537,3.0,True,MLB,primary
 2024,MIA,669394.0,Jake Burger,579,2.0,False,MLB,primary
@@ -2153,9 +2151,8 @@
 2024,LAD,660271.0,Shohei Ohtani,731,1.0,True,MLB,primary
 2024,LAD,605141.0,Mookie Betts,516,2.0,True,MLB,primary
 2024,LAD,518692.0,Freddie Freeman,638,3.0,True,MLB,primary
-2024,WSH,671277.0,Luis García Jr.,528,2.0,True,MLB,primary
-2024,WSH,695578.0,James Wood,336,1.0,True,MLB,primary
-2024,WSH,657041.0,Lane Thomas,341,3.0,True,MLB,primary
+2024,WSH,671277.0,Luis García Jr.,528,3.0,True,MLB,primary
+2024,WSH,695578.0,James Wood,336,2.0,True,MLB,primary
 2024,NYM,596019.0,Francisco Lindor,689,1.0,True,MLB,primary
 2024,NYM,668901.0,Mark Vientos,454,2.0,True,MLB,primary
 2024,NYM,624413.0,Pete Alonso,695,3.0,True,MLB,primary
@@ -2186,9 +2183,8 @@
 2025,TOR,666182.0,Bo Bichette,628,3.0,True,MLB,primary
 2025,TOR,543807.0,George Springer,586,1.0,True,MLB,primary
 2025,TOR,665489.0,Vladimir Guerrero Jr.,680,2.0,True,MLB,primary
-2025,MIN,680777.0,Ryan Jeffers,464,2.0,True,MLB,primary
+2025,MIN,680777.0,Ryan Jeffers,464,3.0,True,MLB,primary
 2025,MIN,621439.0,Byron Buxton,542,1.0,True,MLB,primary
-2025,MIN,670242.0,Matt Wallner,392,3.0,False,MLB,primary
 2025,PHI,607208.0,Trea Turner,639,3.0,True,MLB,primary
 2025,PHI,547180.0,Bryce Harper,580,2.0,True,MLB,primary
 2025,PHI,656941.0,Kyle Schwarber,724,1.0,True,MLB,primary
@@ -2199,8 +2195,7 @@
 2025,CWS,643217.0,Andrew Benintendi,470,2.0,False,MLB,primary
 2025,CWS,678246.0,Miguel Vargas,569,3.0,True,MLB,primary
 2025,MIA,669065.0,Kyle Stowers,457,1.0,True,MLB,primary
-2025,MIA,669364.0,Xavier Edwards,619,3.0,True,MLB,primary
-2025,MIA,689414.0,Liam Hicks,390,2.0,True,MLB,primary
+2025,MIA,689414.0,Liam Hicks,390,3.0,True,MLB,primary
 2025,NYY,592450.0,Aaron Judge,679,1.0,True,MLB,primary
 2025,NYY,700250.0,Ben Rice,530,2.0,True,MLB,primary
 2025,NYY,663757.0,Trent Grisham,581,3.0,True,MLB,primary
@@ -2210,19 +2205,16 @@
 2025,LAA,687263.0,Zach Neto,554,3.0,True,MLB,primary
 2025,LAA,545361.0,Mike Trout,556,1.0,True,MLB,primary
 2025,LAA,621493.0,Taylor Ward,663,2.0,True,MLB,primary
-2025,AZ,672695.0,Geraldo Perdomo,720,2.0,True,MLB,primary
+2025,AZ,672695.0,Geraldo Perdomo,720,3.0,True,MLB,primary
 2025,AZ,606466.0,Ketel Marte,556,1.0,True,MLB,primary
-2025,AZ,682998.0,Corbin Carroll,642,3.0,True,MLB,primary
-2025,BAL,683002.0,Gunnar Henderson,651,1.0,True,MLB,primary
-2025,BAL,676059.0,Jordan Westburg,352,2.0,False,MLB,primary
-2025,BAL,702616.0,Jackson Holliday,649,3.0,False,MLB,primary
-2025,BOS,663853.0,Romy Gonzalez,341,3.0,True,MLB,primary
-2025,BOS,701350.0,Roman Anthony,303,1.0,True,MLB,primary
-2025,BOS,608324.0,Alex Bregman,495,2.0,True,MLB,primary
+2025,BAL,683002.0,Gunnar Henderson,651,2.0,True,MLB,primary
+2025,BAL,676059.0,Jordan Westburg,352,3.0,False,MLB,primary
+2025,BOS,701350.0,Roman Anthony,303,2.0,True,MLB,primary
+2025,BOS,608324.0,Alex Bregman,495,3.0,True,MLB,primary
 2025,CHC,663656.0,Kyle Tucker,597,2.0,True,MLB,primary
 2025,CHC,683737.0,Michael Busch,592,1.0,True,MLB,primary
 2025,CHC,673548.0,Seiya Suzuki,651,3.0,True,MLB,primary
-2025,CIN,669720.0,Austin Hays,416,3.0,True,MLB,primary
+2025,CIN,669720.0,Austin Hays,416,3.0,False,MLB,primary
 2025,CIN,682829.0,Elly De La Cruz,699,2.0,True,MLB,primary
 2025,CIN,670770.0,TJ Friedl,685,1.0,True,MLB,primary
 2025,CLE,608070.0,José Ramírez,673,1.0,True,MLB,primary
@@ -2249,6 +2241,14 @@
 2025,NYM,624413.0,Pete Alonso,709,2.0,True,MLB,primary
 2025,NYM,596019.0,Francisco Lindor,732,3.0,True,MLB,primary
 2025,NYM,665742.0,Juan Soto,715,1.0,True,MLB,primary
+2024,CWS,657557.0,Paul DeJong,360,1.0,False,MLB,primary
+2024,TB,670623.0,Isaac Paredes,429,1.0,True,MLB,primary
+2024,WSH,608385.0,Jesse Winker,379,1.0,True,MLB,primary
+2025,AZ,553993.0,Eugenio Suárez,437,2.0,True,MLB,primary
+2025,BAL,656811.0,Ryan O'Hearn,361,1.0,True,MLB,primary
+2025,BOS,646240.0,Rafael Devers,334,1.0,True,MLB,primary
+2025,MIA,660821.0,Jesús Sánchez,337,2.0,True,MLB,primary
+2025,MIN,664056.0,Harrison Bader,303,2.0,True,MLB,primary
 2021,OAK,516782.0,Starling Marte,251,2.0,True,MLB,pool_pa200
 2021,OAK,643393.0,Tony Kemp,397,3.0,True,MLB,pool_pa200
 2021,OAK,621566.0,Matt Olson,673,1.0,True,MLB,pool_pa200
@@ -2537,9 +2537,8 @@
 2024,STL,671056.0,Iván Herrera,259,2.0,True,MLB,pool_pa200
 2024,STL,680977.0,Brendan Donovan,652,3.0,True,MLB,pool_pa200
 2024,STL,575929.0,Willson Contreras,358,1.0,True,MLB,pool_pa200
-2024,TB,642708.0,Amed Rosario,275,3.0,True,MLB,pool_pa200
-2024,TB,650490.0,Yandy Díaz,621,2.0,True,MLB,pool_pa200
-2024,TB,664040.0,Brandon Lowe,425,1.0,False,MLB,pool_pa200
+2024,TB,650490.0,Yandy Díaz,621,3.0,True,MLB,pool_pa200
+2024,TB,664040.0,Brandon Lowe,425,2.0,False,MLB,pool_pa200
 2024,TEX,608369.0,Corey Seager,533,1.0,True,MLB,pool_pa200
 2024,TEX,663993.0,Nathaniel Lowe,565,2.0,True,MLB,pool_pa200
 2024,TEX,669701.0,Josh Smith,592,3.0,True,MLB,pool_pa200
@@ -2555,9 +2554,7 @@
 2024,ATL,542303.0,Marcell Ozuna,688,1.0,True,MLB,pool_pa200
 2024,ATL,657656.0,Ramón Laureano,226,2.0,True,MLB,pool_pa200
 2024,ATL,621566.0,Matt Olson,685,3.0,True,MLB,pool_pa200
-2024,CWS,683734.0,Andrew Vaughn,619,1.0,False,MLB,pool_pa200
-2024,CWS,657757.0,Gavin Sheets,501,3.0,False,MLB,pool_pa200
-2024,CWS,643217.0,Andrew Benintendi,522,2.0,False,MLB,pool_pa200
+2024,CWS,683734.0,Andrew Vaughn,619,3.0,False,MLB,pool_pa200
 2024,MIA,669364.0,Xavier Edwards,303,1.0,True,MLB,pool_pa200
 2024,MIA,681146.0,Jonah Bride,272,2.0,True,MLB,pool_pa200
 2024,MIA,669394.0,Jake Burger,579,3.0,False,MLB,pool_pa200
@@ -2603,9 +2600,8 @@
 2024,LAD,660271.0,Shohei Ohtani,731,1.0,True,MLB,pool_pa200
 2024,LAD,605141.0,Mookie Betts,516,2.0,True,MLB,pool_pa200
 2024,LAD,518692.0,Freddie Freeman,638,3.0,True,MLB,pool_pa200
-2024,WSH,660766.0,Juan Yepez,249,2.0,True,MLB,pool_pa200
-2024,WSH,671277.0,Luis García Jr.,528,3.0,True,MLB,pool_pa200
-2024,WSH,695578.0,James Wood,336,1.0,True,MLB,pool_pa200
+2024,WSH,660766.0,Juan Yepez,249,3.0,True,MLB,pool_pa200
+2024,WSH,695578.0,James Wood,336,2.0,True,MLB,pool_pa200
 2024,NYM,578428.0,Jose Iglesias,291,2.0,True,MLB,pool_pa200
 2024,NYM,596019.0,Francisco Lindor,689,1.0,True,MLB,pool_pa200
 2024,NYM,668901.0,Mark Vientos,454,3.0,True,MLB,pool_pa200
@@ -2637,7 +2633,6 @@
 2025,TOR,543807.0,George Springer,586,1.0,True,MLB,pool_pa200
 2025,TOR,665489.0,Vladimir Guerrero Jr.,680,2.0,True,MLB,pool_pa200
 2025,MIN,807712.0,Luke Keaschall,207,1.0,True,MLB,pool_pa200
-2025,MIN,680777.0,Ryan Jeffers,464,3.0,True,MLB,pool_pa200
 2025,MIN,621439.0,Byron Buxton,542,2.0,True,MLB,pool_pa200
 2025,PHI,607208.0,Trea Turner,639,3.0,True,MLB,pool_pa200
 2025,PHI,547180.0,Bryce Harper,580,2.0,True,MLB,pool_pa200
@@ -2660,19 +2655,15 @@
 2025,LAA,660162.0,Yoán Moncada,289,2.0,True,MLB,pool_pa200
 2025,LAA,545361.0,Mike Trout,556,1.0,True,MLB,pool_pa200
 2025,LAA,621493.0,Taylor Ward,663,3.0,True,MLB,pool_pa200
-2025,AZ,672695.0,Geraldo Perdomo,720,2.0,True,MLB,pool_pa200
+2025,AZ,672695.0,Geraldo Perdomo,720,3.0,True,MLB,pool_pa200
 2025,AZ,606466.0,Ketel Marte,556,1.0,True,MLB,pool_pa200
-2025,AZ,682998.0,Corbin Carroll,642,3.0,True,MLB,pool_pa200
-2025,BAL,683002.0,Gunnar Henderson,651,1.0,True,MLB,pool_pa200
-2025,BAL,676059.0,Jordan Westburg,352,2.0,False,MLB,pool_pa200
-2025,BAL,702616.0,Jackson Holliday,649,3.0,False,MLB,pool_pa200
-2025,BOS,701350.0,Roman Anthony,303,1.0,True,MLB,pool_pa200
-2025,BOS,608324.0,Alex Bregman,495,3.0,True,MLB,pool_pa200
-2025,BOS,608701.0,Rob Refsnyder,209,2.0,True,MLB,pool_pa200
+2025,BAL,683002.0,Gunnar Henderson,651,3.0,True,MLB,pool_pa200
+2025,BOS,701350.0,Roman Anthony,303,2.0,True,MLB,pool_pa200
+2025,BOS,608701.0,Rob Refsnyder,209,3.0,True,MLB,pool_pa200
 2025,CHC,663656.0,Kyle Tucker,597,2.0,True,MLB,pool_pa200
 2025,CHC,683737.0,Michael Busch,592,1.0,True,MLB,pool_pa200
 2025,CHC,673548.0,Seiya Suzuki,651,3.0,True,MLB,pool_pa200
-2025,CIN,669720.0,Austin Hays,416,3.0,True,MLB,pool_pa200
+2025,CIN,669720.0,Austin Hays,416,3.0,False,MLB,pool_pa200
 2025,CIN,682829.0,Elly De La Cruz,699,2.0,True,MLB,pool_pa200
 2025,CIN,670770.0,TJ Friedl,685,1.0,True,MLB,pool_pa200
 2025,CLE,608070.0,José Ramírez,673,1.0,True,MLB,pool_pa200
@@ -2699,6 +2690,15 @@
 2025,NYM,624413.0,Pete Alonso,709,2.0,True,MLB,pool_pa200
 2025,NYM,596019.0,Francisco Lindor,732,3.0,True,MLB,pool_pa200
 2025,NYM,665742.0,Juan Soto,715,1.0,True,MLB,pool_pa200
+2024,CWS,502054.0,Tommy Pham,297,1.0,True,MLB,pool_pa200
+2024,CWS,657557.0,Paul DeJong,360,2.0,False,MLB,pool_pa200
+2024,TB,670623.0,Isaac Paredes,429,1.0,True,MLB,pool_pa200
+2024,WSH,608385.0,Jesse Winker,379,1.0,True,MLB,pool_pa200
+2025,AZ,553993.0,Eugenio Suárez,437,2.0,True,MLB,pool_pa200
+2025,BAL,656811.0,Ryan O'Hearn,361,2.0,True,MLB,pool_pa200
+2025,BAL,657656.0,Ramón Laureano,290,1.0,True,MLB,pool_pa200
+2025,BOS,646240.0,Rafael Devers,334,1.0,True,MLB,pool_pa200
+2025,MIN,664056.0,Harrison Bader,303,3.0,True,MLB,pool_pa200
 2021,OAK,621566.0,Matt Olson,673,1.0,True,MLB,pool_pa400
 2021,OAK,592192.0,Mark Canha,625,2.0,True,MLB,pool_pa400
 2021,OAK,656305.0,Matt Chapman,622,3.0,False,MLB,pool_pa400
@@ -2979,16 +2979,15 @@
 2024,SD,665487.0,Fernando Tatis Jr.,438,2.0,True,MLB,pool_pa400
 2024,SEA,677594.0,Julio Rodríguez,613,3.0,True,MLB,pool_pa400
 2024,SEA,670042.0,Luke Raley,455,1.0,True,MLB,pool_pa400
-2024,SEA,663728.0,Cal Raleigh,628,2.0,True,MLB,pool_pa400
+2024,SEA,663728.0,Cal Raleigh,628,2.0,False,MLB,pool_pa400
 2024,SF,671218.0,Heliot Ramos,518,3.0,True,MLB,pool_pa400
 2024,SF,664774.0,LaMonte Wade Jr.,401,2.0,True,MLB,pool_pa400
 2024,SF,656305.0,Matt Chapman,647,1.0,True,MLB,pool_pa400
 2024,STL,680977.0,Brendan Donovan,652,1.0,True,MLB,pool_pa400
 2024,STL,676475.0,Alec Burleson,595,3.0,True,MLB,pool_pa400
 2024,STL,663457.0,Lars Nootbaar,405,2.0,True,MLB,pool_pa400
-2024,TB,650490.0,Yandy Díaz,621,2.0,True,MLB,pool_pa400
-2024,TB,664040.0,Brandon Lowe,425,1.0,False,MLB,pool_pa400
-2024,TB,676609.0,José Caballero,483,3.0,False,MLB,pool_pa400
+2024,TB,650490.0,Yandy Díaz,621,3.0,True,MLB,pool_pa400
+2024,TB,664040.0,Brandon Lowe,425,2.0,False,MLB,pool_pa400
 2024,TEX,608369.0,Corey Seager,533,1.0,True,MLB,pool_pa400
 2024,TEX,663993.0,Nathaniel Lowe,565,2.0,True,MLB,pool_pa400
 2024,TEX,669701.0,Josh Smith,592,3.0,True,MLB,pool_pa400
@@ -3009,7 +3008,6 @@
 2024,CWS,643217.0,Andrew Benintendi,522,2.0,False,MLB,pool_pa400
 2024,MIA,660821.0,Jesús Sánchez,537,2.0,True,MLB,pool_pa400
 2024,MIA,669394.0,Jake Burger,579,1.0,False,MLB,pool_pa400
-2024,MIA,605137.0,Josh Bell,441,3.0,False,MLB,pool_pa400
 2024,NYY,592450.0,Aaron Judge,704,1.0,True,MLB,pool_pa400
 2024,NYY,665742.0,Juan Soto,713,2.0,True,MLB,pool_pa400
 2024,NYY,519317.0,Giancarlo Stanton,459,3.0,False,MLB,pool_pa400
@@ -3109,9 +3107,8 @@
 2025,LAA,687263.0,Zach Neto,554,3.0,True,MLB,pool_pa400
 2025,LAA,545361.0,Mike Trout,556,1.0,True,MLB,pool_pa400
 2025,LAA,621493.0,Taylor Ward,663,2.0,True,MLB,pool_pa400
-2025,AZ,672695.0,Geraldo Perdomo,720,2.0,True,MLB,pool_pa400
+2025,AZ,672695.0,Geraldo Perdomo,720,3.0,True,MLB,pool_pa400
 2025,AZ,606466.0,Ketel Marte,556,1.0,True,MLB,pool_pa400
-2025,AZ,682998.0,Corbin Carroll,642,3.0,True,MLB,pool_pa400
 2025,BAL,683002.0,Gunnar Henderson,651,1.0,True,MLB,pool_pa400
 2025,BAL,702616.0,Jackson Holliday,649,2.0,False,MLB,pool_pa400
 2025,BOS,608324.0,Alex Bregman,495,1.0,True,MLB,pool_pa400
@@ -3120,7 +3117,7 @@
 2025,CHC,663656.0,Kyle Tucker,597,2.0,True,MLB,pool_pa400
 2025,CHC,683737.0,Michael Busch,592,1.0,True,MLB,pool_pa400
 2025,CHC,673548.0,Seiya Suzuki,651,3.0,True,MLB,pool_pa400
-2025,CIN,669720.0,Austin Hays,416,3.0,True,MLB,pool_pa400
+2025,CIN,669720.0,Austin Hays,416,3.0,False,MLB,pool_pa400
 2025,CIN,682829.0,Elly De La Cruz,699,2.0,True,MLB,pool_pa400
 2025,CIN,670770.0,TJ Friedl,685,1.0,True,MLB,pool_pa400
 2025,CLE,608070.0,José Ramírez,673,1.0,True,MLB,pool_pa400
@@ -3147,6 +3144,9 @@
 2025,NYM,624413.0,Pete Alonso,709,2.0,True,MLB,pool_pa400
 2025,NYM,596019.0,Francisco Lindor,732,3.0,True,MLB,pool_pa400
 2025,NYM,665742.0,Juan Soto,715,1.0,True,MLB,pool_pa400
+2024,MIA,665862.0,Jazz Chisholm Jr.,430,3.0,True,MLB,pool_pa400
+2024,TB,670623.0,Isaac Paredes,429,1.0,True,MLB,pool_pa400
+2025,AZ,553993.0,Eugenio Suárez,437,2.0,True,MLB,pool_pa400
 2021,OAK,643393.0,Tony Kemp,397,2.0,True,MLB,obp_pool_top50
 2021,OAK,621566.0,Matt Olson,673,1.0,True,MLB,obp_pool_top50
 2021,OAK,592192.0,Mark Canha,625,3.0,True,MLB,obp_pool_top50
@@ -3435,9 +3435,8 @@
 2024,STL,680977.0,Brendan Donovan,652,2.0,True,MLB,obp_pool_top50
 2024,STL,575929.0,Willson Contreras,358,1.0,True,MLB,obp_pool_top50
 2024,STL,663457.0,Lars Nootbaar,405,3.0,True,MLB,obp_pool_top50
-2024,TB,650490.0,Yandy Díaz,621,2.0,True,MLB,obp_pool_top50
-2024,TB,664040.0,Brandon Lowe,425,1.0,False,MLB,obp_pool_top50
-2024,TB,680700.0,Richie Palacios,316,3.0,True,MLB,obp_pool_top50
+2024,TB,650490.0,Yandy Díaz,621,3.0,True,MLB,obp_pool_top50
+2024,TB,664040.0,Brandon Lowe,425,2.0,False,MLB,obp_pool_top50
 2024,TEX,608369.0,Corey Seager,533,1.0,True,MLB,obp_pool_top50
 2024,TEX,663993.0,Nathaniel Lowe,565,2.0,True,MLB,obp_pool_top50
 2024,TEX,669701.0,Josh Smith,592,3.0,True,MLB,obp_pool_top50
@@ -3453,9 +3452,8 @@
 2024,ATL,542303.0,Marcell Ozuna,688,1.0,True,MLB,obp_pool_top50
 2024,ATL,663586.0,Austin Riley,469,3.0,True,MLB,obp_pool_top50
 2024,ATL,621566.0,Matt Olson,685,2.0,True,MLB,obp_pool_top50
-2024,CWS,683734.0,Andrew Vaughn,619,1.0,False,MLB,obp_pool_top50
-2024,CWS,657757.0,Gavin Sheets,501,3.0,False,MLB,obp_pool_top50
-2024,CWS,643217.0,Andrew Benintendi,522,2.0,False,MLB,obp_pool_top50
+2024,CWS,683734.0,Andrew Vaughn,619,2.0,False,MLB,obp_pool_top50
+2024,CWS,643217.0,Andrew Benintendi,522,3.0,False,MLB,obp_pool_top50
 2024,MIA,669364.0,Xavier Edwards,303,1.0,True,MLB,obp_pool_top50
 2024,MIA,660821.0,Jesús Sánchez,537,3.0,False,MLB,obp_pool_top50
 2024,MIA,669394.0,Jake Burger,579,2.0,False,MLB,obp_pool_top50
@@ -3501,9 +3499,8 @@
 2024,LAD,660271.0,Shohei Ohtani,731,1.0,True,MLB,obp_pool_top50
 2024,LAD,605141.0,Mookie Betts,516,2.0,True,MLB,obp_pool_top50
 2024,LAD,518692.0,Freddie Freeman,638,3.0,True,MLB,obp_pool_top50
-2024,WSH,671277.0,Luis García Jr.,528,2.0,True,MLB,obp_pool_top50
-2024,WSH,695578.0,James Wood,336,1.0,True,MLB,obp_pool_top50
-2024,WSH,657041.0,Lane Thomas,341,3.0,True,MLB,obp_pool_top50
+2024,WSH,671277.0,Luis García Jr.,528,3.0,True,MLB,obp_pool_top50
+2024,WSH,695578.0,James Wood,336,2.0,True,MLB,obp_pool_top50
 2024,NYM,596019.0,Francisco Lindor,689,1.0,True,MLB,obp_pool_top50
 2024,NYM,668901.0,Mark Vientos,454,2.0,True,MLB,obp_pool_top50
 2024,NYM,624413.0,Pete Alonso,695,3.0,True,MLB,obp_pool_top50
@@ -3534,9 +3531,8 @@
 2025,TOR,666182.0,Bo Bichette,628,3.0,True,MLB,obp_pool_top50
 2025,TOR,543807.0,George Springer,586,1.0,True,MLB,obp_pool_top50
 2025,TOR,665489.0,Vladimir Guerrero Jr.,680,2.0,True,MLB,obp_pool_top50
-2025,MIN,680777.0,Ryan Jeffers,464,2.0,True,MLB,obp_pool_top50
+2025,MIN,680777.0,Ryan Jeffers,464,3.0,True,MLB,obp_pool_top50
 2025,MIN,621439.0,Byron Buxton,542,1.0,True,MLB,obp_pool_top50
-2025,MIN,670242.0,Matt Wallner,392,3.0,False,MLB,obp_pool_top50
 2025,PHI,607208.0,Trea Turner,639,3.0,True,MLB,obp_pool_top50
 2025,PHI,547180.0,Bryce Harper,580,2.0,True,MLB,obp_pool_top50
 2025,PHI,656941.0,Kyle Schwarber,724,1.0,True,MLB,obp_pool_top50
@@ -3547,26 +3543,22 @@
 2025,CWS,643217.0,Andrew Benintendi,470,2.0,False,MLB,obp_pool_top50
 2025,CWS,678246.0,Miguel Vargas,569,3.0,False,MLB,obp_pool_top50
 2025,MIA,669065.0,Kyle Stowers,457,1.0,True,MLB,obp_pool_top50
-2025,MIA,669364.0,Xavier Edwards,619,3.0,True,MLB,obp_pool_top50
-2025,MIA,689414.0,Liam Hicks,390,2.0,True,MLB,obp_pool_top50
+2025,MIA,689414.0,Liam Hicks,390,3.0,True,MLB,obp_pool_top50
 2025,NYY,592450.0,Aaron Judge,679,1.0,True,MLB,obp_pool_top50
 2025,NYY,700250.0,Ben Rice,530,2.0,True,MLB,obp_pool_top50
 2025,NYY,663757.0,Trent Grisham,581,3.0,True,MLB,obp_pool_top50
 2025,MIL,668930.0,Brice Turang,659,1.0,True,MLB,obp_pool_top50
 2025,MIL,592885.0,Christian Yelich,644,3.0,True,MLB,obp_pool_top50
 2025,MIL,686555.0,Isaac Collins,441,2.0,True,MLB,obp_pool_top50
-2025,LAA,687263.0,Zach Neto,554,3.0,True,MLB,obp_pool_top50
+2025,LAA,687263.0,Zach Neto,554,3.0,False,MLB,obp_pool_top50
 2025,LAA,545361.0,Mike Trout,556,1.0,True,MLB,obp_pool_top50
 2025,LAA,621493.0,Taylor Ward,663,2.0,False,MLB,obp_pool_top50
-2025,AZ,672695.0,Geraldo Perdomo,720,2.0,True,MLB,obp_pool_top50
+2025,AZ,672695.0,Geraldo Perdomo,720,3.0,True,MLB,obp_pool_top50
 2025,AZ,606466.0,Ketel Marte,556,1.0,True,MLB,obp_pool_top50
-2025,AZ,682998.0,Corbin Carroll,642,3.0,True,MLB,obp_pool_top50
-2025,BAL,683002.0,Gunnar Henderson,651,1.0,True,MLB,obp_pool_top50
-2025,BAL,676059.0,Jordan Westburg,352,2.0,False,MLB,obp_pool_top50
-2025,BAL,702616.0,Jackson Holliday,649,3.0,False,MLB,obp_pool_top50
-2025,BOS,663853.0,Romy Gonzalez,341,3.0,True,MLB,obp_pool_top50
-2025,BOS,701350.0,Roman Anthony,303,1.0,True,MLB,obp_pool_top50
-2025,BOS,608324.0,Alex Bregman,495,2.0,True,MLB,obp_pool_top50
+2025,BAL,683002.0,Gunnar Henderson,651,2.0,True,MLB,obp_pool_top50
+2025,BAL,676059.0,Jordan Westburg,352,3.0,False,MLB,obp_pool_top50
+2025,BOS,701350.0,Roman Anthony,303,2.0,True,MLB,obp_pool_top50
+2025,BOS,608324.0,Alex Bregman,495,3.0,True,MLB,obp_pool_top50
 2025,CHC,663656.0,Kyle Tucker,597,2.0,True,MLB,obp_pool_top50
 2025,CHC,683737.0,Michael Busch,592,1.0,True,MLB,obp_pool_top50
 2025,CHC,673548.0,Seiya Suzuki,651,3.0,True,MLB,obp_pool_top50
@@ -3597,6 +3589,14 @@
 2025,NYM,624413.0,Pete Alonso,709,2.0,True,MLB,obp_pool_top50
 2025,NYM,596019.0,Francisco Lindor,732,3.0,True,MLB,obp_pool_top50
 2025,NYM,665742.0,Juan Soto,715,1.0,True,MLB,obp_pool_top50
+2024,CWS,657557.0,Paul DeJong,360,1.0,False,MLB,obp_pool_top50
+2024,TB,670623.0,Isaac Paredes,429,1.0,True,MLB,obp_pool_top50
+2024,WSH,608385.0,Jesse Winker,379,1.0,True,MLB,obp_pool_top50
+2025,AZ,553993.0,Eugenio Suárez,437,2.0,False,MLB,obp_pool_top50
+2025,BAL,656811.0,Ryan O'Hearn,361,1.0,True,MLB,obp_pool_top50
+2025,BOS,646240.0,Rafael Devers,334,1.0,True,MLB,obp_pool_top50
+2025,MIA,660821.0,Jesús Sánchez,337,2.0,True,MLB,obp_pool_top50
+2025,MIN,664056.0,Harrison Bader,303,2.0,True,MLB,obp_pool_top50
 2021,OAK,643393.0,Tony Kemp,397,2.0,True,MLB,obp_pool_top40
 2021,OAK,621566.0,Matt Olson,673,1.0,True,MLB,obp_pool_top40
 2021,OAK,592192.0,Mark Canha,625,3.0,True,MLB,obp_pool_top40
@@ -3885,9 +3885,8 @@
 2024,STL,680977.0,Brendan Donovan,652,2.0,True,MLB,obp_pool_top40
 2024,STL,575929.0,Willson Contreras,358,1.0,True,MLB,obp_pool_top40
 2024,STL,663457.0,Lars Nootbaar,405,3.0,True,MLB,obp_pool_top40
-2024,TB,650490.0,Yandy Díaz,621,2.0,True,MLB,obp_pool_top40
-2024,TB,664040.0,Brandon Lowe,425,1.0,False,MLB,obp_pool_top40
-2024,TB,680700.0,Richie Palacios,316,3.0,True,MLB,obp_pool_top40
+2024,TB,650490.0,Yandy Díaz,621,3.0,True,MLB,obp_pool_top40
+2024,TB,664040.0,Brandon Lowe,425,2.0,False,MLB,obp_pool_top40
 2024,TEX,608369.0,Corey Seager,533,1.0,True,MLB,obp_pool_top40
 2024,TEX,663993.0,Nathaniel Lowe,565,2.0,True,MLB,obp_pool_top40
 2024,TEX,669701.0,Josh Smith,592,3.0,True,MLB,obp_pool_top40
@@ -3903,9 +3902,8 @@
 2024,ATL,542303.0,Marcell Ozuna,688,1.0,True,MLB,obp_pool_top40
 2024,ATL,663586.0,Austin Riley,469,3.0,False,MLB,obp_pool_top40
 2024,ATL,621566.0,Matt Olson,685,2.0,True,MLB,obp_pool_top40
-2024,CWS,683734.0,Andrew Vaughn,619,1.0,False,MLB,obp_pool_top40
-2024,CWS,657757.0,Gavin Sheets,501,3.0,False,MLB,obp_pool_top40
-2024,CWS,643217.0,Andrew Benintendi,522,2.0,False,MLB,obp_pool_top40
+2024,CWS,683734.0,Andrew Vaughn,619,2.0,False,MLB,obp_pool_top40
+2024,CWS,643217.0,Andrew Benintendi,522,3.0,False,MLB,obp_pool_top40
 2024,MIA,669364.0,Xavier Edwards,303,1.0,True,MLB,obp_pool_top40
 2024,MIA,660821.0,Jesús Sánchez,537,3.0,False,MLB,obp_pool_top40
 2024,MIA,669394.0,Jake Burger,579,2.0,False,MLB,obp_pool_top40
@@ -3951,9 +3949,8 @@
 2024,LAD,660271.0,Shohei Ohtani,731,1.0,True,MLB,obp_pool_top40
 2024,LAD,605141.0,Mookie Betts,516,2.0,True,MLB,obp_pool_top40
 2024,LAD,518692.0,Freddie Freeman,638,3.0,True,MLB,obp_pool_top40
-2024,WSH,671277.0,Luis García Jr.,528,2.0,False,MLB,obp_pool_top40
-2024,WSH,695578.0,James Wood,336,1.0,True,MLB,obp_pool_top40
-2024,WSH,657041.0,Lane Thomas,341,3.0,True,MLB,obp_pool_top40
+2024,WSH,671277.0,Luis García Jr.,528,3.0,False,MLB,obp_pool_top40
+2024,WSH,695578.0,James Wood,336,2.0,True,MLB,obp_pool_top40
 2024,NYM,596019.0,Francisco Lindor,689,1.0,True,MLB,obp_pool_top40
 2024,NYM,668901.0,Mark Vientos,454,2.0,False,MLB,obp_pool_top40
 2024,NYM,624413.0,Pete Alonso,695,3.0,True,MLB,obp_pool_top40
@@ -3984,9 +3981,8 @@
 2025,TOR,666182.0,Bo Bichette,628,3.0,True,MLB,obp_pool_top40
 2025,TOR,543807.0,George Springer,586,1.0,True,MLB,obp_pool_top40
 2025,TOR,665489.0,Vladimir Guerrero Jr.,680,2.0,True,MLB,obp_pool_top40
-2025,MIN,680777.0,Ryan Jeffers,464,2.0,True,MLB,obp_pool_top40
+2025,MIN,680777.0,Ryan Jeffers,464,3.0,True,MLB,obp_pool_top40
 2025,MIN,621439.0,Byron Buxton,542,1.0,False,MLB,obp_pool_top40
-2025,MIN,670242.0,Matt Wallner,392,3.0,False,MLB,obp_pool_top40
 2025,PHI,607208.0,Trea Turner,639,3.0,True,MLB,obp_pool_top40
 2025,PHI,547180.0,Bryce Harper,580,2.0,True,MLB,obp_pool_top40
 2025,PHI,656941.0,Kyle Schwarber,724,1.0,True,MLB,obp_pool_top40
@@ -3997,8 +3993,7 @@
 2025,CWS,643217.0,Andrew Benintendi,470,2.0,False,MLB,obp_pool_top40
 2025,CWS,678246.0,Miguel Vargas,569,3.0,False,MLB,obp_pool_top40
 2025,MIA,669065.0,Kyle Stowers,457,1.0,True,MLB,obp_pool_top40
-2025,MIA,669364.0,Xavier Edwards,619,3.0,True,MLB,obp_pool_top40
-2025,MIA,689414.0,Liam Hicks,390,2.0,True,MLB,obp_pool_top40
+2025,MIA,689414.0,Liam Hicks,390,3.0,True,MLB,obp_pool_top40
 2025,NYY,592450.0,Aaron Judge,679,1.0,True,MLB,obp_pool_top40
 2025,NYY,700250.0,Ben Rice,530,2.0,True,MLB,obp_pool_top40
 2025,NYY,663757.0,Trent Grisham,581,3.0,True,MLB,obp_pool_top40
@@ -4008,15 +4003,12 @@
 2025,LAA,687263.0,Zach Neto,554,3.0,False,MLB,obp_pool_top40
 2025,LAA,545361.0,Mike Trout,556,1.0,True,MLB,obp_pool_top40
 2025,LAA,621493.0,Taylor Ward,663,2.0,False,MLB,obp_pool_top40
-2025,AZ,672695.0,Geraldo Perdomo,720,2.0,True,MLB,obp_pool_top40
+2025,AZ,672695.0,Geraldo Perdomo,720,3.0,True,MLB,obp_pool_top40
 2025,AZ,606466.0,Ketel Marte,556,1.0,True,MLB,obp_pool_top40
-2025,AZ,682998.0,Corbin Carroll,642,3.0,True,MLB,obp_pool_top40
-2025,BAL,683002.0,Gunnar Henderson,651,1.0,True,MLB,obp_pool_top40
-2025,BAL,676059.0,Jordan Westburg,352,2.0,False,MLB,obp_pool_top40
-2025,BAL,702616.0,Jackson Holliday,649,3.0,False,MLB,obp_pool_top40
-2025,BOS,663853.0,Romy Gonzalez,341,3.0,True,MLB,obp_pool_top40
-2025,BOS,701350.0,Roman Anthony,303,1.0,True,MLB,obp_pool_top40
-2025,BOS,608324.0,Alex Bregman,495,2.0,True,MLB,obp_pool_top40
+2025,BAL,683002.0,Gunnar Henderson,651,2.0,True,MLB,obp_pool_top40
+2025,BAL,676059.0,Jordan Westburg,352,3.0,False,MLB,obp_pool_top40
+2025,BOS,701350.0,Roman Anthony,303,2.0,True,MLB,obp_pool_top40
+2025,BOS,608324.0,Alex Bregman,495,3.0,True,MLB,obp_pool_top40
 2025,CHC,663656.0,Kyle Tucker,597,2.0,True,MLB,obp_pool_top40
 2025,CHC,683737.0,Michael Busch,592,1.0,True,MLB,obp_pool_top40
 2025,CHC,673548.0,Seiya Suzuki,651,3.0,False,MLB,obp_pool_top40
@@ -4033,7 +4025,7 @@
 2025,DET,650402.0,Gleyber Torres,628,3.0,True,MLB,obp_pool_top40
 2025,DET,679529.0,Spencer Torkelson,649,2.0,True,MLB,obp_pool_top40
 2025,HOU,665161.0,Jeremy Peña,543,1.0,True,MLB,obp_pool_top40
-2025,HOU,514888.0,Jose Altuve,654,3.0,False,MLB,obp_pool_top40
+2025,HOU,514888.0,Jose Altuve,654,3.0,True,MLB,obp_pool_top40
 2025,HOU,670623.0,Isaac Paredes,438,2.0,True,MLB,obp_pool_top40
 2025,KC,677951.0,Bobby Witt Jr.,687,1.0,True,MLB,obp_pool_top40
 2025,KC,672580.0,Maikel Garcia,666,2.0,True,MLB,obp_pool_top40
@@ -4047,6 +4039,14 @@
 2025,NYM,624413.0,Pete Alonso,709,2.0,True,MLB,obp_pool_top40
 2025,NYM,596019.0,Francisco Lindor,732,3.0,True,MLB,obp_pool_top40
 2025,NYM,665742.0,Juan Soto,715,1.0,True,MLB,obp_pool_top40
+2024,CWS,657557.0,Paul DeJong,360,1.0,False,MLB,obp_pool_top40
+2024,TB,670623.0,Isaac Paredes,429,1.0,True,MLB,obp_pool_top40
+2024,WSH,608385.0,Jesse Winker,379,1.0,True,MLB,obp_pool_top40
+2025,AZ,553993.0,Eugenio Suárez,437,2.0,False,MLB,obp_pool_top40
+2025,BAL,656811.0,Ryan O'Hearn,361,1.0,True,MLB,obp_pool_top40
+2025,BOS,646240.0,Rafael Devers,334,1.0,True,MLB,obp_pool_top40
+2025,MIA,660821.0,Jesús Sánchez,337,2.0,False,MLB,obp_pool_top40
+2025,MIN,664056.0,Harrison Bader,303,2.0,True,MLB,obp_pool_top40
 2021,OAK,643393.0,Tony Kemp,397,2.0,True,MLB,obp_pool_top33
 2021,OAK,621566.0,Matt Olson,673,1.0,True,MLB,obp_pool_top33
 2021,OAK,592192.0,Mark Canha,625,3.0,True,MLB,obp_pool_top33
@@ -4335,9 +4335,8 @@
 2024,STL,680977.0,Brendan Donovan,652,2.0,True,MLB,obp_pool_top33
 2024,STL,575929.0,Willson Contreras,358,1.0,True,MLB,obp_pool_top33
 2024,STL,663457.0,Lars Nootbaar,405,3.0,True,MLB,obp_pool_top33
-2024,TB,650490.0,Yandy Díaz,621,2.0,True,MLB,obp_pool_top33
-2024,TB,664040.0,Brandon Lowe,425,1.0,False,MLB,obp_pool_top33
-2024,TB,680700.0,Richie Palacios,316,3.0,True,MLB,obp_pool_top33
+2024,TB,650490.0,Yandy Díaz,621,3.0,True,MLB,obp_pool_top33
+2024,TB,664040.0,Brandon Lowe,425,2.0,False,MLB,obp_pool_top33
 2024,TEX,608369.0,Corey Seager,533,1.0,True,MLB,obp_pool_top33
 2024,TEX,663993.0,Nathaniel Lowe,565,2.0,True,MLB,obp_pool_top33
 2024,TEX,669701.0,Josh Smith,592,3.0,True,MLB,obp_pool_top33
@@ -4353,9 +4352,8 @@
 2024,ATL,542303.0,Marcell Ozuna,688,1.0,True,MLB,obp_pool_top33
 2024,ATL,663586.0,Austin Riley,469,3.0,False,MLB,obp_pool_top33
 2024,ATL,621566.0,Matt Olson,685,2.0,True,MLB,obp_pool_top33
-2024,CWS,683734.0,Andrew Vaughn,619,1.0,False,MLB,obp_pool_top33
-2024,CWS,657757.0,Gavin Sheets,501,3.0,False,MLB,obp_pool_top33
-2024,CWS,643217.0,Andrew Benintendi,522,2.0,False,MLB,obp_pool_top33
+2024,CWS,683734.0,Andrew Vaughn,619,2.0,False,MLB,obp_pool_top33
+2024,CWS,643217.0,Andrew Benintendi,522,3.0,False,MLB,obp_pool_top33
 2024,MIA,669364.0,Xavier Edwards,303,1.0,True,MLB,obp_pool_top33
 2024,MIA,660821.0,Jesús Sánchez,537,3.0,False,MLB,obp_pool_top33
 2024,MIA,669394.0,Jake Burger,579,2.0,False,MLB,obp_pool_top33
@@ -4401,9 +4399,8 @@
 2024,LAD,660271.0,Shohei Ohtani,731,1.0,True,MLB,obp_pool_top33
 2024,LAD,605141.0,Mookie Betts,516,2.0,True,MLB,obp_pool_top33
 2024,LAD,518692.0,Freddie Freeman,638,3.0,True,MLB,obp_pool_top33
-2024,WSH,671277.0,Luis García Jr.,528,2.0,False,MLB,obp_pool_top33
-2024,WSH,695578.0,James Wood,336,1.0,True,MLB,obp_pool_top33
-2024,WSH,657041.0,Lane Thomas,341,3.0,True,MLB,obp_pool_top33
+2024,WSH,671277.0,Luis García Jr.,528,3.0,False,MLB,obp_pool_top33
+2024,WSH,695578.0,James Wood,336,2.0,True,MLB,obp_pool_top33
 2024,NYM,596019.0,Francisco Lindor,689,1.0,True,MLB,obp_pool_top33
 2024,NYM,668901.0,Mark Vientos,454,2.0,False,MLB,obp_pool_top33
 2024,NYM,624413.0,Pete Alonso,695,3.0,True,MLB,obp_pool_top33
@@ -4434,9 +4431,8 @@
 2025,TOR,666182.0,Bo Bichette,628,3.0,True,MLB,obp_pool_top33
 2025,TOR,543807.0,George Springer,586,1.0,True,MLB,obp_pool_top33
 2025,TOR,665489.0,Vladimir Guerrero Jr.,680,2.0,True,MLB,obp_pool_top33
-2025,MIN,680777.0,Ryan Jeffers,464,2.0,True,MLB,obp_pool_top33
+2025,MIN,680777.0,Ryan Jeffers,464,3.0,True,MLB,obp_pool_top33
 2025,MIN,621439.0,Byron Buxton,542,1.0,False,MLB,obp_pool_top33
-2025,MIN,670242.0,Matt Wallner,392,3.0,False,MLB,obp_pool_top33
 2025,PHI,607208.0,Trea Turner,639,3.0,True,MLB,obp_pool_top33
 2025,PHI,547180.0,Bryce Harper,580,2.0,True,MLB,obp_pool_top33
 2025,PHI,656941.0,Kyle Schwarber,724,1.0,True,MLB,obp_pool_top33
@@ -4447,8 +4443,7 @@
 2025,CWS,643217.0,Andrew Benintendi,470,2.0,False,MLB,obp_pool_top33
 2025,CWS,678246.0,Miguel Vargas,569,3.0,False,MLB,obp_pool_top33
 2025,MIA,669065.0,Kyle Stowers,457,1.0,True,MLB,obp_pool_top33
-2025,MIA,669364.0,Xavier Edwards,619,3.0,True,MLB,obp_pool_top33
-2025,MIA,689414.0,Liam Hicks,390,2.0,True,MLB,obp_pool_top33
+2025,MIA,689414.0,Liam Hicks,390,3.0,True,MLB,obp_pool_top33
 2025,NYY,592450.0,Aaron Judge,679,1.0,True,MLB,obp_pool_top33
 2025,NYY,700250.0,Ben Rice,530,2.0,True,MLB,obp_pool_top33
 2025,NYY,663757.0,Trent Grisham,581,3.0,True,MLB,obp_pool_top33
@@ -4458,15 +4453,12 @@
 2025,LAA,687263.0,Zach Neto,554,3.0,False,MLB,obp_pool_top33
 2025,LAA,545361.0,Mike Trout,556,1.0,True,MLB,obp_pool_top33
 2025,LAA,621493.0,Taylor Ward,663,2.0,False,MLB,obp_pool_top33
-2025,AZ,672695.0,Geraldo Perdomo,720,2.0,True,MLB,obp_pool_top33
+2025,AZ,672695.0,Geraldo Perdomo,720,3.0,True,MLB,obp_pool_top33
 2025,AZ,606466.0,Ketel Marte,556,1.0,True,MLB,obp_pool_top33
-2025,AZ,682998.0,Corbin Carroll,642,3.0,True,MLB,obp_pool_top33
-2025,BAL,683002.0,Gunnar Henderson,651,1.0,True,MLB,obp_pool_top33
-2025,BAL,676059.0,Jordan Westburg,352,2.0,False,MLB,obp_pool_top33
-2025,BAL,702616.0,Jackson Holliday,649,3.0,False,MLB,obp_pool_top33
-2025,BOS,663853.0,Romy Gonzalez,341,3.0,True,MLB,obp_pool_top33
-2025,BOS,701350.0,Roman Anthony,303,1.0,True,MLB,obp_pool_top33
-2025,BOS,608324.0,Alex Bregman,495,2.0,True,MLB,obp_pool_top33
+2025,BAL,683002.0,Gunnar Henderson,651,2.0,True,MLB,obp_pool_top33
+2025,BAL,676059.0,Jordan Westburg,352,3.0,False,MLB,obp_pool_top33
+2025,BOS,701350.0,Roman Anthony,303,2.0,True,MLB,obp_pool_top33
+2025,BOS,608324.0,Alex Bregman,495,3.0,True,MLB,obp_pool_top33
 2025,CHC,663656.0,Kyle Tucker,597,2.0,True,MLB,obp_pool_top33
 2025,CHC,683737.0,Michael Busch,592,1.0,True,MLB,obp_pool_top33
 2025,CHC,673548.0,Seiya Suzuki,651,3.0,False,MLB,obp_pool_top33
@@ -4497,6 +4489,14 @@
 2025,NYM,624413.0,Pete Alonso,709,2.0,True,MLB,obp_pool_top33
 2025,NYM,596019.0,Francisco Lindor,732,3.0,True,MLB,obp_pool_top33
 2025,NYM,665742.0,Juan Soto,715,1.0,True,MLB,obp_pool_top33
+2024,CWS,657557.0,Paul DeJong,360,1.0,False,MLB,obp_pool_top33
+2024,TB,670623.0,Isaac Paredes,429,1.0,True,MLB,obp_pool_top33
+2024,WSH,608385.0,Jesse Winker,379,1.0,True,MLB,obp_pool_top33
+2025,AZ,553993.0,Eugenio Suárez,437,2.0,False,MLB,obp_pool_top33
+2025,BAL,656811.0,Ryan O'Hearn,361,1.0,True,MLB,obp_pool_top33
+2025,BOS,646240.0,Rafael Devers,334,1.0,True,MLB,obp_pool_top33
+2025,MIA,660821.0,Jesús Sánchez,337,2.0,False,MLB,obp_pool_top33
+2025,MIN,664056.0,Harrison Bader,303,2.0,True,MLB,obp_pool_top33
 2021,OAK,643393.0,Tony Kemp,397,2.0,True,MLB,onbase_bb_pct
 2021,OAK,621566.0,Matt Olson,673,1.0,True,MLB,onbase_bb_pct
 2021,OAK,592192.0,Mark Canha,625,3.0,True,MLB,onbase_bb_pct
@@ -4785,9 +4785,8 @@
 2024,STL,680977.0,Brendan Donovan,652,2.0,False,MLB,onbase_bb_pct
 2024,STL,575929.0,Willson Contreras,358,1.0,True,MLB,onbase_bb_pct
 2024,STL,663457.0,Lars Nootbaar,405,3.0,True,MLB,onbase_bb_pct
-2024,TB,650490.0,Yandy Díaz,621,2.0,False,MLB,onbase_bb_pct
-2024,TB,664040.0,Brandon Lowe,425,1.0,False,MLB,onbase_bb_pct
-2024,TB,680700.0,Richie Palacios,316,3.0,True,MLB,onbase_bb_pct
+2024,TB,650490.0,Yandy Díaz,621,3.0,False,MLB,onbase_bb_pct
+2024,TB,664040.0,Brandon Lowe,425,2.0,False,MLB,onbase_bb_pct
 2024,TEX,608369.0,Corey Seager,533,1.0,True,MLB,onbase_bb_pct
 2024,TEX,663993.0,Nathaniel Lowe,565,2.0,True,MLB,onbase_bb_pct
 2024,TEX,669701.0,Josh Smith,592,3.0,False,MLB,onbase_bb_pct
@@ -4803,9 +4802,8 @@
 2024,ATL,542303.0,Marcell Ozuna,688,1.0,True,MLB,onbase_bb_pct
 2024,ATL,663586.0,Austin Riley,469,3.0,False,MLB,onbase_bb_pct
 2024,ATL,621566.0,Matt Olson,685,2.0,True,MLB,onbase_bb_pct
-2024,CWS,683734.0,Andrew Vaughn,619,1.0,False,MLB,onbase_bb_pct
-2024,CWS,657757.0,Gavin Sheets,501,3.0,True,MLB,onbase_bb_pct
-2024,CWS,643217.0,Andrew Benintendi,522,2.0,False,MLB,onbase_bb_pct
+2024,CWS,683734.0,Andrew Vaughn,619,2.0,False,MLB,onbase_bb_pct
+2024,CWS,643217.0,Andrew Benintendi,522,3.0,False,MLB,onbase_bb_pct
 2024,MIA,669364.0,Xavier Edwards,303,1.0,True,MLB,onbase_bb_pct
 2024,MIA,660821.0,Jesús Sánchez,537,3.0,False,MLB,onbase_bb_pct
 2024,MIA,669394.0,Jake Burger,579,2.0,False,MLB,onbase_bb_pct
@@ -4851,9 +4849,8 @@
 2024,LAD,660271.0,Shohei Ohtani,731,1.0,True,MLB,onbase_bb_pct
 2024,LAD,605141.0,Mookie Betts,516,2.0,True,MLB,onbase_bb_pct
 2024,LAD,518692.0,Freddie Freeman,638,3.0,True,MLB,onbase_bb_pct
-2024,WSH,671277.0,Luis García Jr.,528,2.0,False,MLB,onbase_bb_pct
-2024,WSH,695578.0,James Wood,336,1.0,True,MLB,onbase_bb_pct
-2024,WSH,657041.0,Lane Thomas,341,3.0,True,MLB,onbase_bb_pct
+2024,WSH,671277.0,Luis García Jr.,528,3.0,False,MLB,onbase_bb_pct
+2024,WSH,695578.0,James Wood,336,2.0,True,MLB,onbase_bb_pct
 2024,NYM,596019.0,Francisco Lindor,689,1.0,False,MLB,onbase_bb_pct
 2024,NYM,668901.0,Mark Vientos,454,2.0,False,MLB,onbase_bb_pct
 2024,NYM,624413.0,Pete Alonso,695,3.0,True,MLB,onbase_bb_pct
@@ -4884,9 +4881,8 @@
 2025,TOR,666182.0,Bo Bichette,628,3.0,False,MLB,onbase_bb_pct
 2025,TOR,543807.0,George Springer,586,1.0,True,MLB,onbase_bb_pct
 2025,TOR,665489.0,Vladimir Guerrero Jr.,680,2.0,True,MLB,onbase_bb_pct
-2025,MIN,680777.0,Ryan Jeffers,464,2.0,True,MLB,onbase_bb_pct
+2025,MIN,680777.0,Ryan Jeffers,464,3.0,True,MLB,onbase_bb_pct
 2025,MIN,621439.0,Byron Buxton,542,1.0,False,MLB,onbase_bb_pct
-2025,MIN,670242.0,Matt Wallner,392,3.0,True,MLB,onbase_bb_pct
 2025,PHI,607208.0,Trea Turner,639,3.0,False,MLB,onbase_bb_pct
 2025,PHI,547180.0,Bryce Harper,580,2.0,True,MLB,onbase_bb_pct
 2025,PHI,656941.0,Kyle Schwarber,724,1.0,True,MLB,onbase_bb_pct
@@ -4897,8 +4893,7 @@
 2025,CWS,643217.0,Andrew Benintendi,470,2.0,True,MLB,onbase_bb_pct
 2025,CWS,678246.0,Miguel Vargas,569,3.0,True,MLB,onbase_bb_pct
 2025,MIA,669065.0,Kyle Stowers,457,1.0,True,MLB,onbase_bb_pct
-2025,MIA,669364.0,Xavier Edwards,619,3.0,False,MLB,onbase_bb_pct
-2025,MIA,689414.0,Liam Hicks,390,2.0,True,MLB,onbase_bb_pct
+2025,MIA,689414.0,Liam Hicks,390,3.0,True,MLB,onbase_bb_pct
 2025,NYY,592450.0,Aaron Judge,679,1.0,True,MLB,onbase_bb_pct
 2025,NYY,700250.0,Ben Rice,530,2.0,True,MLB,onbase_bb_pct
 2025,NYY,663757.0,Trent Grisham,581,3.0,True,MLB,onbase_bb_pct
@@ -4908,15 +4903,12 @@
 2025,LAA,687263.0,Zach Neto,554,3.0,False,MLB,onbase_bb_pct
 2025,LAA,545361.0,Mike Trout,556,1.0,True,MLB,onbase_bb_pct
 2025,LAA,621493.0,Taylor Ward,663,2.0,True,MLB,onbase_bb_pct
-2025,AZ,672695.0,Geraldo Perdomo,720,2.0,True,MLB,onbase_bb_pct
+2025,AZ,672695.0,Geraldo Perdomo,720,3.0,True,MLB,onbase_bb_pct
 2025,AZ,606466.0,Ketel Marte,556,1.0,True,MLB,onbase_bb_pct
-2025,AZ,682998.0,Corbin Carroll,642,3.0,True,MLB,onbase_bb_pct
-2025,BAL,683002.0,Gunnar Henderson,651,1.0,True,MLB,onbase_bb_pct
-2025,BAL,676059.0,Jordan Westburg,352,2.0,False,MLB,onbase_bb_pct
-2025,BAL,702616.0,Jackson Holliday,649,3.0,True,MLB,onbase_bb_pct
-2025,BOS,663853.0,Romy Gonzalez,341,3.0,False,MLB,onbase_bb_pct
-2025,BOS,701350.0,Roman Anthony,303,1.0,True,MLB,onbase_bb_pct
-2025,BOS,608324.0,Alex Bregman,495,2.0,True,MLB,onbase_bb_pct
+2025,BAL,683002.0,Gunnar Henderson,651,2.0,True,MLB,onbase_bb_pct
+2025,BAL,676059.0,Jordan Westburg,352,3.0,False,MLB,onbase_bb_pct
+2025,BOS,701350.0,Roman Anthony,303,2.0,True,MLB,onbase_bb_pct
+2025,BOS,608324.0,Alex Bregman,495,3.0,True,MLB,onbase_bb_pct
 2025,CHC,663656.0,Kyle Tucker,597,2.0,True,MLB,onbase_bb_pct
 2025,CHC,683737.0,Michael Busch,592,1.0,True,MLB,onbase_bb_pct
 2025,CHC,673548.0,Seiya Suzuki,651,3.0,True,MLB,onbase_bb_pct
@@ -4947,6 +4939,14 @@
 2025,NYM,624413.0,Pete Alonso,709,2.0,True,MLB,onbase_bb_pct
 2025,NYM,596019.0,Francisco Lindor,732,3.0,True,MLB,onbase_bb_pct
 2025,NYM,665742.0,Juan Soto,715,1.0,True,MLB,onbase_bb_pct
+2024,CWS,657557.0,Paul DeJong,360,1.0,False,MLB,onbase_bb_pct
+2024,TB,670623.0,Isaac Paredes,429,1.0,True,MLB,onbase_bb_pct
+2024,WSH,608385.0,Jesse Winker,379,1.0,True,MLB,onbase_bb_pct
+2025,AZ,553993.0,Eugenio Suárez,437,2.0,False,MLB,onbase_bb_pct
+2025,BAL,656811.0,Ryan O'Hearn,361,1.0,True,MLB,onbase_bb_pct
+2025,BOS,646240.0,Rafael Devers,334,1.0,True,MLB,onbase_bb_pct
+2025,MIA,660821.0,Jesús Sánchez,337,2.0,True,MLB,onbase_bb_pct
+2025,MIN,664056.0,Harrison Bader,303,2.0,True,MLB,onbase_bb_pct
 2021,OAK,643393.0,Tony Kemp,397,2.0,True,MLB,onbase_obp_minus_avg
 2021,OAK,621566.0,Matt Olson,673,1.0,True,MLB,onbase_obp_minus_avg
 2021,OAK,592192.0,Mark Canha,625,3.0,True,MLB,onbase_obp_minus_avg
@@ -5235,9 +5235,8 @@
 2024,STL,680977.0,Brendan Donovan,652,2.0,False,MLB,onbase_obp_minus_avg
 2024,STL,575929.0,Willson Contreras,358,1.0,True,MLB,onbase_obp_minus_avg
 2024,STL,663457.0,Lars Nootbaar,405,3.0,True,MLB,onbase_obp_minus_avg
-2024,TB,650490.0,Yandy Díaz,621,2.0,False,MLB,onbase_obp_minus_avg
-2024,TB,664040.0,Brandon Lowe,425,1.0,False,MLB,onbase_obp_minus_avg
-2024,TB,680700.0,Richie Palacios,316,3.0,True,MLB,onbase_obp_minus_avg
+2024,TB,650490.0,Yandy Díaz,621,3.0,False,MLB,onbase_obp_minus_avg
+2024,TB,664040.0,Brandon Lowe,425,2.0,False,MLB,onbase_obp_minus_avg
 2024,TEX,608369.0,Corey Seager,533,1.0,True,MLB,onbase_obp_minus_avg
 2024,TEX,663993.0,Nathaniel Lowe,565,2.0,True,MLB,onbase_obp_minus_avg
 2024,TEX,669701.0,Josh Smith,592,3.0,True,MLB,onbase_obp_minus_avg
@@ -5253,9 +5252,8 @@
 2024,ATL,542303.0,Marcell Ozuna,688,1.0,True,MLB,onbase_obp_minus_avg
 2024,ATL,663586.0,Austin Riley,469,3.0,False,MLB,onbase_obp_minus_avg
 2024,ATL,621566.0,Matt Olson,685,2.0,True,MLB,onbase_obp_minus_avg
-2024,CWS,683734.0,Andrew Vaughn,619,1.0,False,MLB,onbase_obp_minus_avg
-2024,CWS,657757.0,Gavin Sheets,501,3.0,True,MLB,onbase_obp_minus_avg
-2024,CWS,643217.0,Andrew Benintendi,522,2.0,False,MLB,onbase_obp_minus_avg
+2024,CWS,683734.0,Andrew Vaughn,619,2.0,False,MLB,onbase_obp_minus_avg
+2024,CWS,643217.0,Andrew Benintendi,522,3.0,False,MLB,onbase_obp_minus_avg
 2024,MIA,669364.0,Xavier Edwards,303,1.0,True,MLB,onbase_obp_minus_avg
 2024,MIA,660821.0,Jesús Sánchez,537,3.0,False,MLB,onbase_obp_minus_avg
 2024,MIA,669394.0,Jake Burger,579,2.0,False,MLB,onbase_obp_minus_avg
@@ -5266,7 +5264,7 @@
 2024,MIL,661388.0,William Contreras,679,2.0,True,MLB,onbase_obp_minus_avg
 2024,MIL,642715.0,Willy Adames,688,3.0,True,MLB,onbase_obp_minus_avg
 2024,LAA,650859.0,Luis Rengifo,304,1.0,False,MLB,onbase_obp_minus_avg
-2024,LAA,687263.0,Zach Neto,602,2.0,True,MLB,onbase_obp_minus_avg
+2024,LAA,687263.0,Zach Neto,602,2.0,False,MLB,onbase_obp_minus_avg
 2024,LAA,621493.0,Taylor Ward,663,3.0,True,MLB,onbase_obp_minus_avg
 2024,AZ,606466.0,Ketel Marte,583,2.0,True,MLB,onbase_obp_minus_avg
 2024,AZ,592626.0,Joc Pederson,449,1.0,True,MLB,onbase_obp_minus_avg
@@ -5301,15 +5299,14 @@
 2024,LAD,660271.0,Shohei Ohtani,731,1.0,True,MLB,onbase_obp_minus_avg
 2024,LAD,605141.0,Mookie Betts,516,2.0,True,MLB,onbase_obp_minus_avg
 2024,LAD,518692.0,Freddie Freeman,638,3.0,True,MLB,onbase_obp_minus_avg
-2024,WSH,671277.0,Luis García Jr.,528,2.0,False,MLB,onbase_obp_minus_avg
-2024,WSH,695578.0,James Wood,336,1.0,True,MLB,onbase_obp_minus_avg
-2024,WSH,657041.0,Lane Thomas,341,3.0,True,MLB,onbase_obp_minus_avg
+2024,WSH,671277.0,Luis García Jr.,528,3.0,False,MLB,onbase_obp_minus_avg
+2024,WSH,695578.0,James Wood,336,2.0,True,MLB,onbase_obp_minus_avg
 2024,NYM,596019.0,Francisco Lindor,689,1.0,True,MLB,onbase_obp_minus_avg
 2024,NYM,668901.0,Mark Vientos,454,2.0,False,MLB,onbase_obp_minus_avg
 2024,NYM,624413.0,Pete Alonso,695,3.0,True,MLB,onbase_obp_minus_avg
 2025,ATH,701762.0,Nick Kurtz,489,1.0,True,MLB,onbase_obp_minus_avg
 2025,ATH,669127.0,Shea Langeliers,523,2.0,False,MLB,onbase_obp_minus_avg
-2025,ATH,691016.0,Tyler Soderstrom,624,3.0,True,MLB,onbase_obp_minus_avg
+2025,ATH,691016.0,Tyler Soderstrom,624,3.0,False,MLB,onbase_obp_minus_avg
 2025,PIT,687462.0,Spencer Horwitz,411,1.0,True,MLB,onbase_obp_minus_avg
 2025,PIT,663698.0,Joey Bart,332,2.0,True,MLB,onbase_obp_minus_avg
 2025,PIT,668804.0,Bryan Reynolds,654,3.0,True,MLB,onbase_obp_minus_avg
@@ -5334,9 +5331,8 @@
 2025,TOR,666182.0,Bo Bichette,628,3.0,False,MLB,onbase_obp_minus_avg
 2025,TOR,543807.0,George Springer,586,1.0,True,MLB,onbase_obp_minus_avg
 2025,TOR,665489.0,Vladimir Guerrero Jr.,680,2.0,True,MLB,onbase_obp_minus_avg
-2025,MIN,680777.0,Ryan Jeffers,464,2.0,True,MLB,onbase_obp_minus_avg
+2025,MIN,680777.0,Ryan Jeffers,464,3.0,True,MLB,onbase_obp_minus_avg
 2025,MIN,621439.0,Byron Buxton,542,1.0,False,MLB,onbase_obp_minus_avg
-2025,MIN,670242.0,Matt Wallner,392,3.0,True,MLB,onbase_obp_minus_avg
 2025,PHI,607208.0,Trea Turner,639,3.0,False,MLB,onbase_obp_minus_avg
 2025,PHI,547180.0,Bryce Harper,580,2.0,True,MLB,onbase_obp_minus_avg
 2025,PHI,656941.0,Kyle Schwarber,724,1.0,True,MLB,onbase_obp_minus_avg
@@ -5347,8 +5343,7 @@
 2025,CWS,643217.0,Andrew Benintendi,470,2.0,False,MLB,onbase_obp_minus_avg
 2025,CWS,678246.0,Miguel Vargas,569,3.0,True,MLB,onbase_obp_minus_avg
 2025,MIA,669065.0,Kyle Stowers,457,1.0,True,MLB,onbase_obp_minus_avg
-2025,MIA,669364.0,Xavier Edwards,619,3.0,False,MLB,onbase_obp_minus_avg
-2025,MIA,689414.0,Liam Hicks,390,2.0,True,MLB,onbase_obp_minus_avg
+2025,MIA,689414.0,Liam Hicks,390,3.0,True,MLB,onbase_obp_minus_avg
 2025,NYY,592450.0,Aaron Judge,679,1.0,True,MLB,onbase_obp_minus_avg
 2025,NYY,700250.0,Ben Rice,530,2.0,True,MLB,onbase_obp_minus_avg
 2025,NYY,663757.0,Trent Grisham,581,3.0,True,MLB,onbase_obp_minus_avg
@@ -5358,15 +5353,12 @@
 2025,LAA,687263.0,Zach Neto,554,3.0,False,MLB,onbase_obp_minus_avg
 2025,LAA,545361.0,Mike Trout,556,1.0,True,MLB,onbase_obp_minus_avg
 2025,LAA,621493.0,Taylor Ward,663,2.0,True,MLB,onbase_obp_minus_avg
-2025,AZ,672695.0,Geraldo Perdomo,720,2.0,True,MLB,onbase_obp_minus_avg
+2025,AZ,672695.0,Geraldo Perdomo,720,3.0,True,MLB,onbase_obp_minus_avg
 2025,AZ,606466.0,Ketel Marte,556,1.0,True,MLB,onbase_obp_minus_avg
-2025,AZ,682998.0,Corbin Carroll,642,3.0,True,MLB,onbase_obp_minus_avg
-2025,BAL,683002.0,Gunnar Henderson,651,1.0,True,MLB,onbase_obp_minus_avg
-2025,BAL,676059.0,Jordan Westburg,352,2.0,False,MLB,onbase_obp_minus_avg
-2025,BAL,702616.0,Jackson Holliday,649,3.0,True,MLB,onbase_obp_minus_avg
-2025,BOS,663853.0,Romy Gonzalez,341,3.0,False,MLB,onbase_obp_minus_avg
-2025,BOS,701350.0,Roman Anthony,303,1.0,True,MLB,onbase_obp_minus_avg
-2025,BOS,608324.0,Alex Bregman,495,2.0,True,MLB,onbase_obp_minus_avg
+2025,BAL,683002.0,Gunnar Henderson,651,2.0,True,MLB,onbase_obp_minus_avg
+2025,BAL,676059.0,Jordan Westburg,352,3.0,False,MLB,onbase_obp_minus_avg
+2025,BOS,701350.0,Roman Anthony,303,2.0,True,MLB,onbase_obp_minus_avg
+2025,BOS,608324.0,Alex Bregman,495,3.0,True,MLB,onbase_obp_minus_avg
 2025,CHC,663656.0,Kyle Tucker,597,2.0,True,MLB,onbase_obp_minus_avg
 2025,CHC,683737.0,Michael Busch,592,1.0,True,MLB,onbase_obp_minus_avg
 2025,CHC,673548.0,Seiya Suzuki,651,3.0,True,MLB,onbase_obp_minus_avg
@@ -5397,6 +5389,14 @@
 2025,NYM,624413.0,Pete Alonso,709,2.0,True,MLB,onbase_obp_minus_avg
 2025,NYM,596019.0,Francisco Lindor,732,3.0,True,MLB,onbase_obp_minus_avg
 2025,NYM,665742.0,Juan Soto,715,1.0,True,MLB,onbase_obp_minus_avg
+2024,CWS,657557.0,Paul DeJong,360,1.0,False,MLB,onbase_obp_minus_avg
+2024,TB,670623.0,Isaac Paredes,429,1.0,True,MLB,onbase_obp_minus_avg
+2024,WSH,608385.0,Jesse Winker,379,1.0,True,MLB,onbase_obp_minus_avg
+2025,AZ,553993.0,Eugenio Suárez,437,2.0,True,MLB,onbase_obp_minus_avg
+2025,BAL,656811.0,Ryan O'Hearn,361,1.0,True,MLB,onbase_obp_minus_avg
+2025,BOS,646240.0,Rafael Devers,334,1.0,True,MLB,onbase_obp_minus_avg
+2025,MIA,660821.0,Jesús Sánchez,337,2.0,False,MLB,onbase_obp_minus_avg
+2025,MIN,664056.0,Harrison Bader,303,2.0,True,MLB,onbase_obp_minus_avg
 2021,OAK,643393.0,Tony Kemp,397,2.0,True,MLB,prod_woba
 2021,OAK,621566.0,Matt Olson,673,1.0,True,MLB,prod_woba
 2021,OAK,592192.0,Mark Canha,625,3.0,True,MLB,prod_woba
@@ -5678,16 +5678,15 @@
 2024,SD,665487.0,Fernando Tatis Jr.,438,2.0,True,MLB,prod_woba
 2024,SEA,677594.0,Julio Rodríguez,613,3.0,True,MLB,prod_woba
 2024,SEA,670042.0,Luke Raley,455,1.0,True,MLB,prod_woba
-2024,SEA,663728.0,Cal Raleigh,628,2.0,True,MLB,prod_woba
+2024,SEA,663728.0,Cal Raleigh,628,2.0,False,MLB,prod_woba
 2024,SF,666149.0,Tyler Fitzgerald,341,1.0,True,MLB,prod_woba
 2024,SF,664774.0,LaMonte Wade Jr.,401,3.0,True,MLB,prod_woba
 2024,SF,656305.0,Matt Chapman,647,2.0,True,MLB,prod_woba
 2024,STL,680977.0,Brendan Donovan,652,2.0,True,MLB,prod_woba
 2024,STL,575929.0,Willson Contreras,358,1.0,True,MLB,prod_woba
 2024,STL,663457.0,Lars Nootbaar,405,3.0,True,MLB,prod_woba
-2024,TB,650490.0,Yandy Díaz,621,2.0,True,MLB,prod_woba
-2024,TB,664040.0,Brandon Lowe,425,1.0,False,MLB,prod_woba
-2024,TB,680700.0,Richie Palacios,316,3.0,True,MLB,prod_woba
+2024,TB,650490.0,Yandy Díaz,621,3.0,True,MLB,prod_woba
+2024,TB,664040.0,Brandon Lowe,425,2.0,False,MLB,prod_woba
 2024,TEX,608369.0,Corey Seager,533,1.0,True,MLB,prod_woba
 2024,TEX,663993.0,Nathaniel Lowe,565,2.0,True,MLB,prod_woba
 2024,TEX,669701.0,Josh Smith,592,3.0,True,MLB,prod_woba
@@ -5703,9 +5702,8 @@
 2024,ATL,542303.0,Marcell Ozuna,688,1.0,True,MLB,prod_woba
 2024,ATL,663586.0,Austin Riley,469,3.0,True,MLB,prod_woba
 2024,ATL,621566.0,Matt Olson,685,2.0,True,MLB,prod_woba
-2024,CWS,683734.0,Andrew Vaughn,619,1.0,False,MLB,prod_woba
-2024,CWS,657757.0,Gavin Sheets,501,3.0,False,MLB,prod_woba
-2024,CWS,643217.0,Andrew Benintendi,522,2.0,False,MLB,prod_woba
+2024,CWS,683734.0,Andrew Vaughn,619,2.0,False,MLB,prod_woba
+2024,CWS,643217.0,Andrew Benintendi,522,3.0,False,MLB,prod_woba
 2024,MIA,669364.0,Xavier Edwards,303,1.0,True,MLB,prod_woba
 2024,MIA,660821.0,Jesús Sánchez,537,3.0,True,MLB,prod_woba
 2024,MIA,669394.0,Jake Burger,579,2.0,False,MLB,prod_woba
@@ -5751,9 +5749,8 @@
 2024,LAD,660271.0,Shohei Ohtani,731,1.0,True,MLB,prod_woba
 2024,LAD,605141.0,Mookie Betts,516,2.0,True,MLB,prod_woba
 2024,LAD,518692.0,Freddie Freeman,638,3.0,True,MLB,prod_woba
-2024,WSH,671277.0,Luis García Jr.,528,2.0,True,MLB,prod_woba
-2024,WSH,695578.0,James Wood,336,1.0,True,MLB,prod_woba
-2024,WSH,657041.0,Lane Thomas,341,3.0,True,MLB,prod_woba
+2024,WSH,671277.0,Luis García Jr.,528,3.0,True,MLB,prod_woba
+2024,WSH,695578.0,James Wood,336,2.0,True,MLB,prod_woba
 2024,NYM,596019.0,Francisco Lindor,689,1.0,True,MLB,prod_woba
 2024,NYM,668901.0,Mark Vientos,454,2.0,True,MLB,prod_woba
 2024,NYM,624413.0,Pete Alonso,695,3.0,True,MLB,prod_woba
@@ -5784,9 +5781,8 @@
 2025,TOR,666182.0,Bo Bichette,628,3.0,True,MLB,prod_woba
 2025,TOR,543807.0,George Springer,586,1.0,True,MLB,prod_woba
 2025,TOR,665489.0,Vladimir Guerrero Jr.,680,2.0,True,MLB,prod_woba
-2025,MIN,680777.0,Ryan Jeffers,464,2.0,True,MLB,prod_woba
+2025,MIN,680777.0,Ryan Jeffers,464,3.0,True,MLB,prod_woba
 2025,MIN,621439.0,Byron Buxton,542,1.0,True,MLB,prod_woba
-2025,MIN,670242.0,Matt Wallner,392,3.0,False,MLB,prod_woba
 2025,PHI,607208.0,Trea Turner,639,3.0,True,MLB,prod_woba
 2025,PHI,547180.0,Bryce Harper,580,2.0,True,MLB,prod_woba
 2025,PHI,656941.0,Kyle Schwarber,724,1.0,True,MLB,prod_woba
@@ -5797,8 +5793,7 @@
 2025,CWS,643217.0,Andrew Benintendi,470,2.0,False,MLB,prod_woba
 2025,CWS,678246.0,Miguel Vargas,569,3.0,True,MLB,prod_woba
 2025,MIA,669065.0,Kyle Stowers,457,1.0,True,MLB,prod_woba
-2025,MIA,669364.0,Xavier Edwards,619,3.0,True,MLB,prod_woba
-2025,MIA,689414.0,Liam Hicks,390,2.0,True,MLB,prod_woba
+2025,MIA,689414.0,Liam Hicks,390,3.0,True,MLB,prod_woba
 2025,NYY,592450.0,Aaron Judge,679,1.0,True,MLB,prod_woba
 2025,NYY,700250.0,Ben Rice,530,2.0,True,MLB,prod_woba
 2025,NYY,663757.0,Trent Grisham,581,3.0,True,MLB,prod_woba
@@ -5808,19 +5803,16 @@
 2025,LAA,687263.0,Zach Neto,554,3.0,True,MLB,prod_woba
 2025,LAA,545361.0,Mike Trout,556,1.0,True,MLB,prod_woba
 2025,LAA,621493.0,Taylor Ward,663,2.0,True,MLB,prod_woba
-2025,AZ,672695.0,Geraldo Perdomo,720,2.0,True,MLB,prod_woba
+2025,AZ,672695.0,Geraldo Perdomo,720,3.0,True,MLB,prod_woba
 2025,AZ,606466.0,Ketel Marte,556,1.0,True,MLB,prod_woba
-2025,AZ,682998.0,Corbin Carroll,642,3.0,True,MLB,prod_woba
-2025,BAL,683002.0,Gunnar Henderson,651,1.0,True,MLB,prod_woba
-2025,BAL,676059.0,Jordan Westburg,352,2.0,False,MLB,prod_woba
-2025,BAL,702616.0,Jackson Holliday,649,3.0,False,MLB,prod_woba
-2025,BOS,663853.0,Romy Gonzalez,341,3.0,True,MLB,prod_woba
-2025,BOS,701350.0,Roman Anthony,303,1.0,True,MLB,prod_woba
-2025,BOS,608324.0,Alex Bregman,495,2.0,True,MLB,prod_woba
+2025,BAL,683002.0,Gunnar Henderson,651,2.0,True,MLB,prod_woba
+2025,BAL,676059.0,Jordan Westburg,352,3.0,False,MLB,prod_woba
+2025,BOS,701350.0,Roman Anthony,303,2.0,True,MLB,prod_woba
+2025,BOS,608324.0,Alex Bregman,495,3.0,True,MLB,prod_woba
 2025,CHC,663656.0,Kyle Tucker,597,2.0,True,MLB,prod_woba
 2025,CHC,683737.0,Michael Busch,592,1.0,True,MLB,prod_woba
 2025,CHC,673548.0,Seiya Suzuki,651,3.0,True,MLB,prod_woba
-2025,CIN,669720.0,Austin Hays,416,3.0,True,MLB,prod_woba
+2025,CIN,669720.0,Austin Hays,416,3.0,False,MLB,prod_woba
 2025,CIN,682829.0,Elly De La Cruz,699,2.0,True,MLB,prod_woba
 2025,CIN,670770.0,TJ Friedl,685,1.0,True,MLB,prod_woba
 2025,CLE,608070.0,José Ramírez,673,1.0,True,MLB,prod_woba
@@ -5847,6 +5839,14 @@
 2025,NYM,624413.0,Pete Alonso,709,2.0,True,MLB,prod_woba
 2025,NYM,596019.0,Francisco Lindor,732,3.0,True,MLB,prod_woba
 2025,NYM,665742.0,Juan Soto,715,1.0,True,MLB,prod_woba
+2024,CWS,657557.0,Paul DeJong,360,1.0,False,MLB,prod_woba
+2024,TB,670623.0,Isaac Paredes,429,1.0,True,MLB,prod_woba
+2024,WSH,608385.0,Jesse Winker,379,1.0,True,MLB,prod_woba
+2025,AZ,553993.0,Eugenio Suárez,437,2.0,True,MLB,prod_woba
+2025,BAL,656811.0,Ryan O'Hearn,361,1.0,True,MLB,prod_woba
+2025,BOS,646240.0,Rafael Devers,334,1.0,True,MLB,prod_woba
+2025,MIA,660821.0,Jesús Sánchez,337,2.0,True,MLB,prod_woba
+2025,MIN,664056.0,Harrison Bader,303,2.0,True,MLB,prod_woba
 2021,OAK,643393.0,Tony Kemp,397,2.0,True,MLB,prod_wrc_pf
 2021,OAK,621566.0,Matt Olson,673,1.0,True,MLB,prod_wrc_pf
 2021,OAK,592192.0,Mark Canha,625,3.0,True,MLB,prod_wrc_pf
@@ -6128,16 +6128,15 @@
 2024,SD,665487.0,Fernando Tatis Jr.,438,2.0,True,MLB,prod_wrc_pf
 2024,SEA,677594.0,Julio Rodríguez,613,3.0,True,MLB,prod_wrc_pf
 2024,SEA,670042.0,Luke Raley,455,1.0,True,MLB,prod_wrc_pf
-2024,SEA,663728.0,Cal Raleigh,628,2.0,True,MLB,prod_wrc_pf
+2024,SEA,663728.0,Cal Raleigh,628,2.0,False,MLB,prod_wrc_pf
 2024,SF,666149.0,Tyler Fitzgerald,341,1.0,True,MLB,prod_wrc_pf
 2024,SF,664774.0,LaMonte Wade Jr.,401,3.0,True,MLB,prod_wrc_pf
 2024,SF,656305.0,Matt Chapman,647,2.0,True,MLB,prod_wrc_pf
 2024,STL,680977.0,Brendan Donovan,652,2.0,True,MLB,prod_wrc_pf
 2024,STL,575929.0,Willson Contreras,358,1.0,True,MLB,prod_wrc_pf
 2024,STL,663457.0,Lars Nootbaar,405,3.0,True,MLB,prod_wrc_pf
-2024,TB,650490.0,Yandy Díaz,621,2.0,True,MLB,prod_wrc_pf
-2024,TB,664040.0,Brandon Lowe,425,1.0,False,MLB,prod_wrc_pf
-2024,TB,680700.0,Richie Palacios,316,3.0,True,MLB,prod_wrc_pf
+2024,TB,650490.0,Yandy Díaz,621,3.0,True,MLB,prod_wrc_pf
+2024,TB,664040.0,Brandon Lowe,425,2.0,False,MLB,prod_wrc_pf
 2024,TEX,608369.0,Corey Seager,533,1.0,True,MLB,prod_wrc_pf
 2024,TEX,663993.0,Nathaniel Lowe,565,2.0,True,MLB,prod_wrc_pf
 2024,TEX,669701.0,Josh Smith,592,3.0,True,MLB,prod_wrc_pf
@@ -6153,9 +6152,8 @@
 2024,ATL,542303.0,Marcell Ozuna,688,1.0,True,MLB,prod_wrc_pf
 2024,ATL,663586.0,Austin Riley,469,3.0,True,MLB,prod_wrc_pf
 2024,ATL,621566.0,Matt Olson,685,2.0,True,MLB,prod_wrc_pf
-2024,CWS,683734.0,Andrew Vaughn,619,1.0,False,MLB,prod_wrc_pf
-2024,CWS,657757.0,Gavin Sheets,501,3.0,False,MLB,prod_wrc_pf
-2024,CWS,643217.0,Andrew Benintendi,522,2.0,False,MLB,prod_wrc_pf
+2024,CWS,683734.0,Andrew Vaughn,619,2.0,False,MLB,prod_wrc_pf
+2024,CWS,643217.0,Andrew Benintendi,522,3.0,False,MLB,prod_wrc_pf
 2024,MIA,669364.0,Xavier Edwards,303,1.0,True,MLB,prod_wrc_pf
 2024,MIA,660821.0,Jesús Sánchez,537,3.0,True,MLB,prod_wrc_pf
 2024,MIA,669394.0,Jake Burger,579,2.0,False,MLB,prod_wrc_pf
@@ -6201,9 +6199,8 @@
 2024,LAD,660271.0,Shohei Ohtani,731,1.0,True,MLB,prod_wrc_pf
 2024,LAD,605141.0,Mookie Betts,516,2.0,True,MLB,prod_wrc_pf
 2024,LAD,518692.0,Freddie Freeman,638,3.0,True,MLB,prod_wrc_pf
-2024,WSH,671277.0,Luis García Jr.,528,2.0,True,MLB,prod_wrc_pf
-2024,WSH,695578.0,James Wood,336,1.0,True,MLB,prod_wrc_pf
-2024,WSH,657041.0,Lane Thomas,341,3.0,True,MLB,prod_wrc_pf
+2024,WSH,671277.0,Luis García Jr.,528,3.0,True,MLB,prod_wrc_pf
+2024,WSH,695578.0,James Wood,336,2.0,True,MLB,prod_wrc_pf
 2024,NYM,596019.0,Francisco Lindor,689,1.0,True,MLB,prod_wrc_pf
 2024,NYM,668901.0,Mark Vientos,454,2.0,True,MLB,prod_wrc_pf
 2024,NYM,624413.0,Pete Alonso,695,3.0,True,MLB,prod_wrc_pf
@@ -6234,9 +6231,8 @@
 2025,TOR,666182.0,Bo Bichette,628,3.0,True,MLB,prod_wrc_pf
 2025,TOR,543807.0,George Springer,586,1.0,True,MLB,prod_wrc_pf
 2025,TOR,665489.0,Vladimir Guerrero Jr.,680,2.0,True,MLB,prod_wrc_pf
-2025,MIN,680777.0,Ryan Jeffers,464,2.0,True,MLB,prod_wrc_pf
+2025,MIN,680777.0,Ryan Jeffers,464,3.0,True,MLB,prod_wrc_pf
 2025,MIN,621439.0,Byron Buxton,542,1.0,True,MLB,prod_wrc_pf
-2025,MIN,670242.0,Matt Wallner,392,3.0,False,MLB,prod_wrc_pf
 2025,PHI,607208.0,Trea Turner,639,3.0,True,MLB,prod_wrc_pf
 2025,PHI,547180.0,Bryce Harper,580,2.0,True,MLB,prod_wrc_pf
 2025,PHI,656941.0,Kyle Schwarber,724,1.0,True,MLB,prod_wrc_pf
@@ -6247,8 +6243,7 @@
 2025,CWS,643217.0,Andrew Benintendi,470,2.0,False,MLB,prod_wrc_pf
 2025,CWS,678246.0,Miguel Vargas,569,3.0,True,MLB,prod_wrc_pf
 2025,MIA,669065.0,Kyle Stowers,457,1.0,True,MLB,prod_wrc_pf
-2025,MIA,669364.0,Xavier Edwards,619,3.0,True,MLB,prod_wrc_pf
-2025,MIA,689414.0,Liam Hicks,390,2.0,True,MLB,prod_wrc_pf
+2025,MIA,689414.0,Liam Hicks,390,3.0,True,MLB,prod_wrc_pf
 2025,NYY,592450.0,Aaron Judge,679,1.0,True,MLB,prod_wrc_pf
 2025,NYY,700250.0,Ben Rice,530,2.0,True,MLB,prod_wrc_pf
 2025,NYY,663757.0,Trent Grisham,581,3.0,True,MLB,prod_wrc_pf
@@ -6258,19 +6253,16 @@
 2025,LAA,687263.0,Zach Neto,554,3.0,True,MLB,prod_wrc_pf
 2025,LAA,545361.0,Mike Trout,556,1.0,True,MLB,prod_wrc_pf
 2025,LAA,621493.0,Taylor Ward,663,2.0,True,MLB,prod_wrc_pf
-2025,AZ,672695.0,Geraldo Perdomo,720,2.0,True,MLB,prod_wrc_pf
+2025,AZ,672695.0,Geraldo Perdomo,720,3.0,True,MLB,prod_wrc_pf
 2025,AZ,606466.0,Ketel Marte,556,1.0,True,MLB,prod_wrc_pf
-2025,AZ,682998.0,Corbin Carroll,642,3.0,True,MLB,prod_wrc_pf
-2025,BAL,683002.0,Gunnar Henderson,651,1.0,True,MLB,prod_wrc_pf
-2025,BAL,676059.0,Jordan Westburg,352,2.0,False,MLB,prod_wrc_pf
-2025,BAL,702616.0,Jackson Holliday,649,3.0,False,MLB,prod_wrc_pf
-2025,BOS,663853.0,Romy Gonzalez,341,3.0,True,MLB,prod_wrc_pf
-2025,BOS,701350.0,Roman Anthony,303,1.0,True,MLB,prod_wrc_pf
-2025,BOS,608324.0,Alex Bregman,495,2.0,True,MLB,prod_wrc_pf
+2025,BAL,683002.0,Gunnar Henderson,651,2.0,True,MLB,prod_wrc_pf
+2025,BAL,676059.0,Jordan Westburg,352,3.0,False,MLB,prod_wrc_pf
+2025,BOS,701350.0,Roman Anthony,303,2.0,True,MLB,prod_wrc_pf
+2025,BOS,608324.0,Alex Bregman,495,3.0,True,MLB,prod_wrc_pf
 2025,CHC,663656.0,Kyle Tucker,597,2.0,True,MLB,prod_wrc_pf
 2025,CHC,683737.0,Michael Busch,592,1.0,True,MLB,prod_wrc_pf
 2025,CHC,673548.0,Seiya Suzuki,651,3.0,True,MLB,prod_wrc_pf
-2025,CIN,669720.0,Austin Hays,416,3.0,True,MLB,prod_wrc_pf
+2025,CIN,669720.0,Austin Hays,416,3.0,False,MLB,prod_wrc_pf
 2025,CIN,682829.0,Elly De La Cruz,699,2.0,True,MLB,prod_wrc_pf
 2025,CIN,670770.0,TJ Friedl,685,1.0,True,MLB,prod_wrc_pf
 2025,CLE,608070.0,José Ramírez,673,1.0,True,MLB,prod_wrc_pf
@@ -6297,6 +6289,14 @@
 2025,NYM,624413.0,Pete Alonso,709,2.0,True,MLB,prod_wrc_pf
 2025,NYM,596019.0,Francisco Lindor,732,3.0,True,MLB,prod_wrc_pf
 2025,NYM,665742.0,Juan Soto,715,1.0,True,MLB,prod_wrc_pf
+2024,CWS,657557.0,Paul DeJong,360,1.0,False,MLB,prod_wrc_pf
+2024,TB,670623.0,Isaac Paredes,429,1.0,True,MLB,prod_wrc_pf
+2024,WSH,608385.0,Jesse Winker,379,1.0,True,MLB,prod_wrc_pf
+2025,AZ,553993.0,Eugenio Suárez,437,2.0,True,MLB,prod_wrc_pf
+2025,BAL,656811.0,Ryan O'Hearn,361,1.0,True,MLB,prod_wrc_pf
+2025,BOS,646240.0,Rafael Devers,334,1.0,True,MLB,prod_wrc_pf
+2025,MIA,660821.0,Jesús Sánchez,337,2.0,True,MLB,prod_wrc_pf
+2025,MIN,664056.0,Harrison Bader,303,2.0,True,MLB,prod_wrc_pf
 2021,OAK,643393.0,Tony Kemp,397,2.0,True,MLB,weights_alt
 2021,OAK,621566.0,Matt Olson,673,1.0,True,MLB,weights_alt
 2021,OAK,592192.0,Mark Canha,625,3.0,True,MLB,weights_alt
@@ -6578,16 +6578,15 @@
 2024,SD,665487.0,Fernando Tatis Jr.,438,2.0,True,MLB,weights_alt
 2024,SEA,677594.0,Julio Rodríguez,613,3.0,True,MLB,weights_alt
 2024,SEA,670042.0,Luke Raley,455,1.0,True,MLB,weights_alt
-2024,SEA,663728.0,Cal Raleigh,628,2.0,True,MLB,weights_alt
+2024,SEA,663728.0,Cal Raleigh,628,2.0,False,MLB,weights_alt
 2024,SF,666149.0,Tyler Fitzgerald,341,1.0,True,MLB,weights_alt
 2024,SF,671218.0,Heliot Ramos,518,3.0,True,MLB,weights_alt
 2024,SF,656305.0,Matt Chapman,647,2.0,True,MLB,weights_alt
 2024,STL,680977.0,Brendan Donovan,652,2.0,True,MLB,weights_alt
 2024,STL,575929.0,Willson Contreras,358,1.0,True,MLB,weights_alt
 2024,STL,663457.0,Lars Nootbaar,405,3.0,True,MLB,weights_alt
-2024,TB,650490.0,Yandy Díaz,621,2.0,True,MLB,weights_alt
-2024,TB,664040.0,Brandon Lowe,425,1.0,False,MLB,weights_alt
-2024,TB,680700.0,Richie Palacios,316,3.0,True,MLB,weights_alt
+2024,TB,650490.0,Yandy Díaz,621,3.0,True,MLB,weights_alt
+2024,TB,664040.0,Brandon Lowe,425,2.0,False,MLB,weights_alt
 2024,TEX,608369.0,Corey Seager,533,1.0,True,MLB,weights_alt
 2024,TEX,663993.0,Nathaniel Lowe,565,2.0,True,MLB,weights_alt
 2024,TEX,669701.0,Josh Smith,592,3.0,True,MLB,weights_alt
@@ -6603,9 +6602,8 @@
 2024,ATL,542303.0,Marcell Ozuna,688,1.0,True,MLB,weights_alt
 2024,ATL,663586.0,Austin Riley,469,3.0,True,MLB,weights_alt
 2024,ATL,621566.0,Matt Olson,685,2.0,True,MLB,weights_alt
-2024,CWS,683734.0,Andrew Vaughn,619,1.0,False,MLB,weights_alt
-2024,CWS,657757.0,Gavin Sheets,501,3.0,False,MLB,weights_alt
-2024,CWS,643217.0,Andrew Benintendi,522,2.0,False,MLB,weights_alt
+2024,CWS,683734.0,Andrew Vaughn,619,2.0,False,MLB,weights_alt
+2024,CWS,643217.0,Andrew Benintendi,522,3.0,False,MLB,weights_alt
 2024,MIA,669364.0,Xavier Edwards,303,1.0,True,MLB,weights_alt
 2024,MIA,660821.0,Jesús Sánchez,537,3.0,True,MLB,weights_alt
 2024,MIA,669394.0,Jake Burger,579,2.0,False,MLB,weights_alt
@@ -6651,9 +6649,8 @@
 2024,LAD,660271.0,Shohei Ohtani,731,1.0,True,MLB,weights_alt
 2024,LAD,605141.0,Mookie Betts,516,2.0,True,MLB,weights_alt
 2024,LAD,518692.0,Freddie Freeman,638,3.0,True,MLB,weights_alt
-2024,WSH,671277.0,Luis García Jr.,528,2.0,True,MLB,weights_alt
-2024,WSH,695578.0,James Wood,336,1.0,True,MLB,weights_alt
-2024,WSH,657041.0,Lane Thomas,341,3.0,True,MLB,weights_alt
+2024,WSH,671277.0,Luis García Jr.,528,3.0,True,MLB,weights_alt
+2024,WSH,695578.0,James Wood,336,2.0,True,MLB,weights_alt
 2024,NYM,596019.0,Francisco Lindor,689,1.0,True,MLB,weights_alt
 2024,NYM,668901.0,Mark Vientos,454,2.0,True,MLB,weights_alt
 2024,NYM,624413.0,Pete Alonso,695,3.0,True,MLB,weights_alt
@@ -6684,9 +6681,8 @@
 2025,TOR,666182.0,Bo Bichette,628,3.0,True,MLB,weights_alt
 2025,TOR,543807.0,George Springer,586,1.0,True,MLB,weights_alt
 2025,TOR,665489.0,Vladimir Guerrero Jr.,680,2.0,True,MLB,weights_alt
-2025,MIN,680777.0,Ryan Jeffers,464,3.0,True,MLB,weights_alt
 2025,MIN,621439.0,Byron Buxton,542,1.0,True,MLB,weights_alt
-2025,MIN,670242.0,Matt Wallner,392,2.0,False,MLB,weights_alt
+2025,MIN,670242.0,Matt Wallner,392,3.0,False,MLB,weights_alt
 2025,PHI,607208.0,Trea Turner,639,3.0,True,MLB,weights_alt
 2025,PHI,547180.0,Bryce Harper,580,2.0,True,MLB,weights_alt
 2025,PHI,656941.0,Kyle Schwarber,724,1.0,True,MLB,weights_alt
@@ -6697,8 +6693,7 @@
 2025,CWS,643217.0,Andrew Benintendi,470,2.0,False,MLB,weights_alt
 2025,CWS,678246.0,Miguel Vargas,569,3.0,True,MLB,weights_alt
 2025,MIA,669065.0,Kyle Stowers,457,1.0,True,MLB,weights_alt
-2025,MIA,669364.0,Xavier Edwards,619,3.0,True,MLB,weights_alt
-2025,MIA,689414.0,Liam Hicks,390,2.0,True,MLB,weights_alt
+2025,MIA,689414.0,Liam Hicks,390,3.0,True,MLB,weights_alt
 2025,NYY,592450.0,Aaron Judge,679,1.0,True,MLB,weights_alt
 2025,NYY,700250.0,Ben Rice,530,2.0,True,MLB,weights_alt
 2025,NYY,663757.0,Trent Grisham,581,3.0,True,MLB,weights_alt
@@ -6708,19 +6703,16 @@
 2025,LAA,687263.0,Zach Neto,554,3.0,True,MLB,weights_alt
 2025,LAA,545361.0,Mike Trout,556,1.0,True,MLB,weights_alt
 2025,LAA,621493.0,Taylor Ward,663,2.0,True,MLB,weights_alt
-2025,AZ,672695.0,Geraldo Perdomo,720,3.0,True,MLB,weights_alt
 2025,AZ,606466.0,Ketel Marte,556,1.0,True,MLB,weights_alt
-2025,AZ,682998.0,Corbin Carroll,642,2.0,True,MLB,weights_alt
-2025,BAL,683002.0,Gunnar Henderson,651,1.0,True,MLB,weights_alt
-2025,BAL,676059.0,Jordan Westburg,352,2.0,False,MLB,weights_alt
-2025,BAL,702616.0,Jackson Holliday,649,3.0,False,MLB,weights_alt
-2025,BOS,663853.0,Romy Gonzalez,341,3.0,True,MLB,weights_alt
-2025,BOS,701350.0,Roman Anthony,303,1.0,True,MLB,weights_alt
-2025,BOS,608324.0,Alex Bregman,495,2.0,True,MLB,weights_alt
+2025,AZ,682998.0,Corbin Carroll,642,3.0,True,MLB,weights_alt
+2025,BAL,683002.0,Gunnar Henderson,651,2.0,True,MLB,weights_alt
+2025,BAL,676059.0,Jordan Westburg,352,3.0,False,MLB,weights_alt
+2025,BOS,701350.0,Roman Anthony,303,2.0,True,MLB,weights_alt
+2025,BOS,608324.0,Alex Bregman,495,3.0,True,MLB,weights_alt
 2025,CHC,663656.0,Kyle Tucker,597,2.0,True,MLB,weights_alt
 2025,CHC,683737.0,Michael Busch,592,1.0,True,MLB,weights_alt
 2025,CHC,673548.0,Seiya Suzuki,651,3.0,True,MLB,weights_alt
-2025,CIN,669720.0,Austin Hays,416,3.0,True,MLB,weights_alt
+2025,CIN,669720.0,Austin Hays,416,3.0,False,MLB,weights_alt
 2025,CIN,682829.0,Elly De La Cruz,699,2.0,True,MLB,weights_alt
 2025,CIN,670770.0,TJ Friedl,685,1.0,True,MLB,weights_alt
 2025,CLE,608070.0,José Ramírez,673,1.0,True,MLB,weights_alt
@@ -6747,9 +6739,17 @@
 2025,NYM,624413.0,Pete Alonso,709,2.0,True,MLB,weights_alt
 2025,NYM,596019.0,Francisco Lindor,732,3.0,True,MLB,weights_alt
 2025,NYM,665742.0,Juan Soto,715,1.0,True,MLB,weights_alt
+2024,CWS,657557.0,Paul DeJong,360,1.0,False,MLB,weights_alt
+2024,TB,670623.0,Isaac Paredes,429,1.0,True,MLB,weights_alt
+2024,WSH,608385.0,Jesse Winker,379,1.0,True,MLB,weights_alt
+2025,AZ,553993.0,Eugenio Suárez,437,2.0,True,MLB,weights_alt
+2025,BAL,656811.0,Ryan O'Hearn,361,1.0,True,MLB,weights_alt
+2025,BOS,646240.0,Rafael Devers,334,1.0,True,MLB,weights_alt
+2025,MIA,660821.0,Jesús Sánchez,337,2.0,True,MLB,weights_alt
+2025,MIN,664056.0,Harrison Bader,303,2.0,True,MLB,weights_alt
 2022,OAK,643393.0,Tony Kemp,558,1.0,True,MLB,exante
 2022,OAK,664913.0,Seth Brown,555,3.0,False,MLB,exante
-2022,OAK,657656.0,Ramón Laureano,383,2.0,False,MLB,exante
+2022,OAK,657656.0,Ramón Laureano,383,2.0,True,MLB,exante
 2022,PIT,668804.0,Bryan Reynolds,614,1.0,True,MLB,exante
 2022,PIT,663647.0,Ke'Bryan Hayes,560,3.0,False,MLB,exante
 2022,PIT,592325.0,Ben Gamel,423,2.0,True,MLB,exante
@@ -6939,15 +6939,13 @@
 2024,SEA,670042.0,Luke Raley,455,3.0,True,MLB,exante
 2024,SEA,641487.0,J.P. Crawford,451,2.0,True,MLB,exante
 2024,SEA,641598.0,Mitch Garver,430,1.0,True,MLB,exante
-2024,SF,592192.0,Mark Canha,85,3.0,True,MLB,exante
-2024,SF,664774.0,LaMonte Wade Jr.,401,2.0,True,MLB,exante
+2024,SF,664774.0,LaMonte Wade Jr.,401,3.0,True,MLB,exante
 2024,SF,527038.0,Wilmer Flores,242,1.0,True,MLB,exante
 2024,STL,575929.0,Willson Contreras,358,1.0,True,MLB,exante
 2024,STL,502671.0,Paul Goldschmidt,654,2.0,True,MLB,exante
 2024,STL,663457.0,Lars Nootbaar,405,3.0,True,MLB,exante
 2024,TB,650490.0,Yandy Díaz,621,1.0,True,MLB,exante
-2024,TB,623912.0,Harold Ramírez,169,3.0,True,MLB,exante
-2024,TB,666139.0,Josh Lowe,387,2.0,True,MLB,exante
+2024,TB,666139.0,Josh Lowe,387,3.0,True,MLB,exante
 2024,TEX,608369.0,Corey Seager,533,1.0,True,MLB,exante
 2024,TEX,543760.0,Marcus Semien,718,2.0,True,MLB,exante
 2024,TEX,666969.0,Adolis García,637,3.0,True,MLB,exante
@@ -6963,9 +6961,8 @@
 2024,ATL,542303.0,Marcell Ozuna,688,3.0,True,MLB,exante
 2024,ATL,660670.0,Ronald Acuña Jr.,222,1.0,True,MLB,exante
 2024,ATL,621566.0,Matt Olson,685,2.0,True,MLB,exante
-2024,CWS,650391.0,Eloy Jiménez,249,2.0,False,MLB,exante
+2024,CWS,650391.0,Eloy Jiménez,249,3.0,False,MLB,exante
 2024,CWS,673357.0,Luis Robert Jr.,425,1.0,False,MLB,exante
-2024,CWS,543257.0,Robbie Grossman,85,3.0,True,MLB,exante
 2024,MIA,650333.0,Luis Arraez,148,1.0,True,MLB,exante
 2024,MIA,660821.0,Jesús Sánchez,537,3.0,True,MLB,exante
 2024,MIA,669394.0,Jake Burger,579,2.0,False,MLB,exante
@@ -7044,9 +7041,8 @@
 2025,TOR,665489.0,Vladimir Guerrero Jr.,680,1.0,True,MLB,exante
 2025,TOR,662139.0,Daulton Varsho,271,3.0,False,MLB,exante
 2025,TOR,623993.0,Anthony Santander,221,2.0,False,MLB,exante
-2025,MIN,621439.0,Byron Buxton,542,1.0,True,MLB,exante
-2025,MIN,663616.0,Trevor Larnach,567,2.0,True,MLB,exante
-2025,MIN,669304.0,Jose F Miranda,36,3.0,True,MLB,exante
+2025,MIN,621439.0,Byron Buxton,542,2.0,True,MLB,exante
+2025,MIN,663616.0,Trevor Larnach,567,3.0,True,MLB,exante
 2025,PHI,607208.0,Trea Turner,639,3.0,True,MLB,exante
 2025,PHI,547180.0,Bryce Harper,580,1.0,True,MLB,exante
 2025,PHI,656941.0,Kyle Schwarber,724,2.0,True,MLB,exante
@@ -7057,26 +7053,22 @@
 2025,CWS,643217.0,Andrew Benintendi,470,3.0,False,MLB,exante
 2025,CWS,683734.0,Andrew Vaughn,193,2.0,False,MLB,exante
 2025,MIA,669364.0,Xavier Edwards,619,1.0,True,MLB,exante
-2025,MIA,672640.0,Otto Lopez,594,2.0,True,MLB,exante
-2025,MIA,663743.0,Nick Fortes,141,3.0,False,MLB,exante
+2025,MIA,672640.0,Otto Lopez,594,3.0,True,MLB,exante
 2025,NYY,592450.0,Aaron Judge,679,1.0,True,MLB,exante
 2025,NYY,519317.0,Giancarlo Stanton,281,2.0,False,MLB,exante
-2025,NYY,641355.0,Cody Bellinger,656,3.0,True,MLB,exante
+2025,NYY,665862.0,Jazz Chisholm Jr.,531,3.0,True,MLB,exante
 2025,MIL,694192.0,Jackson Chourio,589,3.0,True,MLB,exante
 2025,MIL,592885.0,Christian Yelich,644,1.0,True,MLB,exante
 2025,MIL,661388.0,William Contreras,659,2.0,True,MLB,exante
-2025,LAA,687263.0,Zach Neto,554,3.0,True,MLB,exante
-2025,LAA,650859.0,Luis Rengifo,541,2.0,True,MLB,exante
-2025,LAA,664774.0,LaMonte Wade Jr.,73,1.0,True,MLB,exante
+2025,LAA,650859.0,Luis Rengifo,541,3.0,True,MLB,exante
+2025,LAA,624585.0,Jorge Soler,315,1.0,True,MLB,exante
+2025,LAA,664774.0,LaMonte Wade Jr.,73,2.0,True,MLB,exante
 2025,AZ,606466.0,Ketel Marte,556,1.0,True,MLB,exante
-2025,AZ,666971.0,Lourdes Gurriel Jr.,546,3.0,True,MLB,exante
-2025,AZ,664983.0,Jake McCarthy,222,2.0,True,MLB,exante
 2025,BAL,683002.0,Gunnar Henderson,651,1.0,True,MLB,exante
 2025,BAL,676059.0,Jordan Westburg,352,3.0,False,MLB,exante
 2025,BAL,641933.0,Tyler O'Neill,209,2.0,True,MLB,exante
-2025,BOS,663993.0,Nathaniel Lowe,119,3.0,True,MLB,exante
-2025,BOS,608701.0,Rob Refsnyder,209,1.0,True,MLB,exante
-2025,BOS,680776.0,Jarren Duran,696,2.0,True,MLB,exante
+2025,BOS,608701.0,Rob Refsnyder,209,2.0,True,MLB,exante
+2025,BOS,680776.0,Jarren Duran,696,3.0,True,MLB,exante
 2025,CHC,663656.0,Kyle Tucker,597,1.0,True,MLB,exante
 2025,CHC,673548.0,Seiya Suzuki,651,2.0,True,MLB,exante
 2025,CHC,664023.0,Ian Happ,663,3.0,True,MLB,exante
@@ -7101,9 +7093,17 @@
 2025,LAD,518692.0,Freddie Freeman,627,3.0,True,MLB,exante
 2025,LAD,660271.0,Shohei Ohtani,727,1.0,True,MLB,exante
 2025,LAD,605141.0,Mookie Betts,663,2.0,True,MLB,exante
-2025,WSH,682928.0,CJ Abrams,635,3.0,True,MLB,exante
 2025,WSH,695578.0,James Wood,689,1.0,True,MLB,exante
-2025,WSH,671277.0,Luis García Jr.,526,2.0,True,MLB,exante
+2025,WSH,671277.0,Luis García Jr.,526,3.0,True,MLB,exante
 2025,NYM,596019.0,Francisco Lindor,732,2.0,True,MLB,exante
 2025,NYM,665742.0,Juan Soto,715,1.0,True,MLB,exante
 2025,NYM,668901.0,Mark Vientos,463,3.0,True,MLB,exante
+2024,CWS,502054.0,Tommy Pham,297,2.0,True,MLB,exante
+2024,SF,624585.0,Jorge Soler,392,2.0,True,MLB,exante
+2024,TB,670623.0,Isaac Paredes,429,2.0,True,MLB,exante
+2025,AZ,553993.0,Eugenio Suárez,437,2.0,True,MLB,exante
+2025,AZ,647304.0,Josh Naylor,394,3.0,True,MLB,exante
+2025,BOS,646240.0,Rafael Devers,334,1.0,True,MLB,exante
+2025,MIA,660821.0,Jesús Sánchez,337,2.0,True,MLB,exante
+2025,MIN,621043.0,Carlos Correa,358,1.0,True,MLB,exante
+2025,WSH,663993.0,Nathaniel Lowe,490,2.0,True,MLB,exante

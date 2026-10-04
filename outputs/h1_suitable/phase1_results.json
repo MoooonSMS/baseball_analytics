@@ -134,7 +134,27 @@
     "2025": 2425
   },
   "mlb_pbp_runs_match_share": 0.9999587441726144,
-  "mlb_rank_corr_re24_vs_fangraphs": 0.9995372407755571,
+  "mlb_rows_filled_from_box": [
+    {
+      "year": 2021,
+      "rows": 71,
+      "pa": 406,
+      "rows_pa200": 0
+    },
+    {
+      "year": 2024,
+      "rows": 11,
+      "pa": 3974,
+      "rows_pa200": 10
+    },
+    {
+      "year": 2025,
+      "rows": 20,
+      "pa": 6927,
+      "rows_pa200": 19
+    }
+  ],
+  "mlb_rank_corr_re24_vs_fangraphs": 0.9995264632170691,
   "validation": {
     "pa_weighted_wrc": [
       {
@@ -200,10 +220,10 @@
       {
         "league": "MLB",
         "year": 2021,
-        "all_pa_weighted_wrc": 99.761,
-        "pool300_pa_weighted_wrc": 111.393,
-        "lg_woba": 0.318,
-        "lg_obp": 0.318,
+        "all_pa_weighted_wrc": 99.738,
+        "pool300_pa_weighted_wrc": 111.801,
+        "lg_woba": 0.317,
+        "lg_obp": 0.317,
         "scale": 1.206,
         "pool300_n": 252
       },
@@ -231,21 +251,21 @@
         "league": "MLB",
         "year": 2024,
         "all_pa_weighted_wrc": 100.027,
-        "pool300_pa_weighted_wrc": 107.316,
+        "pool300_pa_weighted_wrc": 107.352,
         "lg_woba": 0.312,
         "lg_obp": 0.312,
         "scale": 1.23,
-        "pool300_n": 266
+        "pool300_n": 274
       },
       {
         "league": "MLB",
         "year": 2025,
-        "all_pa_weighted_wrc": 100.025,
-        "pool300_pa_weighted_wrc": 107.908,
+        "all_pa_weighted_wrc": 100.026,
+        "pool300_pa_weighted_wrc": 107.958,
         "lg_woba": 0.315,
         "lg_obp": 0.315,
-        "scale": 1.216,
-        "pool300_n": 253
+        "scale": 1.217,
+        "pool300_n": 268
       }
     ],
     "pass_100pm3": true,
@@ -270,7 +290,7 @@
       }
     ],
     "rank_corr_kbo_methods": 0.9998458056253331,
-    "rank_corr_mlb_methods": 0.9995372407755571
+    "rank_corr_mlb_methods": 0.9995264632170691
   },
   "gate_bins_lt10": {
     "KBO|primary": [
@@ -335,7 +355,8 @@
       1
     ],
     "MLB|pool_pa400": [
-      0
+      0,
+      1
     ],
     "MLB|obp_pool_top50": [
       0
@@ -364,7 +385,8 @@
       0
     ],
     "MLB|exante": [
-      0
+      0,
+      1
     ]
   },
   "n_primary": [
@@ -384,9 +406,9 @@
       "variant": "primary",
       "team_seasons": 150,
       "N=0": 3,
-      "N=1": 8,
-      "N=2": 24,
-      "N=3": 115,
+      "N=1": 7,
+      "N=2": 26,
+      "N=3": 114,
       "mean_N": 2.673,
       "pool_lt3": 0
     }
@@ -529,9 +551,9 @@
       "variant": "primary",
       "team_seasons": 150,
       "N=0": 3,
-      "N=1": 8,
-      "N=2": 24,
-      "N=3": 115,
+      "N=1": 7,
+      "N=2": 26,
+      "N=3": 114,
       "mean_N": 2.673,
       "pool_lt3": 0
     },
@@ -539,11 +561,11 @@
       "league": "MLB",
       "variant": "pool_pa200",
       "team_seasons": 150,
-      "N=0": 2,
+      "N=0": 1,
       "N=1": 5,
-      "N=2": 21,
+      "N=2": 22,
       "N=3": 122,
-      "mean_N": 2.753,
+      "mean_N": 2.767,
       "pool_lt3": 0
     },
     {
@@ -551,9 +573,9 @@
       "variant": "pool_pa400",
       "team_seasons": 150,
       "N=0": 3,
-      "N=1": 11,
-      "N=2": 31,
-      "N=3": 105,
+      "N=1": 9,
+      "N=2": 35,
+      "N=3": 103,
       "mean_N": 2.587,
       "pool_lt3": 2
     },
@@ -573,10 +595,10 @@
       "variant": "obp_pool_top40",
       "team_seasons": 150,
       "N=0": 5,
-      "N=1": 22,
-      "N=2": 48,
-      "N=3": 75,
-      "mean_N": 2.287,
+      "N=1": 20,
+      "N=2": 51,
+      "N=3": 74,
+      "mean_N": 2.293,
       "pool_lt3": 0
     },
     {
@@ -584,9 +606,9 @@
       "variant": "obp_pool_top33",
       "team_seasons": 150,
       "N=0": 6,
-      "N=1": 35,
-      "N=2": 48,
-      "N=3": 61,
+      "N=1": 33,
+      "N=2": 52,
+      "N=3": 59,
       "mean_N": 2.093,
       "pool_lt3": 0
     },
@@ -594,10 +616,10 @@
       "league": "MLB",
       "variant": "onbase_bb_pct",
       "team_seasons": 150,
-      "N=0": 7,
-      "N=1": 21,
-      "N=2": 71,
-      "N=3": 51,
+      "N=0": 8,
+      "N=1": 20,
+      "N=2": 70,
+      "N=3": 52,
       "mean_N": 2.107,
       "pool_lt3": 0
     },
@@ -605,11 +627,11 @@
       "league": "MLB",
       "variant": "onbase_obp_minus_avg",
       "team_seasons": 150,
-      "N=0": 7,
-      "N=1": 28,
-      "N=2": 74,
-      "N=3": 41,
-      "mean_N": 1.993,
+      "N=0": 8,
+      "N=1": 29,
+      "N=2": 71,
+      "N=3": 42,
+      "mean_N": 1.98,
       "pool_lt3": 0
     },
     {
@@ -617,9 +639,9 @@
       "variant": "prod_woba",
       "team_seasons": 150,
       "N=0": 3,
-      "N=1": 8,
-      "N=2": 24,
-      "N=3": 115,
+      "N=1": 7,
+      "N=2": 26,
+      "N=3": 114,
       "mean_N": 2.673,
       "pool_lt3": 0
     },
@@ -628,9 +650,9 @@
       "variant": "prod_wrc_pf",
       "team_seasons": 150,
       "N=0": 3,
-      "N=1": 8,
-      "N=2": 24,
-      "N=3": 115,
+      "N=1": 7,
+      "N=2": 26,
+      "N=3": 114,
       "mean_N": 2.673,
       "pool_lt3": 0
     },
@@ -639,10 +661,10 @@
       "variant": "weights_alt",
       "team_seasons": 150,
       "N=0": 3,
-      "N=1": 11,
-      "N=2": 25,
-      "N=3": 111,
-      "mean_N": 2.627,
+      "N=1": 10,
+      "N=2": 28,
+      "N=3": 109,
+      "mean_N": 2.62,
       "pool_lt3": 0
     },
     {
@@ -650,10 +672,10 @@
       "variant": "exante",
       "team_seasons": 120,
       "N=0": 0,
-      "N=1": 10,
+      "N=1": 9,
       "N=2": 21,
-      "N=3": 89,
-      "mean_N": 2.658,
+      "N=3": 90,
+      "mean_N": 2.675,
       "pool_lt3": 0
     }
   ],
@@ -716,18 +738,18 @@
     },
     {
       "year": 2024,
-      "pool_players": 266.0,
-      "no_prior": 75.0,
-      "no_prior_share": 0.282,
-      "no_prior_pa_share": 0.248,
+      "pool_players": 274.0,
+      "no_prior": 76.0,
+      "no_prior_share": 0.2774,
+      "no_prior_pa_share": 0.2448,
       "league": "MLB"
     },
     {
       "year": 2025,
-      "pool_players": 253.0,
-      "no_prior": 82.0,
-      "no_prior_share": 0.3241,
-      "no_prior_pa_share": 0.2825,
+      "pool_players": 268.0,
+      "no_prior": 76.0,
+      "no_prior_share": 0.2836,
+      "no_prior_pa_share": 0.2502,
       "league": "MLB"
     }
   ]

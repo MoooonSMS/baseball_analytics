@@ -83,6 +83,21 @@ def mlb_players() -> pd.DataFrame:
     return d[["year", "team", "pid", "name"] + COUNT_COLS + ["so"]]
 
 
+def fill_mlb_from_box(mp: pd.DataFrame, box: pd.DataFrame) -> tuple[pd.DataFrame, pd.DataFrame]:
+    """StatsAPI teamId별 시즌 기록에 빠진 선수-팀 행(2024~2025 일부 트레이드 선수의 이전 팀 등)을
+    같은 시즌 박스스코어 합산으로 채운다. 공식 기록이 있는 행은 그대로 둔다.
+    검증: 누락 없는 2023에서 박스 합산 PA가 공식과 정확히 같은 행 94%, 평균 |차이| 0.2타석."""
+    a = (box.rename(columns={"playerCode": "pid", "hit": "h", "kk": "so"})
+         .groupby(["year", "team", "pid"])
+         .agg(name=("name", "first"), **{c: (c, "sum") for c in COUNT_COLS + ["so"]}).reset_index())
+    a = a[a["pa"] > 0]
+    have = pd.MultiIndex.from_frame(mp[["year", "team", "pid"]])
+    add = a[~pd.MultiIndex.from_frame(a[["year", "team", "pid"]]).isin(have)]
+    log = add.groupby("year").agg(rows=("pid", "size"), pa=("pa", "sum"),
+                                  rows_pa200=("pa", lambda s: int((s >= 200).sum()))).reset_index()
+    return pd.concat([mp, add[mp.columns]], ignore_index=True), log
+
+
 def mlb_box() -> pd.DataFrame:
     return pd.concat([pd.read_csv(C.RAW / f"mlb30_boxscore_batters_{y}.csv", encoding="utf-8-sig")
                       .drop_duplicates(["gameId", "playerCode", "batOrder"]).assign(year=y)
@@ -273,7 +288,10 @@ def main():
     pr = mpa.groupby(["gameId", "batTeam"])["runs"].sum().rename_axis(["gameId", "team"])
     br = mbox.drop_duplicates(["gameId", "team"]).set_index(["gameId", "team"])["teamScore"]
     RES["mlb_pbp_runs_match_share"] = float(((pr - br).dropna() == 0).mean())
-    mp = mlb_players()
+    mp, filled = fill_mlb_from_box(mlb_players(), mbox)
+    RES["mlb_rows_filled_from_box"] = filled.to_dict("records")
+    print("박스스코어로 보충한 MLB 선수-팀 행:")
+    print(filled.to_string(index=False))
     mtot = mp.groupby("year")[COUNT_COLS + ["so"]].sum().reset_index()
     mtot["r"] = mtot["year"].map(mruns)
     mw, mlg, mconst = league_constants("MLB", mpa, mtot)
