@@ -9,3 +9,5 @@ data/raw/kbo_relay_events_*.csv
 
 # H1 재검증: relay 이벤트에서 만든 타석 테이블 캐시(00_audit_metrics.py가 재생성, 38MB)
 data/processed/h1_kbo_pa_events.pkl
+# H1 재검증: MLB play-by-play 원본(01_scrape_mlb_30teams.py로 재생성)
+data/raw/mlb30_pbp_*.csv

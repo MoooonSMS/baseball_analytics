@@ -24,6 +24,8 @@ KBO_TEAM_ALIAS = {"SK": "SSG"}   # 2020 SK -> 2021~ SSG (동일 프랜차이즈)
 # MLB도 StatsAPI play-by-play로 같은 RE24 방법을 적용한다(FanGraphs 가중치는 교차검증).
 KBO_LW_METHOD = "re24"
 MLB_LW_METHOD = "re24"
+RE24_MAX_INNING = 9              # RE 행렬·선형가중치는 1~9회만(MLB 연장 승부치기 주자 때문에 두 리그 동일 적용)
+EXANTE_MEMBER_MIN_PA = 1         # ex-ante: 해당 시즌 그 팀에서 1타석 이상이면 팀 구성원
 WRC_PLUS_TOL = 3.0               # 리그-시즌 PA가중 평균 wRC+ 100±3
 STAR_CHECKS = [("이정후", 2021), ("김도영", 2024), ("안현민", 2025)]
 STAR_TARGET = 150
@@ -36,7 +38,7 @@ POOL_MIN_PA = 300
 POOL_MIN_PA_SENS = [200, 400]
 TOP_K = 3                        # 팀 내 wRC+ 상위 K명
 OBP_RULE = "league_mean"         # OBP >= 리그-시즌 PA가중 평균 OBP
-OBP_RULE_SENS = ["team_top50", "team_top40", "team_top33"]  # 민감도: 상위 50/40/33%
+OBP_RULE_SENS = {"pool_top50": 0.50, "pool_top40": 0.60, "pool_top33": 0.67}  # 민감도: 리그-시즌 후보풀(PA>=기준) OBP 분위수 이상
 ONBASE_ALT = ["bb_pct", "obp_minus_avg"]
 PRODUCTION_ALT = ["woba", "wrc_plus_pf"]
 EXANTE_MIN_PA = 300
@@ -61,4 +63,7 @@ CHANGELOG = [
     ("2026-10-03", "statiz 순위상관 기준을 방법 간 + statiz 카운팅 일치성으로 대체",
      "statiz_season_batters_2021에 wRC+ 컬럼 없음(Phase 0 확인)"),
     ("2026-10-03", "EQUIV_MARGIN 0.10 확정", "Phase 0 승인"),
+    ("2026-10-03", "OBP 민감도 기준을 리그-시즌 후보풀 분위수로 구체화, RE24_MAX_INNING=9, EXANTE_MEMBER_MIN_PA=1 추가",
+     "Phase 1 구현 전(N 결과 보기 전) 정의 구체화. KBO 공식기록실은 robots.txt/고지로 자동수집 금지라 "
+     "KBO 전체 타자 기록은 relay 이벤트에서 재구성"),
 ]

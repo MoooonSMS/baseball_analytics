@@ -1,0 +1,734 @@
+{
+  "kbo_years": [
+    2020,
+    2021,
+    2022,
+    2023,
+    2024,
+    2025
+  ],
+  "kbo_match": {
+    "2020": {
+      "exact": 0.9882,
+      "none": NaN,
+      "prefix4": 0.0118
+    },
+    "2021": {
+      "exact": 0.9864,
+      "none": NaN,
+      "prefix4": 0.0136
+    },
+    "2022": {
+      "exact": 0.9803,
+      "none": NaN,
+      "prefix4": 0.0197
+    },
+    "2023": {
+      "exact": 0.9892,
+      "none": NaN,
+      "prefix4": 0.0108
+    },
+    "2024": {
+      "exact": 0.9895,
+      "none": 0.0,
+      "prefix4": 0.0105
+    },
+    "2025": {
+      "exact": 1.0,
+      "none": NaN,
+      "prefix4": NaN
+    }
+  },
+  "kbo_relay_runs_vs_box": {
+    "2020": {
+      "relay": 7433,
+      "box": 7436
+    },
+    "2021": {
+      "relay": 6893,
+      "box": 6896
+    },
+    "2022": {
+      "relay": 6522,
+      "box": 6523
+    },
+    "2023": {
+      "relay": 6617,
+      "box": 6622
+    },
+    "2024": {
+      "relay": 7734,
+      "box": 7740
+    },
+    "2025": {
+      "relay": 6810,
+      "box": 6813
+    }
+  },
+  "kbo_lines_vs_official": {
+    "official_qualified": 256,
+    "matched": 256,
+    "traded_or_split_excluded": 5,
+    "pa": {
+      "exact": 0.9442231075697212,
+      "within1": 0.9880478087649402,
+      "mean_diff": 0.02390438247011952
+    },
+    "ab": {
+      "exact": 0.9243027888446215,
+      "within1": 0.9920318725099602,
+      "mean_diff": 0.043824701195219126
+    },
+    "h": {
+      "exact": 0.9721115537848606,
+      "within1": 0.9920318725099602,
+      "mean_diff": 0.0
+    },
+    "d2": {
+      "exact": 0.9840637450199203,
+      "within1": 1.0,
+      "mean_diff": -0.00796812749003984
+    },
+    "d3": {
+      "exact": 0.9960159362549801,
+      "within1": 1.0,
+      "mean_diff": -0.00398406374501992
+    },
+    "hr": {
+      "exact": 1.0,
+      "within1": 1.0,
+      "mean_diff": 0.0
+    },
+    "bb": {
+      "exact": 0.9880478087649402,
+      "within1": 1.0,
+      "mean_diff": -0.00398406374501992
+    },
+    "ibb": {
+      "exact": 0.9960159362549801,
+      "within1": 1.0,
+      "mean_diff": -0.00398406374501992
+    },
+    "hbp": {
+      "exact": 1.0,
+      "within1": 1.0,
+      "mean_diff": 0.0
+    },
+    "sf": {
+      "exact": 1.0,
+      "within1": 1.0,
+      "mean_diff": 0.0
+    },
+    "so": {
+      "exact": 0.9800796812749004,
+      "within1": 0.9960159362549801,
+      "mean_diff": 0.0199203187250996
+    }
+  },
+  "kbo_rank_corr_re24_vs_statiz": 0.9998458056253331,
+  "mlb_games": {
+    "2021": 2422,
+    "2022": 2421,
+    "2023": 2427,
+    "2024": 2425,
+    "2025": 2425
+  },
+  "mlb_pbp_runs_match_share": 0.9999587441726144,
+  "mlb_rank_corr_re24_vs_fangraphs": 0.9995372407755571,
+  "validation": {
+    "pa_weighted_wrc": [
+      {
+        "league": "KBO",
+        "year": 2020,
+        "all_pa_weighted_wrc": 99.869,
+        "pool300_pa_weighted_wrc": 115.306,
+        "lg_woba": 0.349,
+        "lg_obp": 0.349,
+        "scale": 1.112,
+        "pool300_n": 79
+      },
+      {
+        "league": "KBO",
+        "year": 2021,
+        "all_pa_weighted_wrc": 99.91,
+        "pool300_pa_weighted_wrc": 113.409,
+        "lg_woba": 0.346,
+        "lg_obp": 0.346,
+        "scale": 1.178,
+        "pool300_n": 74
+      },
+      {
+        "league": "KBO",
+        "year": 2022,
+        "all_pa_weighted_wrc": 99.866,
+        "pool300_pa_weighted_wrc": 113.669,
+        "lg_woba": 0.333,
+        "lg_obp": 0.333,
+        "scale": 1.205,
+        "pool300_n": 79
+      },
+      {
+        "league": "KBO",
+        "year": 2023,
+        "all_pa_weighted_wrc": 99.855,
+        "pool300_pa_weighted_wrc": 113.308,
+        "lg_woba": 0.338,
+        "lg_obp": 0.338,
+        "scale": 1.207,
+        "pool300_n": 80
+      },
+      {
+        "league": "KBO",
+        "year": 2024,
+        "all_pa_weighted_wrc": 99.89,
+        "pool300_pa_weighted_wrc": 110.428,
+        "lg_woba": 0.352,
+        "lg_obp": 0.352,
+        "scale": 1.101,
+        "pool300_n": 87
+      },
+      {
+        "league": "KBO",
+        "year": 2025,
+        "all_pa_weighted_wrc": 99.917,
+        "pool300_pa_weighted_wrc": 114.496,
+        "lg_woba": 0.338,
+        "lg_obp": 0.338,
+        "scale": 1.191,
+        "pool300_n": 77
+      },
+      {
+        "league": "MLB",
+        "year": 2021,
+        "all_pa_weighted_wrc": 99.761,
+        "pool300_pa_weighted_wrc": 111.393,
+        "lg_woba": 0.318,
+        "lg_obp": 0.318,
+        "scale": 1.206,
+        "pool300_n": 252
+      },
+      {
+        "league": "MLB",
+        "year": 2022,
+        "all_pa_weighted_wrc": 100.008,
+        "pool300_pa_weighted_wrc": 108.211,
+        "lg_woba": 0.312,
+        "lg_obp": 0.312,
+        "scale": 1.254,
+        "pool300_n": 265
+      },
+      {
+        "league": "MLB",
+        "year": 2023,
+        "all_pa_weighted_wrc": 100.005,
+        "pool300_pa_weighted_wrc": 106.997,
+        "lg_woba": 0.32,
+        "lg_obp": 0.32,
+        "scale": 1.202,
+        "pool300_n": 286
+      },
+      {
+        "league": "MLB",
+        "year": 2024,
+        "all_pa_weighted_wrc": 100.027,
+        "pool300_pa_weighted_wrc": 107.316,
+        "lg_woba": 0.312,
+        "lg_obp": 0.312,
+        "scale": 1.23,
+        "pool300_n": 266
+      },
+      {
+        "league": "MLB",
+        "year": 2025,
+        "all_pa_weighted_wrc": 100.025,
+        "pool300_pa_weighted_wrc": 107.908,
+        "lg_woba": 0.315,
+        "lg_obp": 0.315,
+        "scale": 1.216,
+        "pool300_n": 253
+      }
+    ],
+    "pass_100pm3": true,
+    "stars": [
+      {
+        "year": 2021,
+        "name_full": "이정후",
+        "wrc": 166.7,
+        "wrc_alt": 166.9
+      },
+      {
+        "year": 2024,
+        "name_full": "김도영",
+        "wrc": 169.1,
+        "wrc_alt": 168.7
+      },
+      {
+        "year": 2025,
+        "name_full": "안현민",
+        "wrc": 182.6,
+        "wrc_alt": 182.4
+      }
+    ],
+    "rank_corr_kbo_methods": 0.9998458056253331,
+    "rank_corr_mlb_methods": 0.9995372407755571
+  },
+  "gate_bins_lt10": {
+    "KBO|primary": [
+      0,
+      1,
+      2
+    ],
+    "KBO|pool_pa200": [
+      0,
+      1,
+      2
+    ],
+    "KBO|pool_pa400": [
+      0,
+      1,
+      2
+    ],
+    "KBO|obp_pool_top50": [
+      0,
+      1
+    ],
+    "KBO|obp_pool_top40": [
+      0
+    ],
+    "KBO|obp_pool_top33": [
+      0,
+      1
+    ],
+    "KBO|onbase_bb_pct": [
+      0
+    ],
+    "KBO|onbase_obp_minus_avg": [
+      0,
+      3
+    ],
+    "KBO|prod_woba": [
+      0,
+      1,
+      2
+    ],
+    "KBO|prod_wrc_pf": [
+      0,
+      1,
+      2
+    ],
+    "KBO|weights_alt": [
+      0,
+      1,
+      2
+    ],
+    "KBO|exante": [
+      0,
+      1,
+      2
+    ],
+    "MLB|primary": [
+      0,
+      1
+    ],
+    "MLB|pool_pa200": [
+      0,
+      1
+    ],
+    "MLB|pool_pa400": [
+      0
+    ],
+    "MLB|obp_pool_top50": [
+      0
+    ],
+    "MLB|obp_pool_top40": [
+      0
+    ],
+    "MLB|obp_pool_top33": [
+      0
+    ],
+    "MLB|onbase_bb_pct": [
+      0
+    ],
+    "MLB|onbase_obp_minus_avg": [
+      0
+    ],
+    "MLB|prod_woba": [
+      0,
+      1
+    ],
+    "MLB|prod_wrc_pf": [
+      0,
+      1
+    ],
+    "MLB|weights_alt": [
+      0
+    ],
+    "MLB|exante": [
+      0
+    ]
+  },
+  "n_primary": [
+    {
+      "league": "KBO",
+      "variant": "primary",
+      "team_seasons": 50,
+      "N=0": 0,
+      "N=1": 1,
+      "N=2": 5,
+      "N=3": 44,
+      "mean_N": 2.86,
+      "pool_lt3": 0
+    },
+    {
+      "league": "MLB",
+      "variant": "primary",
+      "team_seasons": 150,
+      "N=0": 3,
+      "N=1": 8,
+      "N=2": 24,
+      "N=3": 115,
+      "mean_N": 2.673,
+      "pool_lt3": 0
+    }
+  ],
+  "n_sensitivity": [
+    {
+      "league": "KBO",
+      "variant": "primary",
+      "team_seasons": 50,
+      "N=0": 0,
+      "N=1": 1,
+      "N=2": 5,
+      "N=3": 44,
+      "mean_N": 2.86,
+      "pool_lt3": 0
+    },
+    {
+      "league": "KBO",
+      "variant": "pool_pa200",
+      "team_seasons": 50,
+      "N=0": 0,
+      "N=1": 1,
+      "N=2": 3,
+      "N=3": 46,
+      "mean_N": 2.9,
+      "pool_lt3": 0
+    },
+    {
+      "league": "KBO",
+      "variant": "pool_pa400",
+      "team_seasons": 50,
+      "N=0": 0,
+      "N=1": 2,
+      "N=2": 5,
+      "N=3": 43,
+      "mean_N": 2.82,
+      "pool_lt3": 0
+    },
+    {
+      "league": "KBO",
+      "variant": "obp_pool_top50",
+      "team_seasons": 50,
+      "N=0": 0,
+      "N=1": 4,
+      "N=2": 14,
+      "N=3": 32,
+      "mean_N": 2.56,
+      "pool_lt3": 0
+    },
+    {
+      "league": "KBO",
+      "variant": "obp_pool_top40",
+      "team_seasons": 50,
+      "N=0": 1,
+      "N=1": 10,
+      "N=2": 16,
+      "N=3": 23,
+      "mean_N": 2.22,
+      "pool_lt3": 0
+    },
+    {
+      "league": "KBO",
+      "variant": "obp_pool_top33",
+      "team_seasons": 50,
+      "N=0": 4,
+      "N=1": 8,
+      "N=2": 22,
+      "N=3": 16,
+      "mean_N": 2.0,
+      "pool_lt3": 0
+    },
+    {
+      "league": "KBO",
+      "variant": "onbase_bb_pct",
+      "team_seasons": 50,
+      "N=0": 0,
+      "N=1": 11,
+      "N=2": 23,
+      "N=3": 16,
+      "mean_N": 2.1,
+      "pool_lt3": 0
+    },
+    {
+      "league": "KBO",
+      "variant": "onbase_obp_minus_avg",
+      "team_seasons": 50,
+      "N=0": 5,
+      "N=1": 17,
+      "N=2": 19,
+      "N=3": 9,
+      "mean_N": 1.64,
+      "pool_lt3": 0
+    },
+    {
+      "league": "KBO",
+      "variant": "prod_woba",
+      "team_seasons": 50,
+      "N=0": 0,
+      "N=1": 1,
+      "N=2": 5,
+      "N=3": 44,
+      "mean_N": 2.86,
+      "pool_lt3": 0
+    },
+    {
+      "league": "KBO",
+      "variant": "prod_wrc_pf",
+      "team_seasons": 50,
+      "N=0": 0,
+      "N=1": 1,
+      "N=2": 5,
+      "N=3": 44,
+      "mean_N": 2.86,
+      "pool_lt3": 0
+    },
+    {
+      "league": "KBO",
+      "variant": "weights_alt",
+      "team_seasons": 50,
+      "N=0": 0,
+      "N=1": 1,
+      "N=2": 5,
+      "N=3": 44,
+      "mean_N": 2.86,
+      "pool_lt3": 0
+    },
+    {
+      "league": "KBO",
+      "variant": "exante",
+      "team_seasons": 50,
+      "N=0": 0,
+      "N=1": 3,
+      "N=2": 6,
+      "N=3": 41,
+      "mean_N": 2.76,
+      "pool_lt3": 0
+    },
+    {
+      "league": "MLB",
+      "variant": "primary",
+      "team_seasons": 150,
+      "N=0": 3,
+      "N=1": 8,
+      "N=2": 24,
+      "N=3": 115,
+      "mean_N": 2.673,
+      "pool_lt3": 0
+    },
+    {
+      "league": "MLB",
+      "variant": "pool_pa200",
+      "team_seasons": 150,
+      "N=0": 2,
+      "N=1": 5,
+      "N=2": 21,
+      "N=3": 122,
+      "mean_N": 2.753,
+      "pool_lt3": 0
+    },
+    {
+      "league": "MLB",
+      "variant": "pool_pa400",
+      "team_seasons": 150,
+      "N=0": 3,
+      "N=1": 11,
+      "N=2": 31,
+      "N=3": 105,
+      "mean_N": 2.587,
+      "pool_lt3": 2
+    },
+    {
+      "league": "MLB",
+      "variant": "obp_pool_top50",
+      "team_seasons": 150,
+      "N=0": 3,
+      "N=1": 15,
+      "N=2": 33,
+      "N=3": 99,
+      "mean_N": 2.52,
+      "pool_lt3": 0
+    },
+    {
+      "league": "MLB",
+      "variant": "obp_pool_top40",
+      "team_seasons": 150,
+      "N=0": 5,
+      "N=1": 22,
+      "N=2": 48,
+      "N=3": 75,
+      "mean_N": 2.287,
+      "pool_lt3": 0
+    },
+    {
+      "league": "MLB",
+      "variant": "obp_pool_top33",
+      "team_seasons": 150,
+      "N=0": 6,
+      "N=1": 35,
+      "N=2": 48,
+      "N=3": 61,
+      "mean_N": 2.093,
+      "pool_lt3": 0
+    },
+    {
+      "league": "MLB",
+      "variant": "onbase_bb_pct",
+      "team_seasons": 150,
+      "N=0": 7,
+      "N=1": 21,
+      "N=2": 71,
+      "N=3": 51,
+      "mean_N": 2.107,
+      "pool_lt3": 0
+    },
+    {
+      "league": "MLB",
+      "variant": "onbase_obp_minus_avg",
+      "team_seasons": 150,
+      "N=0": 7,
+      "N=1": 28,
+      "N=2": 74,
+      "N=3": 41,
+      "mean_N": 1.993,
+      "pool_lt3": 0
+    },
+    {
+      "league": "MLB",
+      "variant": "prod_woba",
+      "team_seasons": 150,
+      "N=0": 3,
+      "N=1": 8,
+      "N=2": 24,
+      "N=3": 115,
+      "mean_N": 2.673,
+      "pool_lt3": 0
+    },
+    {
+      "league": "MLB",
+      "variant": "prod_wrc_pf",
+      "team_seasons": 150,
+      "N=0": 3,
+      "N=1": 8,
+      "N=2": 24,
+      "N=3": 115,
+      "mean_N": 2.673,
+      "pool_lt3": 0
+    },
+    {
+      "league": "MLB",
+      "variant": "weights_alt",
+      "team_seasons": 150,
+      "N=0": 3,
+      "N=1": 11,
+      "N=2": 25,
+      "N=3": 111,
+      "mean_N": 2.627,
+      "pool_lt3": 0
+    },
+    {
+      "league": "MLB",
+      "variant": "exante",
+      "team_seasons": 120,
+      "N=0": 0,
+      "N=1": 10,
+      "N=2": 21,
+      "N=3": 89,
+      "mean_N": 2.658,
+      "pool_lt3": 0
+    }
+  ],
+  "exante_exclusion": [
+    {
+      "year": 2021,
+      "pool_players": 74.0,
+      "no_prior": 20.0,
+      "no_prior_share": 0.2703,
+      "no_prior_pa_share": 0.2257,
+      "league": "KBO"
+    },
+    {
+      "year": 2022,
+      "pool_players": 79.0,
+      "no_prior": 25.0,
+      "no_prior_share": 0.3165,
+      "no_prior_pa_share": 0.2786,
+      "league": "KBO"
+    },
+    {
+      "year": 2023,
+      "pool_players": 80.0,
+      "no_prior": 26.0,
+      "no_prior_share": 0.325,
+      "no_prior_pa_share": 0.2814,
+      "league": "KBO"
+    },
+    {
+      "year": 2024,
+      "pool_players": 87.0,
+      "no_prior": 30.0,
+      "no_prior_share": 0.3448,
+      "no_prior_pa_share": 0.3106,
+      "league": "KBO"
+    },
+    {
+      "year": 2025,
+      "pool_players": 77.0,
+      "no_prior": 21.0,
+      "no_prior_share": 0.2727,
+      "no_prior_pa_share": 0.2462,
+      "league": "KBO"
+    },
+    {
+      "year": 2022,
+      "pool_players": 265.0,
+      "no_prior": 79.0,
+      "no_prior_share": 0.2981,
+      "no_prior_pa_share": 0.2608,
+      "league": "MLB"
+    },
+    {
+      "year": 2023,
+      "pool_players": 286.0,
+      "no_prior": 90.0,
+      "no_prior_share": 0.3147,
+      "no_prior_pa_share": 0.2746,
+      "league": "MLB"
+    },
+    {
+      "year": 2024,
+      "pool_players": 266.0,
+      "no_prior": 75.0,
+      "no_prior_share": 0.282,
+      "no_prior_pa_share": 0.248,
+      "league": "MLB"
+    },
+    {
+      "year": 2025,
+      "pool_players": 253.0,
+      "no_prior": 82.0,
+      "no_prior_share": 0.3241,
+      "no_prior_pa_share": 0.2825,
+      "league": "MLB"
+    }
+  ]
+}

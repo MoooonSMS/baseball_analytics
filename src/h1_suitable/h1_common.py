@@ -127,9 +127,19 @@ def kbo_pa_events(year: int) -> pd.DataFrame:
     runs = g["homein"].sum()
     pa = last.copy()
     pa["runs_homein"] = runs
+    pa["batter"] = ends.reindex(pa.index).str.extract(r"^(.+?) : ", expand=False)
+    intro = df[df["type"] == 8].groupby(key, sort=False)["text"].first().reindex(pa.index)
+    pa["slot"] = pd.to_numeric(intro.str.extract(r"^(\d)번타자", expand=False), errors="coerce")
     end_text = ends.reindex(pa.index)
     pa["outcome"] = end_text.where(end_text.isna(), end_text.map(classify_outcome))
     pa.loc[end_text.str.contains("고의4구", na=False).values, "outcome"] = "IBB"
+    # 낫아웃 삼진: classify_outcome은 "포수 스트라이크 낫 아웃"을 OUT으로, 낫아웃 출루를 FC 등으로
+    # 분류한다. 기록상 모두 삼진(타수 포함, 안타 아님)이므로 K로 둔다(Phase 1에서 확인: 시즌당 약 800개).
+    pa.loc[end_text.str.contains("낫 ?아웃", na=False, regex=True).values, "outcome"] = "K"
+    # 희생번트는 텍스트에 "희생번트"가 있을 때만. "번트 아웃", "플라이 아웃 (번트)"는 타수 포함 아웃
+    # (classify_outcome은 둘 다 SAC_BUNT로 분류 — Phase 1에서 공식 AB와 대조해 확인)
+    fake_sh = (pa["outcome"] == "SAC_BUNT") & ~end_text.str.contains("희생번트", na=False).values
+    pa.loc[fake_sh, "outcome"] = "OUT"
     pa = pa.reset_index()
     # before 상태 = 같은 경기 직전 그룹의 after
     for c_ in ["base1", "base2", "base3", "out"]:
@@ -145,14 +155,70 @@ def kbo_pa_events(year: int) -> pd.DataFrame:
     return pa
 
 
+def attach_kbo_player(pa: pd.DataFrame, box: pd.DataFrame) -> pd.DataFrame:
+    """relay 타석에 박스스코어의 (team, playerCode, 박스 표기 이름)을 붙인다.
+    homeOrAway: 0=원정 공격(초), 1=홈 공격(말). 매칭 순서:
+      1) (gameId, 공격팀, 이름) 정확 매칭  2) 박스 이름이 4자로 잘린 경우 relay 이름 앞 4자
+    반환 컬럼 match: exact / prefix4 / none"""
+    b = box[["gameId", "homeAway", "team", "name", "playerCode"]].drop_duplicates(
+        ["gameId", "homeAway", "name"])
+    pa = pa.copy()
+    pa["homeAway"] = np.where(pa["homeOrAway"] == 1, "home", "away")
+    m = pa.merge(b, left_on=["gameId", "homeAway", "batter"],
+                 right_on=["gameId", "homeAway", "name"], how="left")
+    m["match"] = np.where(m["playerCode"].notna(), "exact", "none")
+    miss = m["playerCode"].isna() & (m["batter"].str.len() > 4)
+    if miss.any():
+        b4 = b[b["name"].str.len() == 4].rename(columns={"name": "n4", "team": "team4",
+                                                       "playerCode": "pc4"})
+        f = m.loc[miss, ["gameId", "homeAway", "batter"]].assign(n4=lambda d: d["batter"].str[:4])
+        f = f.reset_index().merge(b4, on=["gameId", "homeAway", "n4"], how="left").set_index("index")
+        ok = f["pc4"].notna()
+        idx = f.index[ok]
+        m.loc[idx, "playerCode"] = f.loc[ok, "pc4"]
+        m.loc[idx, "team"] = f.loc[ok, "team4"]
+        m.loc[idx, "name"] = f.loc[ok, "n4"]
+        m.loc[idx, "match"] = "prefix4"
+    # 팀은 같은 경기·같은 공격 측의 박스 팀으로 채운다(매칭 실패 타석도 팀 합계에는 포함)
+    side_team = box.drop_duplicates(["gameId", "homeAway"]).set_index(["gameId", "homeAway"])["team"]
+    m["team"] = pd.MultiIndex.from_frame(m[["gameId", "homeAway"]]).map(side_team)
+    return m
+
+
+AB_OUTCOMES = {"1B", "2B", "3B", "HR", "K", "OUT", "GIDP", "FC", "ERROR"}
+
+
+def kbo_lines_from_relay(pa: pd.DataFrame) -> pd.DataFrame:
+    """타석 테이블(attach_kbo_player 적용) -> (year, team, playerCode) 시즌 기록(표준 컬럼)."""
+    o = pa["outcome"]
+    d = pd.DataFrame({
+        "year": pa["year"], "team": pa["team"], "playerCode": pa["playerCode"], "name": pa["name"],
+        "batter_relay": pa["batter"], "pa": 1, "ab": o.isin(AB_OUTCOMES).astype(int),
+        "h": o.isin(["1B", "2B", "3B", "HR"]).astype(int), "d2": (o == "2B").astype(int),
+        "d3": (o == "3B").astype(int), "hr": (o == "HR").astype(int),
+        "bb": o.isin(["BB", "IBB"]).astype(int), "ibb": (o == "IBB").astype(int),
+        "hbp": (o == "HBP").astype(int), "sf": (o == "SAC_FLY").astype(int),
+        "sh": (o == "SAC_BUNT").astype(int), "so": (o == "K").astype(int),
+        "unknown": (o == "UNKNOWN").astype(int)})
+    g = d.dropna(subset=["playerCode"]).groupby(["year", "team", "playerCode"])
+    lines = g[["pa", "ab", "h", "d2", "d3", "hr", "bb", "ibb", "hbp", "sf", "sh", "so", "unknown"]].sum()
+    lines["name"] = g["name"].agg(lambda s: s.mode().iloc[0])
+    lines["name_full"] = g["batter_relay"].agg(lambda s: s.mode().iloc[0])
+    return lines.reset_index()
+
+
 OUT_OUTCOMES = {"OUT", "K", "GIDP", "FC", "SAC_FLY", "ERROR"}
 RE_EVENT_MAP = {"BB": "bb", "HBP": "hbp", "1B": "1b", "2B": "2b", "3B": "3b", "HR": "hr"}
 
 
-def re24_runvalues(pa: pd.DataFrame) -> pd.DataFrame:
+def re24_runvalues(pa: pd.DataFrame, max_inning: int | None = None) -> pd.DataFrame:
     """시즌별 RE24 선형가중치. 완결 이닝(3아웃 도달)만 RE 행렬 추정에 사용.
-    out 가치 = OUT_OUTCOMES 평균 RE24 (실책출루는 ePA상 아웃이므로 포함)."""
+    out 가치 = OUT_OUTCOMES 평균 RE24 (실책출루는 ePA상 아웃이므로 포함).
+    필요 컬럼: year, gameId, inn, homeOrAway, runs, out(타석 후), state_b, state_a, outcome.
+    max_inning: 이 이닝까지만 사용(None이면 전체)."""
     rows = []
+    if max_inning is not None:
+        pa = pa[pa["inn"] <= max_inning]
     for y, d in pa.groupby("year"):
         d = d.copy()
         half = ["gameId", "inn", "homeOrAway"]
@@ -168,6 +234,39 @@ def re24_runvalues(pa: pd.DataFrame) -> pd.DataFrame:
         lw["year"] = y
         rows.append(lw)
     return pd.DataFrame(rows).set_index("year")
+
+
+MLB_EVENT_MAP = {
+    "single": "1B", "double": "2B", "triple": "3B", "home_run": "HR", "walk": "BB",
+    "intent_walk": "IBB", "hit_by_pitch": "HBP",
+    "strikeout": "K", "strikeout_double_play": "K", "strikeout_triple_play": "K",
+    "field_out": "OUT", "force_out": "OUT", "double_play": "OUT", "triple_play": "OUT",
+    "grounded_into_double_play": "GIDP", "fielders_choice": "FC", "fielders_choice_out": "FC",
+    "field_error": "ERROR", "sac_fly": "SAC_FLY", "sac_fly_double_play": "SAC_FLY",
+    "sac_bunt": "SAC_BUNT", "sac_bunt_double_play": "SAC_BUNT",
+}  # 그 외(catcher_interf 등)는 None -> 가중치·타석 집계에서 제외
+
+
+def load_mlb_pa(year: int) -> pd.DataFrame:
+    """mlb30_pbp_{y}.csv -> KBO kbo_pa_events와 같은 컬럼의 타석 테이블.
+    before 상태 = 같은 반이닝 직전 타석의 after (반이닝 첫 타석은 주자 없음·0아웃)."""
+    p = pd.read_csv(C.RAW / f"mlb30_pbp_{year}.csv", encoding="utf-8-sig")
+    p = p.drop_duplicates(["gameId", "atBatIndex"]).sort_values(["gameId", "atBatIndex"])
+    p = p[p["isComplete"].astype(str) == "True"].copy()
+    p["homeOrAway"] = (p["half"] == "bottom").astype(int)
+    p["inn"] = p["inning"]
+    p["out"] = p["outs_after"]
+    for c in ["b1", "b2", "b3"]:
+        p[c] = (p[c] > 0).astype(int)
+    half = ["gameId", "inn", "homeOrAway"]
+    for c in ["b1", "b2", "b3", "out"]:
+        p[f"{c}_b"] = p.groupby(half)[c].shift(1).fillna(0).astype(int)
+    p.loc[p["out_b"] >= 3, ["b1_b", "b2_b", "b3_b", "out_b"]] = 0  # 방어적(정상이면 발생 안 함)
+    p["state_b"] = p["b1_b"].astype(str) + p["b2_b"].astype(str) + p["b3_b"].astype(str) + p["out_b"].astype(str)
+    p["state_a"] = p["b1"].astype(str) + p["b2"].astype(str) + p["b3"].astype(str) + p["out"].astype(str)
+    p["outcome"] = p["eventType"].map(MLB_EVENT_MAP)
+    p["year"] = year
+    return p
 
 
 # ---------------------------------------------------------------- KBO 선수 시즌 기록
