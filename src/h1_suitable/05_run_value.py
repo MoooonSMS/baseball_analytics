@@ -248,11 +248,18 @@ def main():
         return
 
     cfs = [c for c in C.SIM_CF if c != "C_full_opt" or args.with_c]
-    rows, t0 = [], time.time()
+    # 중간 저장: 끝난 팀-시즌을 바로 기록하고, 재실행 시 건너뛴다(시드가 결정론적이라 결과 동일)
+    part = C.OUT / f"phase3_sim_rows_partial{'_c' if args.with_c else ''}.csv"
+    rows = pd.read_csv(part, encoding="utf-8-sig").to_dict("records") if part.exists() else []
+    done = {(r["league"], r["year"], r["team"]) for r in rows}
+    todo = [t for t in tasks if (t["league"], t["year"], t["team"]) not in done]
+    print(f"이미 완료 {len(done)}개, 남은 {len(todo)}개")
+    t0 = time.time()
     with ProcessPoolExecutor(max_workers=args.workers) as ex:
-        futs = {ex.submit(run_task, t, args.with_c): t for t in tasks}
+        futs = {ex.submit(run_task, t, args.with_c): t for t in todo}
         for i, f in enumerate(as_completed(futs), 1):
             rows += f.result()
+            pd.DataFrame(rows).to_csv(part, index=False, encoding="utf-8-sig")  # B 열이 없는 팀도 있어 통째로 덮어씀
             if i % 20 == 0 or i == len(futs):
                 print(f"  {i}/{len(futs)} ({time.time() - t0:.0f}s)", flush=True)
     df = pd.DataFrame(rows).sort_values(["league", "year", "team", "engine"])
