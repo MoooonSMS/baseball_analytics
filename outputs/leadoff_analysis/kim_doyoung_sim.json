@@ -91,7 +91,7 @@
     }
   ],
   "calibration_sim_vs_real_rpg": {
-    "sim": 6.232175,
+    "sim": 6.218733333333334,
     "real": 5.958333333333333
   },
   "kim_move": [
@@ -169,7 +169,7 @@
       "최원준",
       "한준수"
     ],
-    "actual_rpg": 6.232175,
+    "actual_rpg": 6.218733333333334,
     "optimal_order": [
       "김도영",
       "한준수",
@@ -181,8 +181,8 @@
       "최원준",
       "박찬호"
     ],
-    "optimal_rpg": 6.247033333333333,
-    "gain_rpg": 0.01485833333333364,
+    "optimal_rpg": 6.222991666666666,
+    "gain_rpg": 0.004258333333332587,
     "kim_optimal_slot": 1
   },
   "empirical_slot_context": [
