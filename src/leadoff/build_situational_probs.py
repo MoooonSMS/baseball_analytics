@@ -9,8 +9,10 @@ relay 이벤트는 (gameId, no)가 타석 1개다. `no` 그룹 안에는 배터 
 (type=14, 배터가 타격하기 *전*)나 안타 이후의 추가 포스아웃(type=14, 배터 결과 행 *다음*)도
 같이 들어있다(실측 확인 — 예: 땅볼로 출루한 배터의 결과 행은 아직 3루주자 포스아웃을
 반영하지 못한 상태이고, 그 다음 행에서 out이 +1 된다). 그래서:
-  - **before_state** = 이 타석 시작 시점 상태 = 직전 no 그룹의 **마지막 행** 상태
+  - **start_state** = 이 타석 시작 시점 상태 = 직전 no 그룹의 **마지막 행** 상태
     (경기 첫 타석은 이닝시작 표시 행 자체가 이미 0아웃·주자없음이라 별도 처리 불필요)
+  - **before_state** = 배터 결과 행 **바로 앞 행** 상태(없으면 start_state) — 타석 도중
+    도루·도루실패가 반영된 상태라, 주자 진루표가 도루 이동을 안타 진루로 세지 않는다
   - **after_state** = 이 타석의 **마지막 행**(seqno 최댓값) 상태 — 도루/포스아웃 등
     타석 도중·직후에 벌어진 모든 후속 이벤트까지 반영된 최종 상태
   - **outcome_type** = 그 타석 안의 type∈{13,23} 행 텍스트로 분류 (배터 자신의 결과)
@@ -29,6 +31,7 @@ base1/base2/base3는 불리언이 아니라 그 루에 있는 주자의 **타순
 출력: data/processed/kbo_situational_probs.json
 """
 import json
+import re
 import sys
 from pathlib import Path
 
@@ -47,10 +50,17 @@ def classify_outcome(text: str) -> str:
     """배터 결과 행(type 13/23) 텍스트를 타석 결과 카테고리로 분류."""
     if not isinstance(text, str):
         return "UNKNOWN"
+    # 낫아웃은 아웃이든 출루든 기록상 삼진(타수 포함, 안타 아님) — Phase 1에서 시즌당 약 800개 확인
+    if re.search("낫 ?아웃", text):
+        return "K"
+    if "고의4구" in text:
+        return "IBB"
     if "병살" in text and "출루" not in text:  # "병살타로 출루"(타자는 세이프, 드묾)는 FC로 취급
         return "GIDP"
-    if "희생번트" in text or ("번트" in text and "아웃" in text and "안타" not in text):
+    if "희생번트" in text:
         return "SAC_BUNT"
+    if "번트" in text and "아웃" in text and "안타" not in text:  # "번트 아웃"은 타수 포함 아웃(Phase 1에서 공식 AB와 대조)
+        return "OUT"
     if "희생플라이" in text:
         return "SAC_FLY"
     if "홈런" in text:
@@ -98,10 +108,18 @@ def build_pa_table(df: pd.DataFrame) -> pd.DataFrame:
                 prev_state = after_state
                 continue
             outcome = classify_outcome(end_rows.iloc[0]["text"])
+            # 배터 결과 직전 상태: 타석 도중 도루·도루실패를 반영해야 그 주자 이동이 안타 진루로 잡히지 않는다
+            pre = grp[grp["seqno"] < end_rows.iloc[0]["seqno"]]
+            if len(pre):
+                p = pre.iloc[-1]
+                before = (int(p["base1"]), int(p["base2"]), int(p["base3"]), int(p["out"]))
+            else:
+                before = prev_state
             records.append({
                 "gameId": gid, "no": no_val, "outcome": outcome,
-                "b1_before": prev_state[0], "b2_before": prev_state[1],
-                "b3_before": prev_state[2], "out_before": prev_state[3],
+                "b1_start": prev_state[0], "b2_start": prev_state[1],  # 타석 시작 상태(도루 시도 분모용)
+                "b1_before": before[0], "b2_before": before[1],
+                "b3_before": before[2], "out_before": before[3],
                 "b1_after": after_state[0], "b2_after": after_state[1],
                 "b3_after": after_state[2], "out_after": after_state[3],
             })
@@ -147,7 +165,7 @@ def runner_advance_table(pa: pd.DataFrame, outcome: str, before_col: str) -> dic
     return result
 
 
-REACHED_OUTCOMES = {"1B", "2B", "3B", "HR", "BB", "HBP"}
+REACHED_OUTCOMES = {"1B", "2B", "3B", "HR", "BB", "IBB", "HBP"}
 
 
 def gidp_stats(pa: pd.DataFrame) -> dict:
@@ -175,17 +193,21 @@ def gidp_stats(pa: pd.DataFrame) -> dict:
 
 
 def steal_stats(df: pd.DataFrame, pa: pd.DataFrame) -> dict:
+    """lineup_sim과 같은 상황만 센다: 타석 시작 시 1루 주자 있고 2루 비었을 때, 1루주자의 도루 시도.
+    (3루 도루·2루 주자가 있는 상황은 lineup_sim이 도루를 시도하지 않으므로 분자·분모 모두에서 뺀다)
+    견제로 잡힌 도루실패("도루실패아웃 (투수 견제->...)")도 공식 기록처럼 실패로 센다."""
     steal_rows = df[df["type"] == 14]
     attempts = steal_rows[steal_rows["text"].str.contains("도루", na=False) &
-                          ~steal_rows["text"].str.contains("견제", na=False)]
+                          steal_rows["text"].str.startswith("1루주자", na=False)]
+    eligible = pa[(pa["b1_start"] != 0) & (pa["b2_start"] == 0)][["gameId", "no"]]
+    attempts = attempts.merge(eligible, on=["gameId", "no"])
     success = attempts[~attempts["text"].str.contains("실패", na=False)]
-    on_base_pa = pa[(pa["b1_before"] != 0) | (pa["b2_before"] != 0)]
     n_att = len(attempts)
     return {
         "attempts": n_att, "success": len(success),
         "success_rate": float(len(success) / n_att) if n_att else None,
-        "pa_with_runner_on_base": len(on_base_pa),
-        "attempt_rate_per_pa_on_base": float(n_att / len(on_base_pa)) if len(on_base_pa) else None,
+        "pa_with_runner_on_1st_2nd_empty": len(eligible),
+        "attempt_rate_per_pa_on_base": float(n_att / len(eligible)) if len(eligible) else None,
     }
 
 

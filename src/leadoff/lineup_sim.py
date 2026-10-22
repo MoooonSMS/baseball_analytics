@@ -60,7 +60,7 @@ def load_situational_probs(path=None) -> dict:
     return data
 
 
-def events_from_full(pa, ab, h, d2, d3, hr, bb, hbp, sf=0) -> np.ndarray:
+def events_from_full(pa, h, d2, d3, hr, bb, hbp) -> np.ndarray:
     """풀슬래시(2B/3B 포함)로 타석당 이벤트 확률 벡터 [bb,1b,2b,3b,hr,out]."""
     singles = h - d2 - d3 - hr
     reached = (bb + hbp) + singles + d2 + d3 + hr
@@ -99,8 +99,30 @@ def _fate_weights(table: dict, outs: int) -> np.ndarray:
     return w / w.sum()
 
 
-def _draw_fate(rng: np.random.Generator, weights: np.ndarray) -> str:
-    return _FATE_KEYS[np.searchsorted(np.cumsum(weights), rng.random())]
+def _fate_cums(table: dict) -> dict:
+    """아웃카운트(0~2)별 누적확률을 미리 계산 — 안타마다 다시 만들지 않도록."""
+    return {outs: np.cumsum(_fate_weights(table, outs)) for outs in range(3)}
+
+
+def _draw_fate(rng: np.random.Generator, cum: np.ndarray) -> str:
+    return _FATE_KEYS[np.searchsorted(cum, rng.random())]
+
+
+def local_search(rpg, start: list, n: int, seed: int) -> list:
+    """두 칸 교환 국소 탐색(언덕등반). rpg(order, n, seed) -> 팀 R/G.
+    고른 순서를 같은 seed로 다시 평가하면 탐색 때 운이 남아 이득이 부풀려지므로, 호출부는 다른 seed로 평가할 것."""
+    order, best = list(start), rpg(start, n, seed)
+    improved = True
+    while improved:
+        improved = False
+        for i in range(9):
+            for j in range(i + 1, 9):
+                cand = order.copy()
+                cand[i], cand[j] = cand[j], cand[i]
+                v = rpg(cand, n, seed)
+                if v > best + 1e-4:
+                    order, best, improved = cand, v, True
+    return order
 
 
 def simulate_lineup(events9: np.ndarray, n_games: int = 50000, innings: int = 9,
@@ -120,8 +142,8 @@ def simulate_lineup(events9: np.ndarray, n_games: int = 50000, innings: int = 9,
     gidp_rate = sp["gidp"]["rate"] if sp else 0.0
     steal_attempt_rate = sp["steal"]["attempt_rate_per_pa_on_base"] if sp else 0.0
     steal_success_rate = sp["steal"]["success_rate"] if sp else 0.0
-    adv_1b_on_1b = sp["runner_on_1st_after_1B"] if sp else None
-    adv_1b_on_2b = sp["runner_on_1st_after_2B"] if sp else None
+    adv_1b_on_1b = _fate_cums(sp["runner_on_1st_after_1B"]) if sp else None
+    adv_1b_on_2b = _fate_cums(sp["runner_on_1st_after_2B"]) if sp else None
 
     team_runs = 0
     rbi = np.zeros(9)
@@ -178,7 +200,7 @@ def simulate_lineup(events9: np.ndarray, n_games: int = 50000, innings: int = 9,
                             runs[r2] += 1; scored += 1
                         if r1 != -1:
                             if sp:
-                                fate = _draw_fate(rng, _fate_weights(adv_1b_on_1b, outs))
+                                fate = _draw_fate(rng, adv_1b_on_1b[outs])
                             else:
                                 fate = "3rd" if rng.random() < P_1B_1ST_TO_3RD else "2nd"
                             if fate == "2nd":
@@ -197,7 +219,7 @@ def simulate_lineup(events9: np.ndarray, n_games: int = 50000, innings: int = 9,
                             runs[r2] += 1; scored += 1
                         if r1 != -1:
                             if sp:
-                                fate = _draw_fate(rng, _fate_weights(adv_1b_on_2b, outs))
+                                fate = _draw_fate(rng, adv_1b_on_2b[outs])
                             else:
                                 fate = "scored" if rng.random() < P_2B_1ST_SCORES else "3rd"
                             if fate == "3rd":

@@ -132,14 +132,6 @@ def kbo_pa_events(year: int) -> pd.DataFrame:
     pa["slot"] = pd.to_numeric(intro.str.extract(r"^(\d)번타자", expand=False), errors="coerce")
     end_text = ends.reindex(pa.index)
     pa["outcome"] = end_text.where(end_text.isna(), end_text.map(classify_outcome))
-    pa.loc[end_text.str.contains("고의4구", na=False).values, "outcome"] = "IBB"
-    # 낫아웃 삼진: classify_outcome은 "포수 스트라이크 낫 아웃"을 OUT으로, 낫아웃 출루를 FC 등으로
-    # 분류한다. 기록상 모두 삼진(타수 포함, 안타 아님)이므로 K로 둔다(Phase 1에서 확인: 시즌당 약 800개).
-    pa.loc[end_text.str.contains("낫 ?아웃", na=False, regex=True).values, "outcome"] = "K"
-    # 희생번트는 텍스트에 "희생번트"가 있을 때만. "번트 아웃", "플라이 아웃 (번트)"는 타수 포함 아웃
-    # (classify_outcome은 둘 다 SAC_BUNT로 분류 — Phase 1에서 공식 AB와 대조해 확인)
-    fake_sh = (pa["outcome"] == "SAC_BUNT") & ~end_text.str.contains("희생번트", na=False).values
-    pa.loc[fake_sh, "outcome"] = "OUT"
     pa = pa.reset_index()
     # before 상태 = 같은 경기 직전 그룹의 after
     for c_ in ["base1", "base2", "base3", "out"]:

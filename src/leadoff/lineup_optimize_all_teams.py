@@ -49,27 +49,16 @@ THE_BOOK_LOW, THE_BOOK_HIGH = 4.4, 13.3
 def optimize_order(events_list: list, situational_probs: dict,
                    n_search: int = 8000, n_final: int = 40000, seed: int = 0) -> dict:
     """kim_doyoung_analysis.optimize_order를 팀 무관·situational_probs 지원으로 일반화."""
-    order = list(range(9))  # 실제(평균타순) 순서에서 출발
-
-    def rpg(idx_order, n):
+    def rpg(idx_order, n, s):
         arr = np.array([events_list[i] for i in idx_order])
-        return ls.simulate_lineup(arr, n_games=n, seed=seed,
+        return ls.simulate_lineup(arr, n_games=n, seed=s,
                                   situational_probs=situational_probs)["runs_per_game"]
 
-    best_val = rpg(order, n_search)
-    improved = True
-    while improved:
-        improved = False
-        for i in range(9):
-            for j in range(i + 1, 9):
-                cand = order.copy()
-                cand[i], cand[j] = cand[j], cand[i]
-                v = rpg(cand, n_search)
-                if v > best_val + 1e-4:
-                    order, best_val, improved = cand, v, True
-    actual = list(range(9))
-    actual_rpg = rpg(actual, n_final)
-    opt_rpg = rpg(order, n_final)
+    actual = list(range(9))  # 실제(평균타순) 순서에서 출발
+    order = ls.local_search(rpg, actual, n_search, seed)
+    # 탐색과 다른 시드로 평가(같으면 탐색 때 운이 평가에 남아 이득이 부풀려짐), 두 순서는 공통 시드
+    actual_rpg = rpg(actual, n_final, seed + 1)
+    opt_rpg = rpg(order, n_final, seed + 1)
     return {"actual_rpg": actual_rpg, "optimal_rpg": opt_rpg, "optimal_order_idx": order}
 
 

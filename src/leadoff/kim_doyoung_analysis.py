@@ -140,9 +140,9 @@ def load_kia_lineup(year: int = 2024):
         name = r["name"]
         if name in pq.index:  # 규정타석: 풀슬래시 사용
             q = pq.loc[name]
-            ev = ls.events_from_full(pa=q["pa"], ab=q["ab"], h=q["hits"],
+            ev = ls.events_from_full(pa=q["pa"], h=q["hits"],
                                      d2=q["doubles"], d3=q["triples"], hr=q["hr"],
-                                     bb=q["bb"], hbp=q["hbp"], sf=q["sf"])
+                                     bb=q["bb"], hbp=q["hbp"])
             src = "full"
         else:  # 미규정: boxscore + 리그분할 보정
             ev = ls.events_from_boxscore(pa_est=r["pa_est"], ab=r["ab"], h=r["hit"],
@@ -188,27 +188,15 @@ def counterfactual_move_kim(lineup, n_games=40000, seed=0):
 def optimize_order(lineup, n_search=8000, n_final=40000, seed=0):
     ev = [d["events"] for d in lineup]
     names = [d["name"] for d in lineup]
-    order = list(range(9))  # 실제(평균타순) 순서에서 출발
-
-    def rpg(idx_order, n, s=seed):
+    def rpg(idx_order, n, s):
         arr = np.array([ev[i] for i in idx_order])
         return ls.simulate_lineup(arr, n_games=n, seed=s)["runs_per_game"]
 
-    best_val = rpg(order, n_search)
-    improved = True
-    while improved:
-        improved = False
-        for i in range(9):
-            for j in range(i + 1, 9):
-                cand = order.copy()
-                cand[i], cand[j] = cand[j], cand[i]
-                v = rpg(cand, n_search)
-                if v > best_val + 1e-4:
-                    order, best_val, improved = cand, v, True
-    # 최종 고정밀 평가(공통 시드)
-    actual = list(range(9))
-    actual_rpg = rpg(actual, n_final)
-    opt_rpg = rpg(order, n_final)
+    actual = list(range(9))  # 실제(평균타순) 순서에서 출발
+    order = ls.local_search(rpg, actual, n_search, seed)
+    # 최종 고정밀 평가: 탐색과 다른 시드(같으면 탐색 때 운이 평가에 남아 이득이 부풀려짐), 두 순서는 공통 시드
+    actual_rpg = rpg(actual, n_final, seed + 1)
+    opt_rpg = rpg(order, n_final, seed + 1)
     opt_names = [names[i] for i in order]
     kim_opt_slot = opt_names.index(KIM) + 1
     return {

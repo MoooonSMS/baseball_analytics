@@ -10,7 +10,6 @@ from pathlib import Path
 import pandas as pd
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import classification_report, roc_auc_score, confusion_matrix
-from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 
 ROOT = Path(__file__).resolve().parent.parent.parent
@@ -39,12 +38,12 @@ def main():
     print(f"학습 가능 표본 수: {len(data)}")
     print("타깃 비율(다음 시즌 3할 달성):", round(data["target_300"].mean(), 3))
 
-    X = data[FEATURES]
-    y = data["target_300"]
-
-    X_train, X_test, y_train, y_test = train_test_split(
-        X, y, test_size=0.25, random_state=42, stratify=y
-    )
+    # 연도로 분할: 무작위 분할은 같은 선수의 다른 시즌이 학습·테스트에 동시에 들어가 점수가 부풀려진다
+    test_year = data["year"].max()
+    train, test = data[data["year"] < test_year], data[data["year"] == test_year]
+    print(f"학습 {train['year'].min()}-{test_year - 1} ({len(train)}명), 테스트 {test_year} ({len(test)}명)")
+    X_train, y_train = train[FEATURES], train["target_300"]
+    X_test, y_test = test[FEATURES], test["target_300"]
 
     scaler = StandardScaler()
     X_train_s = scaler.fit_transform(X_train)

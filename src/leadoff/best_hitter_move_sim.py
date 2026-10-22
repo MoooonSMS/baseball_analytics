@@ -57,9 +57,9 @@ def pos_key(b: pd.DataFrame) -> pd.Series:
 
 def build_events(row_player, r: pd.Series):
     if row_player is not None:
-        ev = ls.events_from_full(pa=row_player["pa"], ab=row_player["ab"], h=row_player["hits"],
+        ev = ls.events_from_full(pa=row_player["pa"], h=row_player["hits"],
                                  d2=row_player["doubles"], d3=row_player["triples"], hr=row_player["hr"],
-                                 bb=row_player["bb"], hbp=row_player["hbp"], sf=row_player["sf"])
+                                 bb=row_player["bb"], hbp=row_player["hbp"])
         return ev, float(row_player["woba"]), "full"
     ev = ls.events_from_boxscore(pa_est=r["pa_est"], ab=r["ab"], h=r["hit"], hr=r["hr"], bb=r["bb"])
     return ev, np.nan, "boxscore"

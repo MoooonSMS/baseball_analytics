@@ -84,8 +84,8 @@ def build_lineups() -> tuple[list[dict], list[str]]:
             if key not in p.index:
                 continue
             r = p.loc[key]
-            ev = ls.events_from_full(pa=r["pa"], ab=r["ab"], h=r["h"], d2=r["d2"], d3=r["d3"], hr=r["hr"],
-                                     bb=r["bb"], hbp=r["hbp"], sf=r["sf"])
+            ev = ls.events_from_full(pa=r["pa"], h=r["h"], d2=r["d2"], d3=r["d3"], hr=r["hr"],
+                                     bb=r["bb"], hbp=r["hbp"])
             rows.append({"pid": int(pid), "name": r["name"], "wrc": float(r["wrc"]), "pa": int(r["pa"]),
                          "mean_slot": float(mean_slot.get(key, np.nan)), "events": ev})
         if len(rows) < 9:
@@ -110,21 +110,6 @@ def swap(order: list, i: int, j: int) -> list:
     o = order.copy()
     o[i], o[j] = o[j], o[i]
     return o
-
-
-def local_search(rpg, start: list, n: int, seed: int) -> list:
-    """두 칸 교환 국소 탐색(lineup_optimize_all_teams.optimize_order와 같은 절차)."""
-    order, best = start, rpg(start, n, seed)
-    improved = True
-    while improved:
-        improved = False
-        for i in range(9):
-            for j in range(i + 1, 9):
-                cand = swap(order, i, j)
-                v = rpg(cand, n, seed)
-                if v > best + 1e-4:
-                    order, best, improved = cand, v, True
-    return order
 
 
 def run_task(task: dict, with_c: bool) -> list[dict]:
@@ -152,7 +137,7 @@ def run_task(task: dict, with_c: bool) -> list[dict]:
             vals = [rpg(o, C.SIM_SEARCH_GAMES, ss) for o in cands]
             cf["B_top3_best6"] = cands[int(np.argmax(vals))]
         if with_c:
-            cf["C_full_opt"] = local_search(rpg, base, C.SIM_SEARCH_GAMES, ss)
+            cf["C_full_opt"] = ls.local_search(rpg, base, C.SIM_SEARCH_GAMES, ss)
         cache = {tuple(base): actual}
         row = {k: task[k] for k in ["league", "year", "team", "N", "real_rpg"]}
         row |= {"engine": eng, "rpg_actual": actual, "best_name": lineup[best]["name"],
@@ -182,7 +167,7 @@ def summarize(df: pd.DataFrame, cfs: list[str]) -> pd.DataFrame:
             e = d[d["engine"] == eng]
             if eng == "situational":       # KBO만: 리그 비교 없이 KBO 값만
                 for cf in cfs:
-                    x = e[f"gain_{cf}"].to_numpy(float)
+                    x = e[f"gain_{cf}"].dropna().to_numpy(float)  # B는 상위 3명 중 주전이 없는 팀에서 비어 있음
                     g = np.random.default_rng(zlib.crc32(f"sit|{sample}|{cf}".encode()))
                     bt = x[g.integers(0, len(x), (C.BOOTSTRAP_B, len(x)))].mean(axis=1)
                     rows.append({"sample": sample, "engine": eng, "col": f"gain_{cf}", "kbo": x.mean(),
@@ -264,6 +249,7 @@ def main():
                 print(f"  {i}/{len(futs)} ({time.time() - t0:.0f}s)", flush=True)
     df = pd.DataFrame(rows).sort_values(["league", "year", "team", "engine"])
     df.to_csv(C.OUT / "phase3_sim_rows.csv", index=False, encoding="utf-8-sig")
+    part.unlink(missing_ok=True)  # 완주 후 삭제: 남겨 두면 입력이 바뀐 다음 실행에서 옛 결과가 재사용된다
 
     cal = calibration(df)
     summ = summarize(df, cfs)
